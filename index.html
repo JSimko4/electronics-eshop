@@ -12,49 +12,52 @@
   </head>
   <body>
   <header>
-    <div class="container-fluid d-flex justify-content-around py-2">
-      <div class="col-2">
-        <img class="icon ms-2 py-1" src="img/herny_svet_logo.jpeg" alt="logo herný svet">
+    <div class="container-fluid d-flex justify-content-between align-items-baseline py-1">
+      <div class="col-3 col-md-3 col-sm-1">
+        <img class="logo ms-2" src="img/herny_svet_logo.jpeg" alt="logo herný svet">
       </div>
 
-      <div class="contaier col-6">
-        <form class="d-flex my-3">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+      <form class="search col-6 col-md-6 d-flex justify-content-center">
+        <input class="search-input me-2" type="search" placeholder="Čo hľadáte? napr. Asus notebook" aria-label="Search">
+        <button class="search-button" type="submit">Hľadať</button>
+      </form>
+
+      <div class="d-flex flex-row justify-content-around align-items-baseline col-2 col-md-2 col-sm-9">
+        <a class="fs-6 nav-link" href="#">Prihlásenie</a>
+        <a class="fs-6 nav-link" href="#">Registrácia</a>
       </div>
 
-      <div class=" d-flex flex-row align-items-center justify-content-around py-1 col-4">
-        <a class="fs-5 nav-link" href="#">Prihlásenie</a>
-        <a class="fs-5 nav-link" href="#">Registrácia</a>
-        <i class="bi bi-cart cart mx-2"></i>
+      <div class="d-flex justify-content-center col-1 col-md-1 col-sm-3">
+        <i class="bi bi-bag-fill shopping-bag"></i>
       </div>
     </div>
 
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
-      <div class="container-fluid ms-5  d-flex justify-content-end">
+    <nav class="navbar navbar-expand-md navbar-light">
+      <div class="container-fluid ms-5 d-flex justify-content-end">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav nav-fill w-100">
             <li class="nav-item">
-              <a class="nav-link active ms-5" aria-current="page" href="#">Zľavy</a>
+              <a class="nav-link active" aria-current="page" href="#">Zľavy</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link ms-5" href="#">Počítače a laptopy</a>
+              <a class="nav-link" href="#">Počítače a laptopy</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link ms-5" href="#">Konzoly</a>
+              <a class="nav-link" href="#">Konzoly</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link ms-5 " href="#">Hry</a>
+              <a class="nav-link" href="#">Hry</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link ms-5" href="#">Príslušenstvo</a>
+              <a class="nav-link" href="#">Príslušenstvo</a>
             </li>
           </ul>
         </div>
+
       </div>
     </nav>
   </header>
