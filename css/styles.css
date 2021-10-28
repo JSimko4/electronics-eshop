@@ -8,6 +8,14 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', sans-serif;
+    height:100vh;
+}
+footer {
+    position:absolute;
+    bottom:0;
+    width:100%;
+
+
 }
 .nav-link {
   color: black;
@@ -45,3 +53,24 @@ body {
         visibility: hidden;
     }
 }
+.font_color_footer{
+    color: #4f4f4f;
+}
+.color_footer2{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.border_color_footer{
+    border-color: #666;
+}
+.img_certificate{
+    width: 15%;
+    padding: 0;
+
+}
+@media only screen and (max-width: 700px) {
+.footer_img_dissepearance{
+    max-width: 300px;
+    visibility: hidden;
+
+
+}}
