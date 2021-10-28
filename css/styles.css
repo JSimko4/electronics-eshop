@@ -6,3 +6,11 @@ body {
 .nav-link {
   color: black;
 }
+
+.icon{
+    height: 70px;
+}
+
+.cart{
+    font-size: 35px;
+}
