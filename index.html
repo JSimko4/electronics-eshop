@@ -11,58 +11,55 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </head>
   <body>
-  <header>
-    <h1> test github</h1>
-
-    <div class="container-fluid d-flex justify-content-between align-items-baseline py-1">
-      <div class="col-3 col-md-3 col-sm-1">
-        <img class="logo ms-2" src="img/herny_svet_logo.jpeg" alt="logo herný svet">
-      </div>
-
-      <form class="search col-6 col-md-6 d-flex justify-content-center">
-        <input class="search-input me-2" type="search" placeholder="Čo hľadáte? napr. Asus notebook" aria-label="Search">
-        <button class="search-button" type="submit">Hľadať</button>
-      </form>
-
-      <div class="d-flex flex-row justify-content-around align-items-baseline col-2 col-md-2 col-sm-9">
-        <a class="fs-6 nav-link" href="#">Prihlásenie</a>
-        <a class="fs-6 nav-link" href="#">Registrácia</a>
-      </div>
-
-      <div class="d-flex justify-content-center col-1 col-md-1 col-sm-3">
-        <i class="bi bi-bag-fill shopping-bag"></i>
-      </div>
-    </div>
-
-    <nav class="navbar navbar-expand-md navbar-light">
-      <div class="container-fluid ms-5 d-flex justify-content-end">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav nav-fill w-100">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Zľavy</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Počítače a laptopy</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Konzoly</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Hry</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Príslušenstvo</a>
-            </li>
-          </ul>
+    <header class="d-flex flex-column align-items-center">
+      <div class="top-header container-fluid d-flex justify-content-between align-items-baseline py-1">
+        <div class="col-md-3 col-sm-1">
+          <img class="logo ms-2" src="img/herny_svet_logo.jpeg" alt="logo herný svet">
         </div>
 
+        <form class="search col-md-6 d-flex justify-content-center">
+          <input class="search-input me-2" type="search" placeholder="Čo hľadáte? napr. Asus notebook" aria-label="Search">
+          <button class="search-button header-button" type="submit">Hľadať</button>
+        </form>
+
+        <div class="d-flex flex-row justify-content-around align-items-baseline col-md-2 col-sm-9">
+          <a class="header-button ms-2" href="#">Prihlásenie</a>
+          <a class="header-button ms-2" href="#">Registrácia</a>
+        </div>
+
+        <div class="d-flex justify-content-center col-md-1 col-sm-3">
+          <i class="bi bi-bag-fill shopping-bag"></i>
+        </div>
       </div>
-    </nav>
-  </header>
-  <h4> STEVO MA RAD CHLAPCOV</h4>
+
+      <nav class="navbar navbar-light navbar-expand-md bottom-header">
+        <div class="container-fluid ms-5 d-flex justify-content-end">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav nav-fill w-100">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Zľavy</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Počítače a laptopy</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Konzoly</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Hry</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Príslušenstvo</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+    </header>
   </body>
 </html>

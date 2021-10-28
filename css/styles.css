@@ -1,6 +1,8 @@
 /*
         FARBY
+- tmavo modrá: #00275b
 - modrá: #0c64b4
+- biela: #f7f3e8
 
  */
 
@@ -9,39 +11,99 @@ body {
     margin: 0;
     font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-.nav-link {
-  color: black;
+
+.top-header{
+    background-color: #00275b;
 }
 
-.nav-link:hover {
-    color: #0c64b4;
+.bottom-header{
+    background-color: #0c64b4;
+    border-radius: 15px;
+    width: 80%;
+    -webkit-box-shadow: 0px 12px 20px -2px rgba(0,0,0,0.44);
+    box-shadow: 0px 12px 20px -2px rgba(0,0,0,0.44);
+}
+
+/* zmena farby bootstrap navigacie */
+.navbar-light .navbar-nav .nav-link {
+    font-size: 1.06rem;
+    color: #f7f3e8;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: yellow; /* treba vymysliet farbu */
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in-out;
+}
+
+.header-button{
+    text-decoration: none;
+    color: #00275b;
+    font-weight: bold;
+    background-color: #f7f3e8;
+    border-radius: 8px;
+    padding: 8px 10px;
+}
+
+.header-button:hover {
+    background-color: yellow; /* treba vymysliet farbu */
+    color: black;
+    transition-duration: 0.22s;
+    transition-timing-function: ease-in-out;
+}
+
+.search-button{
+    padding: 4px 15px;
+    border: none;
+    outline: none;
+}
+
+.search-input{
+    padding-left: 8px;
+    border-radius: 10px;
+    width: 45%;
+    border: none;
+    outline: none;
 }
 
 .logo{
     height: 70px;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .shopping-bag{
+    color: #f7f3e8;
     font-size: 36px;
 }
 
 .shopping-bag:hover{
-    color: #0c64b4;
-    transition-duration: 0.3s;
+    color: yellow; /* treba vymysliet farbu */
+    transition-duration: 0.22s;
+    transition-timing-function: ease-in-out;
 }
 
-.search-input{
-    width: 40%;
-}
-
-.search-button{
-
-}
-
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 770px) {
     .search{
         width: 0;
         visibility: hidden;
     }
+
+    .bottom-header{
+        width: 100%;
+        border-radius: 0;
+    }
+}
+
+/* velky produkt */
+.carousel-inner img {
+    margin: auto;
+}
+
+.slider-image{
+    height: 300px;
+    width: 500px;
+}
+
+.slider{
+    height: 100px;
 }
