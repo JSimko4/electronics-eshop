@@ -10,6 +10,12 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', sans-serif;
+    height:100vh;
+}
+footer {
+    position:absolute;
+    bottom:0;
+    width:100%;
 }
 
 .top-header{
@@ -106,4 +112,30 @@ body {
 
 .slider{
     height: 100px;
+}
+
+.font_color_footer{
+    color: white;
+}
+
+.color_footer{
+    background-color: #0c64b4;
+}
+
+.color_footer2{
+    color: white;
+    background-color: #00275b;
+}
+
+.img_certificate{
+    width: 15%;
+    padding: 0;
+
+}
+
+@media only screen and (max-width: 700px) {
+    .footer_img_dissepearance{
+        max-width: 300px;
+        visibility: hidden;
+    }
 }
