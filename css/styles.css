@@ -10,12 +10,6 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', sans-serif;
-    height:100vh;
-}
-footer {
-    position:absolute;
-    bottom:0;
-    width:100%;
 }
 
 .top-header{
@@ -37,7 +31,8 @@ footer {
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
-    color: yellow; /* treba vymysliet farbu */
+    color: #f7f3e8;
+    text-decoration: underline;
     transition-duration: 0.25s;
     transition-timing-function: ease-in-out;
 }
@@ -48,26 +43,32 @@ footer {
     font-weight: bold;
     background-color: #f7f3e8;
     border-radius: 8px;
-    padding: 8px 10px;
+    padding: 5px 10px;
 }
 
 .header-button:hover {
-    background-color: yellow; /* treba vymysliet farbu */
-    color: black;
+    color: #00275b;
+    text-decoration: underline;
     transition-duration: 0.22s;
     transition-timing-function: ease-in-out;
 }
 
 .search-button{
-    padding: 4px 15px;
+    color: black;
+    padding: 0 4px 4px 4px;
     border: none;
     outline: none;
 }
 
+.search-button:hover{
+    color: white;
+    background-color: #0c64b4;
+}
+
 .search-input{
-    padding-left: 8px;
+    padding: 4px 0 4px 8px;
     border-radius: 10px;
-    width: 45%;
+    width: 55%;
     border: none;
     outline: none;
 }
@@ -79,11 +80,11 @@ footer {
 
 .shopping-bag{
     color: #f7f3e8;
-    font-size: 36px;
+    font-size: 35px;
 }
 
 .shopping-bag:hover{
-    color: yellow; /* treba vymysliet farbu */
+    transform: rotate(-8deg);
     transition-duration: 0.22s;
     transition-timing-function: ease-in-out;
 }
@@ -101,17 +102,16 @@ footer {
 }
 
 /* velky produkt */
-.carousel-inner img {
-    margin: auto;
+#products{
+    min-height: 100vh;
+    background-color: grey;
 }
 
-.slider-image{
-    height: 300px;
-    width: 500px;
-}
 
-.slider{
-    height: 100px;
+/* footer */
+
+footer {
+    width:100%;
 }
 
 .font_color_footer{
