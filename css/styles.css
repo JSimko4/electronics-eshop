@@ -6,10 +6,13 @@
 
  */
 
-body {min-height: 100vh
+body {
     padding: 0;
     margin: 0;
     font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', sans-serif;
+min-height:100vh;
+    display :grid;
+    grid-template-rows: auto 1fr auto;
 }
 
 .top-header{
@@ -92,8 +95,9 @@ body {min-height: 100vh
 
 /* footer */
 
-footer {;
+footer {
     width:100%;
+    min-height:50px;
 }
 
 .font_color_footer{
@@ -251,14 +255,37 @@ footer {;
 
 
 
+.logo_width{
+    width: 35px;
+    height: 35px;
+}
+.login_border{
+    border-radius: 1rem;
+}
+.login_color_font{
+    color: #373e80;
+}
+.login_border_image{
+    border-radius: 1rem 0 0 1rem;
+}
+.letter_spacing_login{
 
+    letter-spacing: 1px;
+}
 
+@media only screen and (min-width: 991.99px) {
+    .register_width{
+        margin-top: 50px;
+        margin-bottom: 300px;
+    }
+}
 
-
-
-
-
-
+@media only screen and (max-width:991.98px) {
+    .register_width1{
+        margin-top: 25px;
+        margin-bottom: 150px;
+    }
+}
 
 
 
