@@ -20,8 +20,8 @@ body {
     background-color: #0c64b4;
     border-radius: 15px;
     width: 80%;
-    -webkit-box-shadow: 0px 12px 20px -2px rgba(0,0,0,0.44);
-    box-shadow: 0px 12px 20px -2px rgba(0,0,0,0.44);
+    -webkit-box-shadow: 0 12px 20px -2px rgba(0,0,0,0.44);
+    box-shadow: 0 12px 20px -2px rgba(0,0,0,0.44);
 }
 
 /* zmena farby bootstrap navigacie */
@@ -61,7 +61,7 @@ body {
 }
 
 .search-button:hover{
-    color: white;
+    color: #f7f3e8;
     background-color: #0c64b4;
 }
 
@@ -84,29 +84,11 @@ body {
 }
 
 .shopping-bag:hover{
-    transform: rotate(-8deg);
+    transform: scale(1.12);
+    color: #F2EEB3;
     transition-duration: 0.22s;
     transition-timing-function: ease-in-out;
 }
-
-@media only screen and (max-width: 770px) {
-    .search{
-        width: 0;
-        visibility: hidden;
-    }
-
-    .bottom-header{
-        width: 100%;
-        border-radius: 0;
-    }
-}
-
-/* velky produkt */
-#products{
-    min-height: 100vh;
-    background-color: grey;
-}
-
 
 /* footer */
 
@@ -133,9 +115,6 @@ footer {
 
 }
 
-
-
-
 @media only screen and (max-width: 700px) {
     .footer_img_dissepearance{
         max-width: 300px;
@@ -143,8 +122,46 @@ footer {
     }
 }
 
+/* velky produkt */
+.carousel .carousel-item {
+    height: 35vw;
+    min-height: 350px;
+}
 
+.carousel-img{
+    border-radius: 10px;
+}
 
+.big-product{
+    width: 65vw;
+}
 
+.carousel-control-next {
+    margin-top: auto;
+    margin-bottom: auto;
+    max-height: 70%;
+    width: 10%;
+}
 
+.carousel-control-prev {
+    margin-top: auto;
+    margin-bottom: auto;
+    max-height: 70%;
+    width: 10%;
+}
 
+@media only screen and (max-width: 770px) {
+    .search{
+        width: 0;
+        visibility: hidden;
+    }
+
+    .bottom-header{
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .big-product{
+        width: 90vw;
+    }
+}
