@@ -110,7 +110,7 @@ body {
 
 /* footer */
 
-footer {
+footer {;
     width:100%;
 }
 
@@ -136,10 +136,10 @@ footer {
 
 
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 768px) {
     .footer_img_dissepearance{
-        max-width: 300px;
         visibility: hidden;
+        display:none
     }
 }
 
@@ -148,3 +148,93 @@ footer {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 575.98px)   {
+    .faq_width{
+    margin-top: 50px;
+    margin-bottom: 50px;}
+}
+@media only screen and (max-width: 767.98px)  and (min-width: 575.99px){
+    .faq_width1{
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+}
+@media only screen and (max-width: 991.98px  )and (min-width: 767.99px) {
+    .faq_width2{
+        margin-top: 150px;
+        margin-bottom: 150px;
+    }
+}
+@media only screen and (max-width: 1199.98px) and (min-width: 991.99px){
+    .faq_width3{
+        margin-top: 150px;
+        margin-bottom: 150px;;
+    }
+}
+@media only screen and (max-width: 1399.98px)and (min-width: 1199.99px) {
+    .faq_width4{
+        margin-top: 200px;
+        margin-bottom: 200px;
+    }
+}
+@media only screen and (min-width: 1400.98px) {
+    .faq_width5{
+        margin-top: 200px;
+        margin-bottom: 200px;
+    }
+}
+.bussiness_condition{
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 50%;
+}
