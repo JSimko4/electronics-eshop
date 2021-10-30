@@ -133,9 +133,18 @@ footer {
 
 }
 
+
+
+
 @media only screen and (max-width: 700px) {
     .footer_img_dissepearance{
         max-width: 300px;
         visibility: hidden;
     }
 }
+
+
+
+
+
+
