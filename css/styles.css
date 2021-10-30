@@ -6,7 +6,8 @@
 
  */
 
-body {min-height: 100vh
+body {
+    min-height: 100vh;
     padding: 0;
     margin: 0;
     font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -278,3 +279,49 @@ footer {;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.categories-list{
+    color: #f7f3e8;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #00275b;
+}
+
+.categories-list a{
+    color: #f7f3e8;
+    text-decoration: none;
+}
+
+.categories-list a:hover{
+    color: #f7f3e8;
+    text-decoration: underline;
+}
+
+
+.img-holder{
+    height: 30vw;
+}
+
+.image-product-small{
+    height: 80px;
+    width: 100px;
+    cursor: pointer;
+}
