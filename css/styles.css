@@ -11,11 +11,13 @@ body {
     margin: 0;
     font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', sans-serif;
     min-height:100vh;
+    display :grid;
+    grid-template-rows: auto 1fr auto;
 }
 
 /* scrollbar */
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 15px;
 }
 
 ::-webkit-scrollbar-track {
@@ -23,7 +25,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #0c64b4;
+    background: #00275b;
 }
 
 .top-header{
