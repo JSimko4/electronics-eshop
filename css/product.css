@@ -19,12 +19,12 @@
 
 .product-name-div{
     min-height: 32px;
-    background-color: #0c64b4;
+    background-color: rgba(12, 100, 180, 0.87);
 }
 
 .product-price-div{
     min-height: 35px;
-    background-color: #00275b;
+    background-color: rgba(0, 39, 91, 0.87);
     font-size: 1.2rem;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
