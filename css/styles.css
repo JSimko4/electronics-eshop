@@ -185,44 +185,6 @@ footer {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media only screen and (max-width: 575.98px)   {
     .faq_width{
     margin-top: 50px;
@@ -259,12 +221,9 @@ footer {
     }
 }
 .bussiness_condition{
-    margin: auto;
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin: 25px auto;
     width: 50%;
 }
-
 
 .logo_width{
     width: 35px;
@@ -297,18 +256,6 @@ footer {
         margin-bottom: 150px;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* product page*/
@@ -372,4 +319,39 @@ footer {
     height: 80px;
     width: 100px;
     cursor: pointer;
+}
+
+/* filters page */
+.subcategories{
+    background-color: #00275b;
+    border-radius: 15px;
+}
+
+.pageing{
+    color: #f7f3e8;
+    text-decoration: none;
+}
+
+.pageing:hover{
+    color: #f7f3e8;
+    text-decoration: underline;
+}
+
+.filters{
+    color: #f7f3e8;
+    background-color: #0c64b4;
+    border-radius: 15px;
+    width: 90%;
+}
+
+.price-text{
+    color: #f7f3e8;
+    width: 50px;
+    background-color: #00275b;
+    border-radius: 0;
+    border: none;
+}
+
+.filter-text{
+    border-bottom: 2px solid #f7f3e8;
 }
