@@ -7,11 +7,7 @@
     <link rel="shortcut icon" href="img/favicon.ico"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/product.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/08d7402683.js" crossorigin="anonymous"></script>
 </head>
@@ -19,7 +15,7 @@
 <header class="d-flex flex-column align-items-center">
     <div class="top-header container-fluid d-flex justify-content-between align-items-center py-1">
         <div class="col-xl-3 col-lg-1 col-md-1 col-sm-2">
-            <a href="">
+            <a href="index.html">
                 <img class="logo ms-2" src="img/herny_svet_logo.jpeg" alt="logo herný svet">
             </a>
         </div>
@@ -30,14 +26,12 @@
         </form>
 
         <div class="d-flex flex-row justify-content-around justify-content-sm-center align-items-baseline col-xl-2 col-lg-2 col-md-3 col-sm-8">
-            <a class="header-button ms-2" href="#">Prihlásenie</a>
-            <a class="header-button ms-2" href="#">Registrácia</a>
+            <a class="header-button ms-2" href="login.html">Prihlásenie</a>
+            <a class="header-button ms-2" href="register.html">Registrácia</a>
         </div>
 
         <div class="col-xl-1 col-lg-2 col-md-2 col-sm-2 text-center">
-            <a href="">
-                <i class="fas fa-shopping-cart shopping-bag"></i>
-            </a>
+            <i class="fas fa-shopping-cart shopping-bag"></i>
         </div>
     </div>
 
@@ -50,7 +44,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav nav-fill w-100">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Zľavy</a>
+                        <a class="nav-link" aria-current="page" href="index.html">Zľavy</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Počítače a laptopy</a>
@@ -70,60 +64,145 @@
     </nav>
 </header>
 
-<section id="product-page">
-    <section class="categories-list px-4 pb-1 d-flex justify-content-around align-items-baseline col-md-12 col-lg-6 mt-4">
-        <a href="index.html">Domov</a>
-        <i class="bi bi-arrow-right"></i>
-        <a href="index.html">Kategória</a>
-        <i class="bi bi-arrow-right"></i>
-        <a href="index.html">Podkategória</a>
-        <i class="bi bi-arrow-right"></i>
-        <a href="index.html">Produkt</a>
-    </section>
 
-    <article class="row d-flex justify-content-around mt-4 mb-5 mx-0">
-        <section class="col-lg-5 col-sm-7 col-8 mb-md-3 d-flex align-items-center justify-content-center flex-column">
-            <img src="img/ntb4.jpg" class="img-holder col-12" alt="produkt">
-            <div class="small-images my-4 col-12 d-flex flex-row justify-content-between flex-wrap">
-                <img class="image-product-small col-3 me-1 mb-2" src="img/ntb.jpg">
-                <img class="image-product-small col-3 me-1 mb-2" src="img/ntb2.jpg">
-                <img class="image-product-small col-3 me-1 mb-2" src="img/ntb3.jpg">
-                <img class="image-product-small col-3 me-1 mb-2" src="img/ntb5.jpg">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="container ">
+
+
+    <div class="row ">
+
+
+        <div class="col-lg-8">
+
+
+            <div class="mb-3">
+                <div class="pt-4 ">
+                    <!-- pocet produktov v kosiku -->
+                    <div class=" mb-3 mb-md-1">
+                        <img class="img-fluid w-20"
+                             src="img/doprava.png" alt="doprava">
+
+                    </div>
+
+                        <img class=" img w-1"
+                             src="img/tranport_uvod.jpg" alt="doprava">
+
+
+
+                    <div class="row mb-4">
+
+
+                        <div class="col-md-7 col-lg-9 col-xl-9">
+                            <div>
+
+                                <select class="form-select form-select-lg mb-3" >
+                                        <option selected>Zvoľte sposob dopravy</option>
+                                        <option value="1">Sloveska pošta                         + 2.99€ (trvanie doručenia 3-4dni)</option>
+                                        <option value="2">DHL-expresná doprava + 4€(doručenie do 2 dní)</option>
+
+                                    </select>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="mb-4">
+                    <div class="row mb-4">
+
+
+                        <div class="col-md-7 col-lg-9 col-xl-9">
+                            <div>
+                                <div class="d-flex justify-content-between">
+
+
+
+                                        <select class="form-select form-select-lg mb-3" >
+                                            <option selected>Zvoľte sposob platby</option>
+                                            <option value="1">Dobierka v hotovosti</option>
+                                            <option value="2">Dobierka kartou</option>
+
+                                        </select>
+
+
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
 
             </div>
-        </section>
 
-        <section class="col-lg-5 col-11 d-flex align-items-left flex-column">
-            <h1 class="mb-3">Notebook Acer V15</h1>
-            <p class="product-page-text">Curabitur et blandit ante, vitae molestie metus. Cras lobortis nunc lectus, commodo mollis urna condimentum sed. Etiam at mi tortor. Cras ac elit ac ante ultricies feugiat rhoncus id erat. Vivamus sem augue, hendrerit sit amet tempor sit amet, finibus ut nibh. Quisque non magna id arcu molestie ultrices sit amet a purus. Quisque a lectus lobortis, laoreet augue eget, laoreet mi. Quisque malesuada bibendum cursus. Maecenas sed dolor auctor, consectetur leo porttitor, imperdiet magna. Proin at efficitur nibh. Vestibulum consequat velit ac augue pharetra luctus. Mauris varius hendrerit tellus id pellentesque. Integer neque dolor, viverra a lacus a, mollis posuere nibh. Mauris interdum libero interdum neque vulputate fringilla. Ut sit amet purus in lectus efficitur aliquet ac a sapien. Aliquam ultricies arcu at nulla suscipit hendrerit.</p>
-            <section class="d-flex justify-content-center align-items-baseline mt-4">
-                <input type="number" id="typeNumber" class="product-page-counter" min="1" max="9999" placeholder="1"/>
-                <a href="" class="text-center product-page-add-butt ms-5">Pridať do košíka</a>
-            </section>
-        </section>
-    </article>
 
-    <script>
-        jQuery(document).ready(function($){
-            $(".image-product-small").each(function(){
-                $(this).unbind().click(function(){
-                    let imageHolder = $('.img-holder');
-                    let imageHolderSrc = imageHolder.attr('src');
 
-                    imageHolder.attr('src',$(this).attr("src"));
-                    $(this).attr("src", imageHolderSrc)
-                });
-            });
-        });
-    </script>
+
+
+
+
+        </div>
+
+
+
+
+
+
+    </div>
+    <div class="mb-3">
+
+
+
+
+        <a href="delivery_details.html">
+        <button type="button" class="btn btn-primary btn-block">Pokračovať </button>
+        </a>
+    </div>
+    <div class="mb-3">
+
+
+
+
+        <a href="basket.html">
+            <button type="button" class="btn btn-primary btn-block">Vrátit sa naspet do košika</button>
+        </a>
+
+
+    </div>
 </section>
 
-</body>
+
+
+
+
+
+
+
+
+
+
+
 
 <footer class="color-footer">
     <div class="container p-1">
         <div class="row">
-            <div class="col-lg-6 col-md-12 mb-4 ">
+            <div class="col-lg-6 col-md-12 mb-4 footer-img-dissepearance ">
                 <h5 class="mb-3 font-color-footer">Sme najlepšia voľba pre vás</h5>
                 <p>
                     <img src="img/certifikat.png" class="img-thumbnail img-certificate" alt="certifikat">
@@ -162,4 +241,9 @@
         © 2021 Copyright: Herny svet
     </div>
 </footer>
+</body>
+
+
+
+
 </html>
