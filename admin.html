@@ -26,13 +26,13 @@
         </form>
 
         <div class="d-flex flex-row justify-content-around justify-content-sm-center align-items-baseline col-xl-2 col-lg-2 col-md-3 col-sm-8">
-            <a class="header-button ms-2" href="login.html">Prihlásenie</a>
-            <a class="header-button ms-2" href="register.html">Registrácia</a>
+            <a class="header-button ms-2" href="admin.html">Admin</a>
+            <a class="header-button ms-2" href="register.html">Odhlásenie</a>
         </div>
 
         <div class="col-xl-1 col-lg-2 col-md-2 col-sm-2 text-center">
             <a href="basket.html">
-            <i class="fas fa-shopping-cart shopping-bag"></i>
+                <i class="fas fa-shopping-cart shopping-bag"></i>
             </a>
         </div>
     </div>
@@ -84,21 +84,16 @@
 
             <div class="mb-3">
                 <div class="pt-4 ">
-                    <!-- pocet produktov v kosiku -->
-                    <div class=" mb-3 mb-md-1">
-                        <img class="img-fluid w-20"
-                             src="img/kosik.jpg" alt="kosik">
 
-                    </div>
-                    <h5 class="mt-4 mb-4">Počet produktov v košiku  (<span>2</span> )</h5>
+                    <h5 class="mt-4 mb-4">Zoznam všetkých produktov na stránke (<span>2</span> )</h5>
 
                     <div class="row mb-4">
                         <div class="col-md-5 col-lg-3 col-xl-3 mb-3 mb-md-1">
 
-                                <img class="img-fluid w-100"
-                                     src="img/acer_nitro.jpg" alt="acer_nitro">
+                            <img class="img-fluid w-100"
+                                 src="img/acer_nitro.jpg" alt="acer_nitro">
 
-                            </div>
+                        </div>
 
                         <div class="col-md-7 col-lg-9 col-xl-9">
                             <div>
@@ -109,22 +104,21 @@
 
                                     </div>
 
-                                    <div>
-                                        <div class="w-100">
 
-                                            <input class="quantity" min="0" name="quantity" value="1" type="number">
-
-                                        </div>
-
-                                    </div>
                                 </div>
                                 <!-- odstranenie z boostrap stranky -->
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
+                                <div class="container d-flex justify-content-between align-items-center">
+                                    <div class="row">
                                         <a href="#!" type="button" class="card-link-secondary small text-uppercase mr-3"><i
-                                                class="fas fa-trash-alt mr-1"></i> Odstraniť z košika </a>
-
+                                                class="fas fa-trash-alt mr-1"></i> Odstraniť  produkt </a>
+                                        <a href="#!" type="button" class="card-link-secondary small text-uppercase mr-3"><i
+                                                class="fas fa-trash-alt mr-1"></i> Zmenit fotku </a>
+                                        <a href="#!" type="button" class="card-link-secondary small text-uppercase mr-3"><i
+                                                class="fas fa-trash-alt mr-1"></i> Zmenit cenu </a>
+                                        <a href="#!" type="button" class="card-link-secondary small text-uppercase mr-3"><i
+                                                class="fas fa-trash-alt mr-1"></i> Upraviť popis </a>
                                     </div>
+
                                     <p class="mb-1"><span><strong >12.99€</strong></span></p >
                                 </div>
                             </div>
@@ -148,21 +142,19 @@
 
                                     </div>
 
-                                    <div>
-                                        <div class="w-100">
 
-                                            <input class="quantity" min="0" name="quantity" value="1" type="number">
-
-                                        </div>
-
-                                    </div>
                                 </div>
                                 <!-- odstranenie z boostrap stranky -->
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <div>
+                                    <div class="row">
                                         <a href="#!" type="button" class="card-link-secondary small text-uppercase mr-3"><i
-                                                class="fas fa-trash-alt mr-1"></i> Odstraniť z košika </a>
-
+                                                class="fas fa-trash-alt mr-1"></i> Odstraniť  produkt </a>
+                                        <a href="#!" type="button" class="card-link-secondary small text-uppercase mr-3"><i
+                                                class="fas fa-trash-alt mr-1"></i> Zmenit fotku </a>
+                                        <a href="#!" type="button" class="card-link-secondary small text-uppercase mr-3"><i
+                                                class="fas fa-trash-alt mr-1"></i> Zmenit cenu </a>
+                                        <a href="#!" type="button" class="card-link-secondary small text-uppercase mr-3"><i
+                                                class="fas fa-trash-alt mr-1"></i> Upraviť popis </a>
                                     </div>
                                     <p class="mb-1"><span><strong >12.99€</strong></span></p >
                                 </div>
@@ -190,11 +182,28 @@
             <div class="mb-4">
                 <div class="pt-5">
 
-                    <h5 class="mb-3 mt-3">Celkova suma je aktuálne 100 €</h5>
+                    <div class="mb-3">
+                    <label for="formFile" class="form-label">Pridajte Fotku</label>
+                    <input class="form-control" type="file" id="formFile">
+                </div>
 
+                    <form>
+                        <div class="form-group">
+                            <label for="name_input">Názov produktu</label>
+                            <input type="text" class="form-control" id="name_input" placeholder="meno">
+                        </div>
+                        <div class="form-group">
+                            <label for="value_input">Cena</label>
+                            <input type="number" class="form-control" id="value_input" placeholder="Cena">
+                        </div>
 
+                        <div class="form-group">
+                            <label for="text_are_input">Popis produktu</label>
+                            <textarea class="form-control" id="text_are_input" rows="3"></textarea>
+                        </div>
+                    </form>
                     <a href="transportation.html">
-                        <button type="button" class="btn btn-primary btn-block">Prejst na dopravu</button>
+                        <button type="button" class="btn btn-primary btn-block">Pridať produkt</button>
                     </a>
 
 

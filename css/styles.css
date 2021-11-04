@@ -245,14 +245,14 @@ footer {
 @media only screen and (min-width: 991.99px) {
     .register-width{
         margin-top: 50px;
-        margin-bottom: 300px;
+        margin-bottom: 50px;
     }
 }
 
 @media only screen and (max-width:991.98px) {
     .register-width1{
         margin-top: 25px;
-        margin-bottom: 150px;
+        margin-bottom: 50px;
     }
 }
 
