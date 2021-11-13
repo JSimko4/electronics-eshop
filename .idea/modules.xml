@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/wtech_projekt.iml" filepath="$PROJECT_DIR$/.idea/wtech_projekt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/WTECH_LARAVEL.iml" filepath="$PROJECT_DIR$/.idea/WTECH_LARAVEL.iml" />
     </modules>
   </component>
 </project>
