@@ -17,7 +17,7 @@
         </div>
 
         <div class="col-xl-1 col-lg-2 col-md-2 col-sm-2 text-center">
-            <a href="basket.html">
+            <a href="basket">
                 <i class="fas fa-shopping-cart shopping-bag"></i>
             </a>
 
@@ -36,43 +36,43 @@
                         <a class="nav-link" href="filter">Zľavy</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="filter-page.html" id="pcLaptopDrop" role="button" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="filter" id="pcLaptopDrop" role="button" aria-expanded="false">
                             Počítače a laptopy
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="pcLaptopDrop">
-                            <li><a class="dropdown-item" href="filter-page2.html">Lenovo</a></li>
-                            <li><a class="dropdown-item" href="filter-page2.html">Acer</a></li>
-                            <li><a class="dropdown-item" href="filter-page2.html">Asus</a></li>
+                            <li><a class="dropdown-item" href="filter2">Lenovo</a></li>
+                            <li><a class="dropdown-item" href="filter2">Acer</a></li>
+                            <li><a class="dropdown-item" href="filter2">Asus</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="filter-page.html" id="konzolyDrop" role="button" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="filter" id="konzolyDrop" role="button" aria-expanded="false">
                             Konzoly
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="konzolyDrop">
-                            <li><a class="dropdown-item" href="filter-page2.html">XBOX</a></li>
-                            <li><a class="dropdown-item" href="filter-page2.html">Playstation</a></li>
-                            <li><a class="dropdown-item" href="filter-page2.html">Nintendo</a></li>
+                            <li><a class="dropdown-item" href="filter2">XBOX</a></li>
+                            <li><a class="dropdown-item" href="filter2">Playstation</a></li>
+                            <li><a class="dropdown-item" href="filter2">Nintendo</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="filter-page.html" id="hryDrop" role="button" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="filter" id="hryDrop" role="button" aria-expanded="false">
                             Hry
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="hryDrop">
-                            <li><a class="dropdown-item" href="filter-page2.html">Akčné</a></li>
-                            <li><a class="dropdown-item" href="filter-page2.html">Fantasy</a></li>
-                            <li><a class="dropdown-item" href="filter-page2.html">Jednoduché</a></li>
+                            <li><a class="dropdown-item" href="filter2">Akčné</a></li>
+                            <li><a class="dropdown-item" href="filter2">Fantasy</a></li>
+                            <li><a class="dropdown-item" href="filter2">Jednoduché</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="filter-page.html" id="prislusenstvoDrop" role="button" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="filter" id="prislusenstvoDrop" role="button" aria-expanded="false">
                             Príslušenstvo
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="prislusenstvoDrop">
-                            <li><a class="dropdown-item" href="filter-page2.html">Monitory</a></li>
-                            <li><a class="dropdown-item" href="filter-page2.html">Klávesnice</a></li>
-                            <li><a class="dropdown-item" href="filter-page2.html">Slúchadla</a></li>
+                            <li><a class="dropdown-item" href="filter2">Monitory</a></li>
+                            <li><a class="dropdown-item" href="filter2">Klávesnice</a></li>
+                            <li><a class="dropdown-item" href="filter2">Slúchadla</a></li>
                         </ul>
                     </li>
                 </ul>
