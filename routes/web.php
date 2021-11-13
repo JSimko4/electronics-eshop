@@ -23,38 +23,6 @@ Route::view('product', "eshop.product");
 Route::view('basket', "eshop.basket.basket");
 Route::view('transportation', "eshop.basket.transportation");
 Route::view('delivery', "eshop.basket.delivery");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Route::view('faq', "eshop.footer_views.faq");
 Route::view('business_conditions', "eshop.footer_views.business_conditions");
 Route::view('admin', "eshop.admin.admin");

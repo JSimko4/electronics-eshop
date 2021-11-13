@@ -13,7 +13,7 @@ class EshopController extends Controller
      */
     public function index()
     {
-        return view("layout/app");
+        return view("eshop/index");
     }
 
     /**
