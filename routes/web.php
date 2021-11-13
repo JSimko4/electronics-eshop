@@ -47,3 +47,8 @@ Route::view('filter', "eshop.filter");
 
 
 
+
+
+Route::view('faq', "eshop.footer_views.faq");
+Route::view('business_conditions', "eshop.footer_views.business_conditions");
+Route::view('admin', "eshop.admin.admin");
