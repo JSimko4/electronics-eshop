@@ -1,0 +1,371 @@
+/*
+        FARBY
+- tmavo modrá: #00275b
+- modrá: #0c64b4
+- biela: #f7f3e8
+
+ */
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', sans-serif;
+    min-height:100vh;
+    display :grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00275b;
+}
+
+.top-header{
+    background-color: #00275b;
+}
+
+.bottom-header{
+    background-color: #0c64b4;
+    border-radius: 15px;
+    width: 80%;
+    -webkit-box-shadow: 0 12px 20px -2px rgba(0,0,0,0.44);
+    box-shadow: 0 12px 20px -2px rgba(0,0,0,0.44);
+}
+
+/* zmena farby bootstrap navigacie */
+.navbar-light .navbar-nav .nav-link {
+    font-size: 1.06rem;
+    color: #f7f3e8;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #f7f3e8;
+    text-decoration: underline;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in-out;
+}
+
+.header-button{
+    text-decoration: none;
+    color: #00275b;
+    font-weight: bold;
+    background-color: #f7f3e8;
+    border-radius: 8px;
+    padding: 5px 10px;
+}
+
+.header-button:hover {
+    color: #00275b;
+    text-decoration: underline;
+    transition-duration: 0.22s;
+    transition-timing-function: ease-in-out;
+}
+
+.search-button{
+    color: black;
+    padding: 0 4px 4px 4px;
+    border: none;
+    outline: none;
+}
+
+.search-button:hover{
+    color: #f7f3e8;
+    background-color: #0c64b4;
+}
+
+.search-input{
+    padding: 4px 0 4px 8px;
+    border-radius: 10px;
+    width: 55%;
+    border: none;
+    outline: none;
+}
+
+.logo{
+    height: 70px;
+    border-radius: 15px;
+}
+
+.shopping-bag{
+    color: #f7f3e8;
+    font-size: 35px;
+}
+
+.shopping-bag:hover{
+    transform: scale(1.12);
+    color: #F2EEB3;
+    transition-duration: 0.22s;
+    transition-timing-function: ease-in-out;
+}
+
+/* footer */
+
+footer {
+    width:100%;
+    min-height:50px;
+}
+
+.font-color-footer{
+    color: white;
+}
+
+.color-footer{
+    background-color: #0c64b4;
+}
+
+.color-footer2{
+    color: white;
+    background-color: #00275b;
+}
+
+.img-certificate{
+    width: 15%;
+    padding: 0;
+
+}
+
+@media only screen and (max-width: 768px) {
+    .dropdown-toggle::after{
+        opacity: 0;
+    }
+
+    .footer-img-dissepearance{
+        visibility: hidden;
+        display:none
+    }
+}
+
+/* velky produkt */
+.carousel .carousel-item {
+    height: 35vw;
+    min-height: 350px;
+}
+
+.carousel-img{
+    border-radius: 10px;
+}
+
+.big-product{
+    width: 65vw;
+}
+
+.carousel-control-next {
+    margin-top: auto;
+    margin-bottom: auto;
+    max-height: 70%;
+    width: 10%;
+}
+
+.carousel-control-prev {
+    margin-top: auto;
+    margin-bottom: auto;
+    max-height: 70%;
+    width: 10%;
+}
+
+@media only screen and (max-width: 770px) {
+    .search{
+        width: 0;
+        visibility: hidden;
+    }
+
+    .bottom-header{
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .big-product{
+        width: 90vw;
+    }
+}
+
+@media only screen and (max-width: 575.98px)   {
+    .faq-width{
+    margin-top: 50px;
+    margin-bottom: 50px;}
+}
+@media only screen and (max-width: 767.98px)  and (min-width: 575.99px){
+    .faq-width1{
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+}
+@media only screen and (max-width: 991.98px  )and (min-width: 767.99px) {
+    .faq-width2{
+        margin-top: 150px;
+        margin-bottom: 150px;
+    }
+}
+@media only screen and (max-width: 1199.98px) and (min-width: 991.99px){
+    .faq-width3{
+        margin-top: 150px;
+        margin-bottom: 150px;;
+    }
+}
+@media only screen and (max-width: 1399.98px)and (min-width: 1199.99px) {
+    .faq-width4{
+        margin-top: 200px;
+        margin-bottom: 200px;
+    }
+}
+@media only screen and (min-width: 1400.98px) {
+    .faq-width5{
+        margin-top: 200px;
+        margin-bottom: 200px;
+    }
+}
+.bussiness-condition{
+    margin: 25px auto;
+    width: 50%;
+}
+
+.logo-width{
+    width: 35px;
+    height: 35px;
+}
+.login-border{
+    border-radius: 1rem;
+}
+.login-color-font{
+    color: #373e80;
+}
+.login-border-image{
+    border-radius: 1rem 0 0 1rem;
+}
+.letter-spacing-login{
+    letter-spacing: 1px;
+}
+
+@media only screen and (min-width: 991.99px) {
+    .register-width{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+}
+
+@media only screen and (max-width:991.98px) {
+    .register-width1{
+        margin-top: 25px;
+        margin-bottom: 50px;
+    }
+}
+
+
+/* product page*/
+#product-page{
+    min-height: 80vh;
+}
+
+.bi-arrow-right{
+    font-size: 22px;
+}
+
+.product-page-text{
+    text-align:justify;
+}
+
+.product-page-counter{
+    padding: 2px 5px;
+    border-radius: 10px;
+    border: 2px solid black;
+    outline: none;
+    width: 70px;
+}
+
+.product-page-add-butt{
+    text-decoration: none;
+    color: #f7f3e8;
+    font-weight: bold;
+    background-color: #00275b;
+    border-radius: 8px;
+    padding: 5px 10px;
+}
+
+
+.product-page-add-butt:hover{
+    color: #f7f3e8;
+    background-color: #0c64b4;
+}
+
+.categories-list{
+    color: #f7f3e8;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #00275b;
+}
+
+.categories-list a{
+    color: #f7f3e8;
+    text-decoration: none;
+}
+
+.categories-list a:hover{
+    color: #f7f3e8;
+    text-decoration: underline;
+}
+
+.img-holder{
+    height: 30vw;
+}
+
+.image-product-small{
+    height: 80px;
+    width: 100px;
+    cursor: pointer;
+}
+
+/* filters page */
+.subcategories{
+    background-color: #00275b;
+}
+
+.pageing{
+    color: #f7f3e8;
+    text-decoration: none;
+}
+
+.pageing:hover{
+    color: #f7f3e8;
+    text-decoration: underline;
+}
+
+.filters{
+    color: #f7f3e8;
+    background-color: #0c64b4;
+    border-radius: 15px;
+    width: 90%;
+}
+
+.price-text{
+    color: #f7f3e8;
+    width: 50px;
+    background-color: #00275b;
+    border-radius: 0;
+    border: none;
+}
+
+.filter-text{
+    border-bottom: 2px solid #f7f3e8;
+}
+
+.filter-categories-list{
+    color: grey;
+}
+
+.filter-categories-list a{
+    text-decoration: none;
+    color: black;
+}
+
+.filter-categories-list a:hover{
+    text-decoration: underline;
+    color: #00275b
+}
