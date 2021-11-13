@@ -16,9 +16,9 @@
         </div>
 
         <section class="col-lg-5 col-11 d-flex align-items-left flex-column">
-            <h1 class="mb-3">Notebook Acer V15</h1>
-            <p class="product-page-text">Curabitur et blandit ante, vitae molestie metus. Cras lobortis nunc lectus, commodo mollis urna condimentum sed. Etiam at mi tortor. Cras ac elit ac ante ultricies feugiat rhoncus id erat. Vivamus sem augue, hendrerit sit amet tempor sit amet, finibus ut nibh. Quisque non magna id arcu molestie ultrices sit amet a purus. Quisque a lectus lobortis, laoreet augue eget, laoreet mi. Quisque malesuada bibendum cursus. Maecenas sed dolor auctor, consectetur leo porttitor, imperdiet magna. Proin at efficitur nibh. Vestibulum consequat velit ac augue pharetra luctus. Mauris varius hendrerit tellus id pellentesque. Integer neque dolor, viverra a lacus a, mollis posuere nibh. Mauris interdum libero interdum neque vulputate fringilla. Ut sit amet purus in lectus efficitur aliquet ac a sapien. Aliquam ultricies arcu at nulla suscipit hendrerit.</p>
-            <h1 class="fs-3 text-center my-2">Cena: 599€</h1>
+            <h1 class="mb-3">{{$product->name}}</h1>
+            <p class="product-page-text">{{$product->description}}</p>
+            <h1 class="fs-3 text-center my-2">Cena: {{$product->price}}€</h1>
             <div class="d-flex justify-content-center align-items-baseline mt-4">
                 <input type="number" id="typeNumber" class="product-page-counter" min="1" max="9999" placeholder="1"/>
                 <a href="" class="text-center product-page-add-butt ms-5">Pridať do košíka</a>

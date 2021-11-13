@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('filter', "eshop.filter");
+Route::resource('filter', ProductController::class);
+
 Route::view('filter2', "eshop.filter2");
 Route::view('product', "eshop.product");
 Route::view('basket', "eshop.basket.basket");
@@ -22,6 +24,7 @@ Route::view('delivery', "eshop.basket.delivery");
 Route::view('faq', "eshop.footer_views.faq");
 Route::view('business_conditions', "eshop.footer_views.business_conditions");
 Route::view('admin', "eshop.admin.admin");
+
 
 Route::get('/', function () {
     return view('eshop.index');

@@ -1,7 +1,7 @@
 <header class="d-flex flex-column align-items-center">
     <div class="top-header container-fluid d-flex justify-content-between align-items-center py-1">
         <div class="col-xl-3 col-lg-1 col-md-1 col-sm-2">
-            <a href="index">
+            <a href="/">
                 <img class="logo ms-2" src="{{ asset('img/herny_svet_logo.jpeg') }}" alt="logo herný svet">
             </a>
         </div>

@@ -100,100 +100,28 @@
             </section>
 
             <div class="d-flex justify-content-around flex-wrap mt-5">
-                <div class="product col-10 col-sm-8 col-md-7 mb-5 col-lg-5 col-xl-5 col-xxl-3 me-1">
-                    <a href="product-page.html">
-                        <img class="product-img" src="img/acer_nitro.jpg" alt="produkt">
-                    </a>
-                    <div class="product-bottom">
-                        <div class="product-name-div ps-2 d-flex align-items-center">
-                            <a href="product-page.html" class="product-text text-center fs-5">Acer Nitro 5</a>
-                        </div>
-                        <div class="product-price-div px-3 d-flex align-items-center">
-                            <a href="product-page.html" class="product-text fs-5 text-center ms-3">799€</a>
-                            <a href="" class="mb-1 product-buy-bag"> <i class="bi bi-bag-plus-fill"></i> </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product col-10 col-sm-8 col-md-7 mb-5 col-lg-5 col-xl-5 col-xxl-3 me-1">
-                    <a href="product-page.html">
-                        <img class="product-img" src="img/asus.png" alt="produkt">
-                    </a>
-                    <div class="product-bottom">
-                        <div class="product-name-div ps-2 d-flex align-items-center">
-                            <a href="product-page.html" class="product-text text-center fs-5">
-                                ASUS ROG Zephyrus S  </a>
-                        </div>
-                        <div class="product-price-div px-3 d-flex align-items-center">
-                            <a href="product-page.html" class="product-text fs-5 text-center ms-3">1299€</a>
-                            <a href="" class="mb-1 product-buy-bag"> <i class="bi bi-bag-plus-fill"></i> </a>
+                @foreach ($products as $product)
+                    <div class="product col-10 col-sm-8 col-md-7 mb-5 col-lg-5 col-xl-5 col-xxl-3 me-1">
+                        <a href="filter/{{$product->id}}">
+                            <img class="product-img" src="img/{{$product->file}}" alt="produkt">
+                        </a>
+                        <div class="product-bottom">
+                            <div class="product-name-div ps-2 d-flex align-items-center">
+                                <a href="filter/{{$product->id}}" class="product-text text-center fs-5">{{$product->name}}</a>
+                            </div>
+                            <div class="product-price-div px-3 d-flex align-items-center">
+                                <a href="filter/{{$product->id}}" class="product-text fs-5 text-center ms-3">{{$product->price}}€</a>
+                                <a href="" class="mb-1 product-buy-bag"> <i class="bi bi-bag-plus-fill"></i> </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="product col-10 col-sm-8 col-md-7 mb-5 col-lg-5 col-xl-5 col-xxl-3 me-1">
-                    <a href="product-page.html">
-                        <img class="product-img" src="img/dell.jpg" alt="produkt">
-                    </a>
-                    <div class="product-bottom">
-                        <div class="product-name-div ps-2 d-flex align-items-center">
-                            <a href="product-page.html" class="product-text text-center fs-5">
-                                DELL Latitude 14-5420</a>
-                        </div>
-                        <div class="product-price-div px-3 d-flex align-items-center">
-                            <a href="product-page.html" class="product-text fs-5 text-center ms-3">799€</a>
-                            <a href="" class="mb-1 product-buy-bag"> <i class="bi bi-bag-plus-fill"></i> </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product col-10 col-sm-8 col-md-7 mb-5 col-lg-5 col-xl-5 col-xxl-3 me-1">
-                    <a href="product-page.html">
-                        <img class="product-img" src="img/ntb2.jpg" alt="produkt">
-                    </a>
-                    <div class="product-bottom">
-                        <div class="product-name-div ps-2 d-flex align-items-center">
-                            <a href="product-page.html" class="product-text text-center fs-5">Acer V15</a>
-                        </div>
-                        <div class="product-price-div px-3 d-flex align-items-center">
-                            <a href="product-page.html" class="product-text fs-5 text-center ms-3">599€</a>
-                            <a href="" class="mb-1 product-buy-bag"> <i class="bi bi-bag-plus-fill"></i> </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product col-10 col-sm-8 col-md-7 mb-5 col-lg-5 col-xl-5 col-xxl-3 me-1">
-                    <a href="product-page.html">
-                        <img class="product-img" src="img/ntb1.jpg" alt="produkt">
-                    </a>
-                    <div class="product-bottom">
-                        <div class="product-name-div ps-2 d-flex align-items-center">
-                            <a href="product-page.html" class="product-text text-center fs-5">HP Pavilion x360</a>
-                        </div>
-                        <div class="product-price-div px-3 d-flex align-items-center">
-                            <a href="product-page.html" class="product-text fs-5 text-center ms-3">999€</a>
-                            <a href="" class="mb-1 product-buy-bag"> <i class="bi bi-bag-plus-fill"></i> </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product col-10 col-sm-8 col-md-7 mb-5 col-lg-5 col-xl-5 col-xxl-3 me-1">
-                    <a href="product-page.html">
-                        <img class="product-img" src="img/mac.png" alt="produkt">
-                    </a>
-                    <div class="product-bottom">
-                        <div class="product-name-div ps-2 d-flex align-items-center">
-                            <a href="product-page.html" class="product-text text-center fs-5">Apple Macbook Pro</a>
-                        </div>
-                        <div class="product-price-div px-3 d-flex align-items-center">
-                            <a href="product-page.html" class="product-text fs-5 text-center ms-3">2499€</a>
-                            <a href="" class="mb-1 product-buy-bag"> <i class="bi bi-bag-plus-fill"></i> </a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
             <div class="d-flex justify-content-center text-align-center subcategories py-1">
+                {{ $products->links('pagination::bootstrap-4') }}
+
+                <!--
                 <a href="" class="me-4 fs-5 pageing">Začiatok</a>
                 <a href="" class="me-4 fs-5 pageing">1</a>
                 <a href="" class="me-4 fs-5 pageing">2</a>
@@ -201,6 +129,7 @@
                 <a href="" class="me-4 fs-5 pageing">4</a>
                 <a href="" class="me-4 fs-5 pageing">5</a>
                 <a href="" class="me-4 fs-5 pageing">Koniec</a>
+                -->
             </div>
 
         </div>
