@@ -15,3 +15,35 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('/', EshopController::class);
+
+Route::view('index', "eshop.index");
+Route::view('filter', "eshop.filter");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
