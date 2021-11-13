@@ -18,6 +18,12 @@ Route::resource('/', EshopController::class);
 
 Route::view('index', "eshop.index");
 Route::view('filter', "eshop.filter");
+Route::view('filter2', "eshop.filter2");
+Route::view('product', "eshop.product");
+Route::view('basket', "eshop.basket.basket");
+Route::view('transportation', "eshop.basket.transportation");
+Route::view('delivery', "eshop.basket.delivery");
+
 
 
 
