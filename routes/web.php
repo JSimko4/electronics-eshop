@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\EshopController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('/', EshopController::class);
-
-Route::view('index', "eshop.index");
 Route::view('filter', "eshop.filter");
 Route::view('filter2', "eshop.filter2");
 Route::view('product', "eshop.product");
@@ -26,3 +22,13 @@ Route::view('delivery', "eshop.basket.delivery");
 Route::view('faq', "eshop.footer_views.faq");
 Route::view('business_conditions', "eshop.footer_views.business_conditions");
 Route::view('admin', "eshop.admin.admin");
+
+Route::get('/', function () {
+    return view('eshop.index');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
