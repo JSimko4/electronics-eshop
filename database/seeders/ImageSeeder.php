@@ -18,6 +18,12 @@ class ImageSeeder extends Seeder
         $images = array(
             array(
                 'product_id' => 1,
+                'filename' => 'acer.jpg',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ),
+            array(
+                'product_id' => 1,
                 'filename' => 'ntb4.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')

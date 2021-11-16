@@ -86,7 +86,11 @@
         </div>
 
         <div class="col-xl-10 col-12 pb-3 ps-0 pt-4 pe-xl-2 pe-0">
-            @include('layout.partials.categories-list')
+            <div class="filter-categories-list px-4 pb-1 d-flex justify-content-between align-items-baseline col-3">
+                <a href="index">Domov</a>
+                <i class="bi bi-arrow-right"></i>
+                <a href="filter">Notebooky</a>
+            </div>
 
             <section class="subcategories py-2 px-3 mt-1">
                 <h1 class="text-center font-color-footer">Notebooky</h1>
@@ -101,11 +105,11 @@
 
             <div class="d-flex justify-content-around flex-wrap mt-5">
                 @foreach ($products as $product)
-                    <div class="product col-10 col-sm-8 col-md-7 mb-5 col-lg-5 col-xl-5 col-xxl-3 me-1">
+                    <article class="product col-10 col-sm-8 col-md-7 mb-5 col-lg-5 col-xl-5 col-xxl-3 me-1">
                         <a href="filter/{{$product->id}}">
                             <img class="product-img" src="/img/{{$product->first_image()}}" alt="produkt">
                         </a>
-                        <div class="product-bottom">
+                        <section class="product-bottom">
                             <div class="product-name-div ps-2 d-flex align-items-center">
                                 <a href="filter/{{$product->id}}" class="product-text text-center fs-5">{{$product->name}}</a>
                             </div>
@@ -113,8 +117,8 @@
                                 <a href="filter/{{$product->id}}" class="product-text fs-5 text-center ms-3">{{$product->price}}€</a>
                                 <a href="" class="mb-1 product-buy-bag"> <i class="bi bi-bag-plus-fill"></i> </a>
                             </div>
-                        </div>
-                    </div>
+                        </section>
+                    </article>
                 @endforeach
             </div>
 

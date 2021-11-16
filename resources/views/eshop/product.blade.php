@@ -2,7 +2,15 @@
 
 @section('content')
 <div id="product-page">
-    @include('layout.partials.categories-list-blue')
+    <div class="categories-list px-4 pb-1 d-flex justify-content-around align-items-baseline col-md-12 col-lg-6 mt-4">
+        <a href="/">Domov</a>
+        <i class="bi bi-arrow-right"></i>
+        <a href="../filter">Notebook</a>
+        <i class="bi bi-arrow-right"></i>
+        <a href="../filter2">Acer</a>
+        <i class="bi bi-arrow-right"></i>
+        <a href={{$product->id}}>{{$product->name}}</a>
+    </div>
 
     <div class="row d-flex justify-content-around mt-4 mb-5 mx-0">
         <div class="col-lg-5 col-sm-7 col-8 mb-md-3 d-flex align-items-center justify-content-center flex-column">

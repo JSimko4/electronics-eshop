@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,9 +28,9 @@ Route::view('admin', "eshop.admin");
 
 
 Route::get('/', function () {
-    return view('eshop.index');
+    $products_slider = Product::take(3)->get();  // prve 3 produkty
+    $products_top = Product::orderBy('id', 'desc')->take(3)->get(); // posledne 3 produkty
+    return view('eshop.index')->with('products_top', $products_top)->with('products_slider', $products_slider);
 });
-
-
 
 require __DIR__.'/auth.php';
