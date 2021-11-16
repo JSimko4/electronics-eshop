@@ -11,11 +11,29 @@
             <button class="search-button header-button" type="submit"><i class="bi bi-search"></i></button>
         </form>
 
-        <div class="d-flex flex-row justify-content-around justify-content-sm-center align-items-baseline col-xl-2 col-lg-2 col-md-3 col-sm-8">
-            <a class="header-button ms-2" href="login">Prihlásenie</a>
-            <a class="header-button ms-2" href="register">Registrácia</a>
-        </div>
 
+        @unless (Auth::check())
+            <div class="d-flex flex-row justify-content-around justify-content-sm-center align-items-baseline col-xl-2 col-lg-2 col-md-3 col-sm-8">
+                <a class="header-button ms-2" href="login">Prihlásenie</a>
+                <a class="header-button ms-2" href="register">Registrácia</a>
+            </div>
+        @endunless
+        @auth
+            <div class="text-white">
+                {{ Auth::user()->name }}&nbsp;|&nbsp;{{ Auth::user()->email }}
+                <div>
+                    <!-- Authentication -->
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <x-responsive-nav-link :href="route('logout')"
+                                               onclick="event.preventDefault();
+                        this.closest('form').submit();">
+                            {{ __('Odhlasenie') }}
+                        </x-responsive-nav-link>
+                    </form>
+                </div>
+            </div>
+        @endauth
         <div class="col-xl-1 col-lg-2 col-md-2 col-sm-2 text-center">
             <a href="basket">
                 <i class="fas fa-shopping-cart shopping-bag"></i>

@@ -23,15 +23,13 @@ Route::view('transportation', "eshop.basket.transportation");
 Route::view('delivery', "eshop.basket.delivery");
 Route::view('faq', "eshop.footer_views.faq");
 Route::view('business_conditions', "eshop.footer_views.business_conditions");
-Route::view('admin', "eshop.admin.admin");
+Route::view('admin', "eshop.admin");
 
 
 Route::get('/', function () {
     return view('eshop.index');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+
 
 require __DIR__.'/auth.php';
