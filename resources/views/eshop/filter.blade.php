@@ -118,7 +118,7 @@
                 @endforeach
             </div>
 
-            <div class="d-flex justify-content-center text-align-center subcategories py-1">
+            <div class="d-flex justify-content-center py-1">
                 {{ $products->links('pagination::bootstrap-4') }}
 
                 <!--
