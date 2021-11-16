@@ -103,7 +103,7 @@
                 @foreach ($products as $product)
                     <div class="product col-10 col-sm-8 col-md-7 mb-5 col-lg-5 col-xl-5 col-xxl-3 me-1">
                         <a href="filter/{{$product->id}}">
-                            <img class="product-img" src="img/{{$product->file}}" alt="produkt">
+                            <img class="product-img" src="/img/{{$product->first_image()}}" alt="produkt">
                         </a>
                         <div class="product-bottom">
                             <div class="product-name-div ps-2 d-flex align-items-center">

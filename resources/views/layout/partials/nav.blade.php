@@ -51,7 +51,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav nav-fill w-100">
                     <li class="nav-item">
-                        <a class="nav-link" href="filter">Zľavy</a>
+                        <a class="nav-link" href="filter">Domov</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="filter" id="pcLaptopDrop" role="button" aria-expanded="false">

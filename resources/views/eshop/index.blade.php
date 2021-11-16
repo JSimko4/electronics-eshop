@@ -4,7 +4,7 @@
     <div class="d-flex justify-content-center">
     <div id="carouselExampleControls" class="carousel carousel-dark slide big-product mt-4"  data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active d-flex justify-content-center align-items-center">
+            <div class="carousel-item active">
                 <img src="img/ntbpink.jpg" class="d-block w-100 h-100 carousel-img" alt="obrazok produktu">
                 <div class="product-bottom">
                     <div class="product-price-div py-1 px-3 d-flex align-items-center justify-content-between">

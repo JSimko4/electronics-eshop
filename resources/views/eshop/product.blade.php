@@ -6,12 +6,11 @@
 
     <div class="row d-flex justify-content-around mt-4 mb-5 mx-0">
         <div class="col-lg-5 col-sm-7 col-8 mb-md-3 d-flex align-items-center justify-content-center flex-column">
-            <img src="img/ntb4.jpg" class="img-holder col-12" alt="produkt">
+            <img src="/img/{{$product->first_image()}}" class="img-holder col-12" alt="produkt">
             <div class="small-images my-4 col-12 d-flex flex-row justify-content-between flex-wrap">
-                <img class="image-product-small col-3 me-1 mb-2" src="img/ntb.jpg" alt="fotka produktu">
-                <img class="image-product-small col-3 me-1 mb-2" src="img/ntb2.jpg" alt="fotka produktu">
-                <img class="image-product-small col-3 me-1 mb-2" src="img/ntb3.jpg" alt="fotka produktu">
-                <img class="image-product-small col-3 me-1 mb-2" src="img/ntb5.jpg" alt="fotka produktu">
+                @foreach($product->images->slice(1) as $image)
+                    <img class="image-product-small col-3 me-1 mb-2" src="/img/{{$image->filename}}" alt="fotka produktu">
+                @endforeach
             </div>
         </div>
 

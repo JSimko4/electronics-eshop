@@ -18,12 +18,6 @@ class ImageSeeder extends Seeder
         $images = array(
             array(
                 'product_id' => 1,
-                'filename' => 'acer.jpg',
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-            ),
-            array(
-                'product_id' => 1,
                 'filename' => 'ntb4.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -61,6 +55,36 @@ class ImageSeeder extends Seeder
             array(
                 'product_id' => 3,
                 'filename' => 'ntbpink.jpg',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ),
+            array(
+                'product_id' => 4,
+                'filename' => 'acer_nitro.jpg',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ),
+            array(
+                'product_id' => 5,
+                'filename' => 'asus.png',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ),
+            array(
+                'product_id' => 6,
+                'filename' => 'dell.jpg',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ),
+            array(
+                'product_id' => 7,
+                'filename' => 'ntb1.jpg',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ),
+            array(
+                'product_id' => 8,
+                'filename' => 'mac.png',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ),
