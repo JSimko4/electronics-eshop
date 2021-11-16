@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->integer("price");
             $table->string("color");
             $table->string("category_id");
-
+            $table->string("subcategory_id");
             $table->timestamps();
         });
     }
