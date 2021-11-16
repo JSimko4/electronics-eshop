@@ -21,6 +21,7 @@ class ProductSeeder extends Seeder
                 'price' => 699,
                 'color' => 'sivá',
                 'category_id' => 0,
+                'subcategory_id' => 1,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ),
@@ -29,6 +30,7 @@ class ProductSeeder extends Seeder
                 'price' => 999,
                 'color' => 'sivá',
                 'category_id' => 0,
+                'subcategory_id' => 1,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ),
@@ -37,6 +39,7 @@ class ProductSeeder extends Seeder
                 'price' => 1249,
                 'color' => 'strieborná',
                 'category_id' => 0,
+                'subcategory_id' => 1,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ),
@@ -45,6 +48,7 @@ class ProductSeeder extends Seeder
                 'price' => 799,
                 'color' => 'čierna',
                 'category_id' => 0,
+                'subcategory_id' => 1,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ),
@@ -53,6 +57,7 @@ class ProductSeeder extends Seeder
                 'price' => 1299,
                 'color' => 'čierna',
                 'category_id' => 0,
+                'subcategory_id' => 1,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ),
@@ -61,6 +66,7 @@ class ProductSeeder extends Seeder
                 'price' => 799,
                 'color' => 'strieborná',
                 'category_id' => 0,
+                'subcategory_id' => 1,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ),
@@ -69,6 +75,7 @@ class ProductSeeder extends Seeder
                 'price' => 999,
                 'color' => 'strieborná',
                 'category_id' => 0,
+                'subcategory_id' => 1,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ),
@@ -77,6 +84,7 @@ class ProductSeeder extends Seeder
                 'price' => 2499,
                 'color' => 'strieborná',
                 'category_id' => 0,
+                'subcategory_id' => 1,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ),
