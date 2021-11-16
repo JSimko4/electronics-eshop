@@ -10,6 +10,6 @@ class SubCategory extends Model
     protected $fillable = ['subcategory'];
 
     public function products(){
-        return $this->hasMany('App\Product');
+        return $this->hasMany(Product::class);
     }
 }

@@ -15,9 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('filter', ProductController::class);
+//Route::resource('/', HomeController::class);
+Route::resource('produkt', ProductController::class);
 
-Route::view('filter2', "eshop.filter2");
+Route::get('filter/{category}', [ProductController::class, 'getCategory']);
+Route::get('filter/{category}/{subcategory}', [ProductController::class, 'getSubcategory']);
+
 Route::view('product', "eshop.product");
 Route::view('basket', "eshop.basket.basket");
 Route::view('transportation', "eshop.basket.transportation");

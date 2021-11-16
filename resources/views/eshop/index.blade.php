@@ -8,9 +8,9 @@
                 <img src="img/{{$products_slider->first()->first_image()}}" class="d-block w-100 h-100 carousel-img" alt="obrazok produktu">
                 <div class="product-bottom">
                     <div class="product-price-div py-1 px-3 d-flex align-items-center justify-content-between">
-                        <a href="filter/{{$products_slider->first()->id}}" class="product-text fs-5">{{$products_slider->first()->name}}</a>
+                        <a href="/produkt/{{$products_slider->first()->id}}" class="product-text fs-5">{{$products_slider->first()->name}}</a>
                         <div class="d-flex align-items-center py-1">
-                            <a href="filter/{{$products_slider->first()->id}}" class="product-text fs-4 me-4">{{$products_slider->first()->price}}€</a>
+                            <a href="/produkt/{{$products_slider->first()->id}}" class="product-text fs-4 me-4">{{$products_slider->first()->price}}€</a>
                             <a href="" class="product-buy-bag mb-2 fs-4"> <i class="bi bi-bag-plus-fill"></i> </a>
                         </div>
                     </div>
@@ -22,9 +22,9 @@
                     <img src="img/{{$product->first_image()}}" class="d-block w-100 h-100 carousel-img" alt="obrazok produktu">
                     <div class="product-bottom">
                         <div class="product-price-div py-1 px-3 d-flex align-items-center justify-content-between">
-                            <a href="filter/{{$product->id}}" class="product-text fs-5">{{$product->name}}</a>
+                            <a href="/produkt/{{$product->id}}" class="product-text fs-5">{{$product->name}}</a>
                             <div class="d-flex align-items-center py-1">
-                                <a href="filter/{{$product->id}}" class="product-text fs-4 me-4">{{$product->price}}€</a>
+                                <a href="/produkt/{{$product->id}}" class="product-text fs-4 me-4">{{$product->price}}€</a>
                                 <a href="" class="product-buy-bag mb-2 fs-4"> <i class="bi bi-bag-plus-fill"></i> </a>
                             </div>
                         </div>
@@ -48,15 +48,15 @@
         <div class="d-flex justify-content-around flex-wrap">
             @foreach ($products_top as $product)
                 <div class="product col-12 col-sm-8 col-md-7 mb-5 col-lg-5 col-xl-5 col-xxl-3">
-                    <a href="filter/{{$product->id}}">
+                    <a href="/produkt/{{$product->id}}">
                         <img class="product-img" src="/img/{{$product->first_image()}}" alt="produkt">
                     </a>
                     <section class="product-bottom">
                         <div class="product-name-div ps-2 d-flex align-items-center">
-                            <a href="filter/{{$product->id}}" class="product-text text-center fs-5">{{$product->name}}</a>
+                            <a href="/produkt/{{$product->id}}" class="product-text text-center fs-5">{{$product->name}}</a>
                         </div>
                         <div class="product-price-div px-3 d-flex align-items-center">
-                            <a href="filter/{{$product->id}}" class="product-text fs-5 text-center ms-3">{{$product->price}}€</a>
+                            <a href="/produkt/{{$product->id}}" class="product-text fs-5 text-center ms-3">{{$product->price}}€</a>
                             <a href="" class="mb-1 product-buy-bag"> <i class="bi bi-bag-plus-fill"></i> </a>
                         </div>
                     </section>

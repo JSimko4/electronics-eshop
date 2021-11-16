@@ -16,54 +16,65 @@ class SubCategorySeeder extends Seeder
     public function run()
     {  $subcategories = array(
         array(
-            'category' => 'Lenovo',
+            'name' => 'Lenovo',
+            'category_id' => 1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ),
-        array('category' => 'Acer',
+        array('name' => 'Acer',
+            'category_id' => 1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ),
-        array('category' => 'Asus',
+        array('name' => 'Asus',
+            'category_id' => 1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ),
-        array('category' => 'Mac',
+        array('name' => 'Mac',
+            'category_id' => 1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ),
-        array('category' => 'Hp',
+        array('name' => 'Hp',
+            'category_id' => 1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ),
-        array('category' => 'Xbox',
+        array('name' => 'Xbox',
+            'category_id' => 2,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ),
-        array('category' => 'Playstastion',
+        array('name' => 'Playstastion',
+            'category_id' => 2,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ),
-        array('category' => 'Nintendo',
+        array('name' => 'Nintendo',
+            'category_id' => 2,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ),
-        array('category' => 'Monitory',
+        array('name' => 'Monitory',
+            'category_id' => 3,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ),
-        array('category' => 'Klavesnice',
+        array('name' => 'Klavesnice',
+            'category_id' => 3,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ),
-        array('category' => 'Sluchadla',
+        array('name' => 'Sluchadla',
+            'category_id' => 3,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ),
     );
 
         foreach ($subcategories as $subcategory){
-            DB::table('subcategories')->insert($subcategory);
+            DB::table('sub_categories')->insert($subcategory);
         }
     }
 }

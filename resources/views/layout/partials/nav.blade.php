@@ -54,43 +54,33 @@
                         <a class="nav-link" href="/">Domov</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="filter" id="pcLaptopDrop" role="button" aria-expanded="false">
-                            Počítače a laptopy
+                        <a class="nav-link dropdown-toggle" href="/filter/Notebooky" id="pcLaptopDrop" role="button" aria-expanded="false">
+                            Notebooky
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="pcLaptopDrop">
-                            <li><a class="dropdown-item" href="filter2">Lenovo</a></li>
-                            <li><a class="dropdown-item" href="filter2">Acer</a></li>
-                            <li><a class="dropdown-item" href="filter2">Asus</a></li>
+                            <li><a class="dropdown-item" href="/filter/Notebooky/Lenovo">Lenovo</a></li>
+                            <li><a class="dropdown-item" href="/filter/Notebooky/Acer">Acer</a></li>
+                            <li><a class="dropdown-item" href="/filter/Notebooky/Asus">Asus</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="filter" id="konzolyDrop" role="button" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="/filter/Konzoly" id="konzolyDrop" role="button" aria-expanded="false">
                             Konzoly
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="konzolyDrop">
-                            <li><a class="dropdown-item" href="filter2">XBOX</a></li>
-                            <li><a class="dropdown-item" href="filter2">Playstation</a></li>
-                            <li><a class="dropdown-item" href="filter2">Nintendo</a></li>
+                            <li><a class="dropdown-item" href="/filter/Konzoly/XBOX">XBOX</a></li>
+                            <li><a class="dropdown-item" href="/filter/Konzoly/Playstation">Playstation</a></li>
+                            <li><a class="dropdown-item" href="/filter/Konzoly/Nintendo">Nintendo</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="filter" id="hryDrop" role="button" aria-expanded="false">
-                            Hry
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="hryDrop">
-                            <li><a class="dropdown-item" href="filter2">Akčné</a></li>
-                            <li><a class="dropdown-item" href="filter2">Fantasy</a></li>
-                            <li><a class="dropdown-item" href="filter2">Jednoduché</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="filter" id="prislusenstvoDrop" role="button" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="/filter/Príslušenstvo" id="prislusenstvoDrop" role="button" aria-expanded="false">
                             Príslušenstvo
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="prislusenstvoDrop">
-                            <li><a class="dropdown-item" href="filter2">Monitory</a></li>
-                            <li><a class="dropdown-item" href="filter2">Klávesnice</a></li>
-                            <li><a class="dropdown-item" href="filter2">Slúchadla</a></li>
+                            <li><a class="dropdown-item" href="/filter/Príslušenstvo/Monitory">Monitory</a></li>
+                            <li><a class="dropdown-item" href="/filter/Príslušenstvo/Klávesnice">Klávesnice</a></li>
+                            <li><a class="dropdown-item" href="/filter/Príslušenstvo/Slúchadla">Slúchadla</a></li>
                         </ul>
                     </li>
                 </ul>

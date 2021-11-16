@@ -17,20 +17,18 @@ class CategorySeeder extends Seeder
     {
         $categories = array(
             array(
-                'category' => 'Pocitate a laptopy',
+                'name' => 'Notebooky',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ),
-            array('category' => 'Konzoly',
+            array('name' => 'Konzoly',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ),
-            array('category' => 'Príslušenstvo',
+            array('name' => 'Príslušenstvo',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ),
-
-
         );
 
         foreach ($categories as $category){

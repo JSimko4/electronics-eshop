@@ -87,26 +87,30 @@
 
         <div class="col-xl-10 col-12 pb-3 ps-0 pt-4 pe-xl-2 pe-0">
             <div class="filter-categories-list px-4 pb-1 d-flex justify-content-between align-items-baseline col-3">
-                <a href="index">Domov</a>
+                <a href="/">Domov</a>
                 <i class="bi bi-arrow-right"></i>
-                <a href="filter">Notebooky</a>
+                <a href="/filter/{{$category_name}}">{{$category_name}}</a>
+                @if (isset($subcategory_name))
+                    <i class="bi bi-arrow-right"></i>
+                    <a href="/filter/{{$category_name}}/{{$subcategory_name}}">{{$subcategory_name}}</a>
+                @endif
             </div>
 
+            @if (!isset($subcategory_name))
             <section class="subcategories py-2 px-3 mt-1">
-                <h1 class="text-center font-color-footer">Notebooky</h1>
+                <h1 class="text-center font-color-footer">{{$category_name}}</h1>
                 <div class="d-flex justify-content-between flex-wrap mt-3">
-                    <a href="filter-page2.html" class="text-center header-button col-2 mx-1 mb-3">Lenovo</a>
-                    <a href="filter-page2.html" class="text-center header-button col-2 mx-1 mb-3">Acer</a>
-                    <a href="filter-page2.html" class="text-center header-button col-2 mx-1 mb-3">Asus</a>
-                    <a href="filter-page2.html" class="text-center header-button col-2 mx-1 mb-3">Mac</a>
-                    <a href="filter-page2.html" class="text-center header-button col-2 mx-1 mb-3">HP</a>
+                    @foreach ($category->subcategories() as $subcategory)
+                        <a href="/filter/{{$category_name}}/{{$subcategory->name}}" class="text-center header-button col-2 mx-1 mb-3">{{$subcategory->name}}</a>
+                    @endforeach
                 </div>
             </section>
+            @endif
 
             <div class="d-flex justify-content-around flex-wrap mt-5">
                 @foreach ($products as $product)
                     <article class="product col-10 col-sm-8 col-md-7 mb-5 col-lg-5 col-xl-5 col-xxl-3 me-1">
-                        <a href="filter/{{$product->id}}">
+                        <a href="/produkt/{{$product->id}}">
                             <img class="product-img" src="/img/{{$product->first_image()}}" alt="produkt">
                         </a>
                         <section class="product-bottom">

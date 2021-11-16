@@ -2,11 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    public function getCategory($category_name){
+        $categories = Category::orderBy("id", "asc")->get();
+        $category = $categories->where("name", $category_name)->first();
+        $products = Product::orderBy("id", "asc")->paginate(6);
+
+        if ($category->subcategories() == null)
+            dd($category);
+
+        return view('eshop.filter')->with(compact('category_name', 'products', 'categories', 'category'));
+    }
+
+    public function getSubcategory($category_name, $subcategory_name){
+        $categories = Category::orderBy("id", "asc")->get();
+        $products = Product::orderBy("id", "asc")->paginate(6);
+
+        return view('eshop.filter')->with(compact('category_name', 'subcategory_name', 'products', 'categories'));
+    }
+
     /**
      * Display a listing of the resource.
      *
