@@ -1,9 +1,11 @@
-<x-guest-layout>
+@extends('layout.app')
+
+@section('content')
+
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
+            <img class="img-fluid w-20"
+                 src="img/herny_svet_logo.jpeg" alt="logo">
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
@@ -36,4 +38,5 @@
             </form>
         </div>
     </x-auth-card>
-</x-guest-layout>
+
+@endsection
