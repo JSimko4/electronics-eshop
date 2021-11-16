@@ -120,16 +120,6 @@
 
             <div class="d-flex justify-content-center py-1">
                 {{ $products->links('pagination::bootstrap-4') }}
-
-                <!--
-                <a href="" class="me-4 fs-5 pageing">Začiatok</a>
-                <a href="" class="me-4 fs-5 pageing">1</a>
-                <a href="" class="me-4 fs-5 pageing">2</a>
-                <a href="" class="me-4 fs-5 pageing">3</a>
-                <a href="" class="me-4 fs-5 pageing">4</a>
-                <a href="" class="me-4 fs-5 pageing">5</a>
-                <a href="" class="me-4 fs-5 pageing">Koniec</a>
-                -->
             </div>
 
         </div>
