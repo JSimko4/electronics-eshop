@@ -56,17 +56,17 @@ class SubCategorySeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ),
-        array('name' => 'Monitory',
+        array('name' => 'Xiaomi',
             'category_id' => 3,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ),
-        array('name' => 'Klavesnice',
+        array('name' => 'Nokia',
             'category_id' => 3,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ),
-        array('name' => 'Sluchadla',
+        array('name' => 'Apple',
             'category_id' => 3,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')

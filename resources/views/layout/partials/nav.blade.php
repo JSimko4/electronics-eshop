@@ -76,13 +76,13 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="/filter/Príslušenstvo" id="prislusenstvoDrop" role="button" aria-expanded="false">
-                            Príslušenstvo
+                        <a class="nav-link dropdown-toggle" href="/filter/Mobily" id="prislusenstvoDrop" role="button" aria-expanded="false">
+                            Mobily
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="prislusenstvoDrop">
-                            <li><a class="dropdown-item" href="/filter/Príslušenstvo/Monitory">Monitory</a></li>
-                            <li><a class="dropdown-item" href="/filter/Príslušenstvo/Klavesnice">Klávesnice</a></li>
-                            <li><a class="dropdown-item" href="/filter/Príslušenstvo/Sluchadla">Slúchadla</a></li>
+                            <li><a class="dropdown-item" href="/filter/Mobily/Xiaomi">Xiaomi</a></li>
+                            <li><a class="dropdown-item" href="/filter/Mobily/Nokia">Nokia</a></li>
+                            <li><a class="dropdown-item" href="/filter/Mobily/Apple">Apple</a></li>
                         </ul>
                     </li>
                 </ul>
