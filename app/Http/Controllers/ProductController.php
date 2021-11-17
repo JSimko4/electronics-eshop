@@ -10,22 +10,19 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    // link /filter/kategoria -> potrebuje zobrazit dane podkategorie
     public function getCategory($category_name){
-        $categories = Category::orderBy("id", "asc")->get();
-        $category = $categories->where("name", $category_name)->first();
         $products = Product::orderBy("id", "asc")->paginate(6);
+        $subcategories = Category::where("name", $category_name)->first()->subcategories();
 
-        if ($category->subcategories() == null)
-            dd($category);
-
-        return view('eshop.filter')->with(compact('category_name', 'products', 'categories', 'category'));
+        return view('eshop.filter')->with(compact('category_name', 'products', 'subcategories'));
     }
 
+    // link /filter/kategorie/podkategoria -> nepotrebuje zobrazovat podkategorie
     public function getSubcategory($category_name, $subcategory_name){
-        $categories = Category::orderBy("id", "asc")->get();
         $products = Product::orderBy("id", "asc")->paginate(6);
 
-        return view('eshop.filter')->with(compact('category_name', 'subcategory_name', 'products', 'categories'));
+        return view('eshop.filter')->with(compact('category_name', 'subcategory_name', 'products'));
     }
 
     /**
