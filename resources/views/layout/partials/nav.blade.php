@@ -14,8 +14,8 @@
 
         @unless (Auth::check())
             <div class="d-flex flex-row justify-content-around justify-content-sm-center align-items-baseline col-xl-2 col-lg-2 col-md-3 col-sm-8">
-                <a class="header-button ms-2" href="login">Prihlásenie</a>
-                <a class="header-button ms-2" href="register">Registrácia</a>
+                <a class="header-button ms-2" href="/login">Prihlásenie</a>
+                <a class="header-button ms-2" href="/register">Registrácia</a>
             </div>
         @endunless
         @auth
@@ -35,7 +35,7 @@
             </div>
         @endauth
         <div class="col-xl-1 col-lg-2 col-md-2 col-sm-2 text-center">
-            <a href="basket">
+            <a href="/cart">
                 <i class="fas fa-shopping-cart shopping-bag"></i>
             </a>
 
@@ -89,6 +89,15 @@
             </div>
         </div>
     </nav>
+
     <!-- HOVER JS -->
     <script src="{{asset("js/navbar-drop.js")}}"> </script>
+
+    @if(Session::get('success'))
+        <div class="alert alert-success alert-dismissible fade show mt-1 mb-1" role="alert">
+            <strong>{{session::get('success')}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
 </header>

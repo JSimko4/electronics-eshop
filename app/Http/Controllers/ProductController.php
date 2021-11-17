@@ -16,6 +16,10 @@ class ProductController extends Controller
     // link /filter/kategoria -> potrebuje zobrazit dane podkategorie
     public function getCategory($category_name){
         $category = Category::where("name", $category_name)->first();
+
+        if(!$category)
+            abort(404);
+
         $products = $category->products()->orderBy("id", "asc")->paginate(6);
         $subcategories = $category->subcategories();
         $memories = Memory::all();
@@ -25,7 +29,12 @@ class ProductController extends Controller
 
     // link /filter/kategorie/podkategoria -> nepotrebuje zobrazovat podkategorie
     public function getSubcategory($category_name, $subcategory_name){
+        $category = Category::where("name", $category_name)->first();
         $subcategory = SubCategory::where("name", $subcategory_name)->first();
+
+        if(!$category || !$subcategory)
+            abort(404);
+
         $products = $subcategory->products()->orderBy("id", "asc")->paginate(6);
         $memories = Memory::all();
         $colors = Color::all();
@@ -42,7 +51,8 @@ class ProductController extends Controller
         $products = Product::orderBy("id", "asc")->paginate(6);
         return view('eshop.filter')->with('products', $products);
     }
-#funkcia na vyhladanie retazca
+
+    #funkcia na vyhladanie retazca
     public function search(Request $request){
         $search = strtoupper($request->input('search'));
         $products = Product::query()->where(DB::raw('upper(name)'), 'LIKE', "%{$search}%")->paginate(6);

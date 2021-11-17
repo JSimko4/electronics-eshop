@@ -11,7 +11,7 @@
                         <a href="/produkt/{{$products_slider->first()->id}}" class="product-text fs-5">{{$products_slider->first()->name}}</a>
                         <div class="d-flex align-items-center py-1">
                             <a href="/produkt/{{$products_slider->first()->id}}" class="product-text fs-4 me-4">{{$products_slider->first()->price}}€</a>
-                            <a href="" class="product-buy-bag mb-2 fs-4"> <i class="bi bi-bag-plus-fill"></i> </a>
+                            <a href="{{ url('add-to-cart/'.$products_slider->first()->id) }}" class="product-buy-bag mb-2 fs-4"> <i class="bi bi-bag-plus-fill"></i> </a>
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                             <a href="/produkt/{{$product->id}}" class="product-text fs-5">{{$product->name}}</a>
                             <div class="d-flex align-items-center py-1">
                                 <a href="/produkt/{{$product->id}}" class="product-text fs-4 me-4">{{$product->price}}€</a>
-                                <a href="" class="product-buy-bag mb-2 fs-4"> <i class="bi bi-bag-plus-fill"></i> </a>
+                                <a href="{{ url('add-to-cart/'.$product->id) }}" class="product-buy-bag mb-2 fs-4"> <i class="bi bi-bag-plus-fill"></i> </a>
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                         </div>
                         <div class="product-price-div px-3 d-flex align-items-center">
                             <a href="/produkt/{{$product->id}}" class="product-text fs-5 text-center ms-3">{{$product->price}}€</a>
-                            <a href="" class="mb-1 product-buy-bag"> <i class="bi bi-bag-plus-fill"></i> </a>
+                            <a href="{{ url('add-to-cart/'.$product->id) }}" class="mb-1 product-buy-bag"> <i class="bi bi-bag-plus-fill"></i> </a>
                         </div>
                     </section>
                 </div>
