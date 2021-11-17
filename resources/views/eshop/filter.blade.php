@@ -100,7 +100,7 @@
             <section class="subcategories py-2 px-3 mt-1">
                 <h1 class="text-center font-color-footer">{{$category_name}}</h1>
                 <div class="d-flex justify-content-between flex-wrap mt-3">
-                    @foreach ($category->subcategories() as $subcategory)
+                    @foreach ($subcategories as $subcategory)
                         <a href="/filter/{{$category_name}}/{{$subcategory->name}}" class="text-center header-button col-2 mx-1 mb-3">{{$subcategory->name}}</a>
                     @endforeach
                 </div>
@@ -115,10 +115,10 @@
                         </a>
                         <section class="product-bottom">
                             <div class="product-name-div ps-2 d-flex align-items-center">
-                                <a href="filter/{{$product->id}}" class="product-text text-center fs-5">{{$product->name}}</a>
+                                <a href="/produkt/{{$product->id}}" class="product-text text-center fs-5">{{$product->name}}</a>
                             </div>
                             <div class="product-price-div px-3 d-flex align-items-center">
-                                <a href="filter/{{$product->id}}" class="product-text fs-5 text-center ms-3">{{$product->price}}€</a>
+                                <a href="/produkt/{{$product->id}}" class="product-text fs-5 text-center ms-3">{{$product->price}}€</a>
                                 <a href="" class="mb-1 product-buy-bag"> <i class="bi bi-bag-plus-fill"></i> </a>
                             </div>
                         </section>
