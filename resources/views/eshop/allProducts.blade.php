@@ -25,7 +25,7 @@
         @endforeach
     @else
         <div>
-            <h2>No posts found</h2>
+            <h2>Neboli najdene ziadne produkty</h2>
         </div>
     @endif
 

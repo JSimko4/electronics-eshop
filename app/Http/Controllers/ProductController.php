@@ -37,17 +37,17 @@ class ProductController extends Controller
         $products = Product::orderBy("id", "asc")->paginate(6);
         return view('eshop.filter')->with('products', $products);
     }
-
+#funkcia na vyhladanie retazca
     public function search(Request $request){
-        // Get the search value from the request
+
         $search = $request->input('search');
 
-        // Search in the title and body columns from the posts table
+
         $products = Product::query()
             ->where('name', 'LIKE', "%{$search}%")
             ->get();
 
-        // Return the search view with the resluts compacted
+
         return view('eshop.allProducts', compact('products'));
     }
 
