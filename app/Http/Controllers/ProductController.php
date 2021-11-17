@@ -42,9 +42,9 @@ class ProductController extends Controller
 #funkcia na vyhladanie retazca
     public function search(Request $request){
         $search = strtoupper($request->input('search'));
-        $products = Product::query()->where(DB::raw('upper(name)'), 'LIKE', "%{$search}%")->get();
+        $products = Product::query()->where(DB::raw('upper(name)'), 'LIKE', "%{$search}%")->paginate(6);
 
-        return view('eshop.allProducts', compact('products'));
+        return view('eshop.search', compact('products'));
     }
 
     /**
