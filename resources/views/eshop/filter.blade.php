@@ -15,33 +15,37 @@
                             <form method="POST" role="filter" action="/filter/{{$category_name}}/filteros">
                             @endif
                     {{ csrf_field() }}
-<!--
+
                     <section class="mt-4">
                         <h1 class="fs-5">Zoradiť:</h1>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                            <input class="form-check-input" type='hidden' name="order" value=0 id="flexRadioDefault2">
+                            <input class="form-check-input" type="radio" name="order" value=1  id="flexRadioDefault2"
                                    checked>
                             <label class="form-check-label" for="flexRadioDefault2">Vzostupne</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <input class="form-check-input" type='hidden' name="order" value=0 id="flexRadioDefault1">
+                            <input class="form-check-input" type="radio" name="order"  value=2 id="flexRadioDefault1">
                             <label class="form-check-label" for="flexRadioDefault1">Zostupne</label>
                         </div>
                     </section>
--->
+
                     <section class="mt-4">
                         <h1 class="fs-5">Cena:</h1>
                         <div class="input-group input-group-sm mb-2">
                             <span class="input-group-text price-text" id="min_price">Min:</span>
                             <div class="col col-4 col-lg-9">
-                                <input name="min_price" type="text" placeholder="...€" class="form-control">
+                                <input name='min_price' type='hidden' placeholder="...€"  value =0 class="form-control">
+                                <input name="min_price" type="text" placeholder="...€" value =1 class="form-control">
                             </div>
                         </div>
 
                         <div class="input-group input-group-sm">
                             <span class="input-group-text price-text" id="max_price">Max:</span>
                             <div class="col col-4 col-lg-9">
-                                <input name="max_price" type="text" placeholder="...€" class="form-control">
+                                <input name='max_price' type='hidden' placeholder="...€"  value =0class="form-control">
+                                <input name="max_price" type="text" placeholder="...€"  value =1000 class="form-control">
                             </div>
                         </div>
                     </section>
@@ -51,6 +55,7 @@
                         <h1 class="fs-5">Operačná pamäť:</h1>
                         @foreach ($memories as $memory)
                             <div class="form-check col col-12">
+                                <input class="form-check-input" type='hidden' value='0' name='memory[]'>
                                 <input class="form-check-input" type="checkbox" value="{{$memory->id}}" name="memory[]">
                                 <label class="form-check-label">
                                     {{$memory->memory}}
@@ -66,6 +71,7 @@
                         <h1 class="fs-5">Farba:</h1>
                         @foreach ($colors as $color)
                             <div class="form-check col col-12">
+                                <input class="form-check-input" type='hidden' value='0' name='color[]'>
                                 <input class="form-check-input" type="checkbox" value="{{$color->id}}" name="color[]">
                                 <label class="form-check-label">
                                     {{$color->color}}

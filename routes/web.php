@@ -23,11 +23,10 @@ Route::get('/', function () {
 });
 
 Route::resource('produkt', ProductController::class);
-<<<<<<< HEAD
 
 
-=======
->>>>>>> cccf735096202b2a9808743be6aa5fbf8ac3ee13
+
+
 Route::get('filter/{category}', [ProductController::class, 'getCategory']);
 Route::post('filter/{category}/filteros', [ProductController::class, 'filter_cat']);
 Route::get('filter/{category}/{subcategory}', [ProductController::class, 'getSubcategory']);

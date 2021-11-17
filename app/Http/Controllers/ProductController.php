@@ -79,10 +79,16 @@ class ProductController extends Controller
             $request->memory = Memory::select('id');
         }
         $category_id[]= Category::where("name", $category_name)->first()->id;
-
+        if($request->input('order') !=2) {
+            $ordered_by = 'asc';
+        }
+        if($request->input('order') ==2) {
+            $ordered_by = 'desc';
+        }
         $products = Product::where('price', '<', $request->max_price)
              ->where('price', '>', $request->min_price)
             ->whereIn('memory_id', $request->memory)
+            ->orderBY('price',$ordered_by)
             ->whereIn('color_id', $request->color)
             ->whereIn('category_id',$category_id)
             ->paginate(50);
@@ -97,6 +103,7 @@ class ProductController extends Controller
         $subcategory_id[] = SubCategory::where("name", $subcategory_name)->first()->id;
         $memories = Memory::all();
         $colors = Color::all();
+        if(request )
         if(!$request->color){
             $request->color = Color::select('id');
 
@@ -110,12 +117,20 @@ class ProductController extends Controller
         if(!$request->memory){
             $request->memory = Memory::select('id');
         }
+        if($request->order->value ==1) {
+            $ordered_by = 'asc';
+        }
+        if($request->order->value ==2) {
+            $ordered_by = 'desc';
+        }
 
        $category_id[]= Category::where("name", $category_name)->first()->id;
 
 
         $products = Product::where('price', '<', $request->max_price )
-            >where('price', '>', $request->min_price)
+            ->where('price', '>', $request->min_price)
+
+            ->orderBY('price',$ordered_by)
             ->whereIn('memory_id', $request->memory)
             ->whereIn('color_id', $request->color)
             ->whereIn('category_id',$category_id)
