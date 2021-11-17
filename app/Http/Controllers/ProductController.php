@@ -103,7 +103,7 @@ class ProductController extends Controller
         $subcategory_id[] = SubCategory::where("name", $subcategory_name)->first()->id;
         $memories = Memory::all();
         $colors = Color::all();
-        if(request )
+        
         if(!$request->color){
             $request->color = Color::select('id');
 
@@ -117,10 +117,10 @@ class ProductController extends Controller
         if(!$request->memory){
             $request->memory = Memory::select('id');
         }
-        if($request->order->value ==1) {
+        if($request->input('order') !=2) {
             $ordered_by = 'asc';
         }
-        if($request->order->value ==2) {
+        if($request->input('order') ==2) {
             $ordered_by = 'desc';
         }
 
