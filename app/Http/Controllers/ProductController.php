@@ -7,9 +7,11 @@ use App\Models\Product;
 use App\Models\SubCategory;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
+
     // link /filter/kategoria -> potrebuje zobrazit dane podkategorie
     public function getCategory($category_name){
         $category = Category::where("name", $category_name)->first();
@@ -39,14 +41,8 @@ class ProductController extends Controller
     }
 #funkcia na vyhladanie retazca
     public function search(Request $request){
-
-        $search = $request->input('search');
-
-
-        $products = Product::query()
-            ->where('name', 'LIKE', "%{$search}%")
-            ->get();
-
+        $search = strtoupper($request->input('search'));
+        $products = Product::query()->where(DB::raw('upper(name)'), 'LIKE', "%{$search}%")->get();
 
         return view('eshop.allProducts', compact('products'));
     }
