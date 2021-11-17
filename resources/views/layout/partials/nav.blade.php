@@ -6,9 +6,9 @@
             </a>
         </div>
 
-        <form class="search col-xl-6 col-lg-7 col-md-6 d-flex justify-content-center">
-            <input class="search-input me-1" type="search" placeholder="Čo hľadáte? napr. Asus notebook" aria-label="Search">
-            <button class="search-button header-button" type="submit"><i class="bi bi-search"></i></button>
+        <form  action="{{ route('search') }}" class="search col-xl-6 col-lg-7 col-md-6 d-flex justify-content-center">
+            <input class="search-input me-1" type="text" name="search" placeholder="Čo hľadáte? napr. Asus notebook" aria-label="Search" required/>
+            <button class="search-button header-button" type="submit" > <i class="bi bi-search"></i></button>
         </form>
 
 

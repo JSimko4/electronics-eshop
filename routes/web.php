@@ -28,12 +28,12 @@ Route::view('delivery', "eshop.basket.delivery");
 Route::view('faq', "eshop.footer_views.faq");
 Route::view('business_conditions', "eshop.footer_views.business_conditions");
 Route::view('admin', "eshop.admin");
-
+Route::view('allProducts', "eshop.allProducts");
 
 Route::get('/', function () {
     $products_slider = Product::take(3)->get();  // prve 3 produkty
     $products_top = Product::orderBy('id', 'desc')->take(3)->get(); // posledne 3 produkty
     return view('eshop.index')->with('products_top', $products_top)->with('products_slider', $products_slider);
 });
-
+Route::get('/search/', [ProductController::class, 'search'])->name('search');
 require __DIR__.'/auth.php';
