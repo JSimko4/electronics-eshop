@@ -15,6 +15,10 @@ class ProductController extends Controller
     // link /filter/kategoria -> potrebuje zobrazit dane podkategorie
     public function getCategory($category_name){
         $category = Category::where("name", $category_name)->first();
+
+        if(!$category)
+            abort(404);
+
         $products = $category->products()->orderBy("id", "asc")->paginate(6);
         $subcategories = $category->subcategories();
 
@@ -23,7 +27,12 @@ class ProductController extends Controller
 
     // link /filter/kategorie/podkategoria -> nepotrebuje zobrazovat podkategorie
     public function getSubcategory($category_name, $subcategory_name){
+        $category = Category::where("name", $category_name)->first();
         $subcategory = SubCategory::where("name", $subcategory_name)->first();
+
+        if(!$category || !$subcategory)
+            abort(404);
+
         $products = $subcategory->products()->orderBy("id", "asc")->paginate(6);
 
         return view('eshop.filter')->with(compact('category_name', 'subcategory_name', 'products'));
