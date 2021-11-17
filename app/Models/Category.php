@@ -10,7 +10,7 @@ class Category extends Model
     protected $fillable = ['category'];
 
     public function products(){
-        return $this->hasMany('App\Product');
+        return $this->hasMany(Product::class);
     }
 
     public function subcategories(){

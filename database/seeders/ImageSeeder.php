@@ -84,12 +84,6 @@ class ImageSeeder extends Seeder
             ),
             array(
                 'product_id' => 7,
-                'filename' => 'ntb1.jpg',
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-            ),
-            array(
-                'product_id' => 8,
                 'filename' => 'mac.png',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')

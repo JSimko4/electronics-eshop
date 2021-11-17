@@ -16,7 +16,7 @@ class SubCategorySeeder extends Seeder
     public function run()
     {  $subcategories = array(
         array(
-            'name' => 'Lenovo',
+            'name' => 'Asus',
             'category_id' => 1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -26,7 +26,7 @@ class SubCategorySeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ),
-        array('name' => 'Asus',
+        array('name' => 'DELL',
             'category_id' => 1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -36,7 +36,7 @@ class SubCategorySeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ),
-        array('name' => 'Hp',
+        array('name' => 'Huawei',
             'category_id' => 1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')

@@ -12,15 +12,17 @@ class ProductController extends Controller
 {
     // link /filter/kategoria -> potrebuje zobrazit dane podkategorie
     public function getCategory($category_name){
-        $products = Product::orderBy("id", "asc")->paginate(6);
-        $subcategories = Category::where("name", $category_name)->first()->subcategories();
+        $category = Category::where("name", $category_name)->first();
+        $products = $category->products()->orderBy("id", "asc")->paginate(6);
+        $subcategories = $category->subcategories();
 
         return view('eshop.filter')->with(compact('category_name', 'products', 'subcategories'));
     }
 
     // link /filter/kategorie/podkategoria -> nepotrebuje zobrazovat podkategorie
     public function getSubcategory($category_name, $subcategory_name){
-        $products = Product::orderBy("id", "asc")->paginate(6);
+        $subcategory = SubCategory::where("name", $subcategory_name)->first();
+        $products = $subcategory->products()->orderBy("id", "asc")->paginate(6);
 
         return view('eshop.filter')->with(compact('category_name', 'subcategory_name', 'products'));
     }
