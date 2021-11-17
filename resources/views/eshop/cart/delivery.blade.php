@@ -4,14 +4,23 @@
     <section class="bg-image register-width  register-width1 container-fluid" >
         <div class="row">
 
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <div class="col-md-6 d-flex justify-content-ceneter flex-column align-items-center me-2">
-                <div class="  mb-3 mb-md-1"><img class="img-fluid w-20" src="img/dodacie_udaje.jpg" alt="dodacie_udaje"></div>
-                <h4 class="my-2"><strong>Celková suma je 85475€</strong></h4>
+                <div class="  mb-3 mb-md-1"><img class="img-fluid w-20" src="/img/dodacie_udaje.jpg" alt="dodacie_udaje"></div>
+                <h4 class="my-2"><strong>Celková suma je {{$total}}€</strong></h4>
             </div>
 
             <div class="col-md-6">
                 <div class="row d-flex justify-content-center align-items-center pt-2">
-
                     <div class="col-12 col-md-10 col-lg-10 col-xl-8">
                         <div class="card">
                             <div class="card-body p-5">

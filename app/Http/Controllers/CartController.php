@@ -67,6 +67,21 @@ class CartController extends Controller
         }
     }
 
+    public function validation(Request $request){
+        $request->validate([
+            'title' => 'bail|required|unique:posts|max:255',
+            'body' => 'required',
+        ]);
+    }
+
+    public function transportation($total){
+        return view('eshop.cart.transportation', compact('total'));
+    }
+
+    public function delivery($total){
+        return view('eshop.cart.delivery', compact('total'));
+    }
+
 
     public function index()
     {

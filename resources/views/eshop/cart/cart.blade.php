@@ -43,7 +43,7 @@
 
             <div class="col-lg-4 mb-5 pt-5 d-flex flex-column align-items-center">
                 <h5 class="mb-3 mt-3">Suma k úhrade: <?php echo $total ?>€</h5>
-                <a href="transportation" class="btn btn-primary btn-block">
+                <a href="{{url('transportation/' . $total)}}" class="btn btn-primary btn-block">
                     Prejsť na dopravu
                 </a>
             </div>

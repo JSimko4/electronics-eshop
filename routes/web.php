@@ -32,8 +32,10 @@ Route::get('add-to-cart/{id}', [CartController::class, 'addToCart']);
 Route::patch('update-cart', [CartController::class, 'update']);
 Route::delete('remove-from-cart', [CartController::class, 'remove']);
 
-Route::view('transportation', "eshop.cart.transportation");
-Route::view('delivery', "eshop.cart.delivery");
+Route::get('transportation/{total}', [CartController::class, 'transportation']);
+Route::get('delivery/{total}', [CartController::class, 'delivery']);
+Route::post('delivery/{total}/form', [CartController::class, 'validation']);
+
 Route::view('faq', "eshop.footer_views.faq");
 Route::view('business_conditions', "eshop.footer_views.business_conditions");
 Route::view('admin', "eshop.admin");

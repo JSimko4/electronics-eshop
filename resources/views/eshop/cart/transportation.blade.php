@@ -8,10 +8,10 @@
                     <div class="pt-4 ">
                         <!-- pocet produktov v kosiku -->
                         <div class=" mb-3 mb-md-1">
-                            <img class="img-fluid w-20" src="img/doprava.png" alt="doprava">
+                            <img class="img-fluid w-20" src="/img/doprava.png" alt="doprava">
                         </div>
 
-                        <img class=" img w-1" src="img/tranport_uvod.jpg" alt="doprava">
+                        <img class=" img w-1" src="/img/tranport_uvod.jpg" alt="doprava">
                         <div class="row mb-4">
                             <div class="col-md-7 col-lg-9 col-xl-9">
                                 <div>
@@ -49,7 +49,7 @@
                 </a>
 
 
-                <a href="delivery" class="btn btn-primary btn-block">Pokračovať</a>
+                <a href="{{url('delivery/' . $total)}}" class="btn btn-primary btn-block">Pokračovať</a>
             </div>
         </div>
     </div>
