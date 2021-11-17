@@ -10,8 +10,8 @@
                          src="img/kosik.jpg" alt="kosik">
 
                 </div>
+                <?php $total = 0 ?>
                 @if(session('cart'))
-                    <?php $total = 0 ?>
                     <h4 class="mt-4 mb-4">Počet produktov v košiku (<?php echo count(session('cart')) ?>)</h4>
                     @foreach(session('cart') as $id => $details)
                         <?php $total += $details['product']->price * $details['quantity'] ?>
@@ -25,12 +25,10 @@
                                     <div>
                                         <h5>{{$details['product']->name}}</h5>
                                         <p>{{$details['product']->description}}</p>
-                                        <a href="#!"  class="card-link-secondary small text-uppercase mr-3">
-                                            <i class="fas fa-trash-alt mr-1"></i> Odstraniť z košika
-                                        </a>
+                                        <button class="btn btn-danger btn-sm remove-from-cart" data-id="{{$id}}"><i class="fa fa-trash-o"></i> Odstrániť z košíka</button>
                                     </div>
                                     <div>
-                                        <input class="quantity w-100" min="0" name="quantity" value="{{$details['quantity']}}" type="number">
+                                        <input class="quantity w-100" min="0"  data-id="{{$id}}" name="quantity" value="{{$details['quantity']}}" type="number">
                                         <p class="mt-2 text-center">Cena za jeden: <strong>{{$details['product']->price}}€</strong></p>
                                         <p class="text-center">Cena spolu: <strong>{{$details['product']->price * $details['quantity']}}€</strong></p >
                                     </div>
@@ -51,4 +49,44 @@
             </div>
         </div>
     </section>
+
+    <script type="text/javascript">
+        $(".quantity").change(function () {
+            // ak je zadana hodnota rovna 0 tak sa produkt odstrani z kosika
+            if ($(this).val() > 0) {
+                $.ajax({
+                    url: '{{ url('update-cart') }}',
+                    method: "patch",
+                    // je potrebne poslat csrf _token aby middleware vedel schvalit poziadavku
+                    data: {_token: '{{ csrf_token() }}', id: $(this).attr("data-id"), quantity: $(this).val()},
+                    success: function (response) {
+                        window.location.reload();
+                    }
+                });
+            }
+            else{
+                    $.ajax({
+                        url: '{{ url('remove-from-cart') }}',
+                        method: "DELETE",
+                        // je potrebne poslat csrf _token aby middleware vedel schvalit poziadavku
+                        data: {_token: '{{ csrf_token() }}', id: $(this).attr("data-id")},
+                        success: function (response) {
+                            window.location.reload();
+                        }
+                    });
+                }
+            });
+
+        $(".remove-from-cart").click(function () {
+            $.ajax({
+                url: '{{ url('remove-from-cart') }}',
+                method: "DELETE",
+                // je potrebne poslat csrf _token aby middleware vedel schvalit poziadavku
+                data: {_token: '{{ csrf_token() }}', id: $(this).attr("data-id")},
+                success: function (response) {
+                    window.location.reload();
+                }
+            });
+        });
+    </script>
 @endsection

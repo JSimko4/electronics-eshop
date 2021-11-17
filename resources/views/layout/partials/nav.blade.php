@@ -89,12 +89,15 @@
             </div>
         </div>
     </nav>
+
     <!-- HOVER JS -->
     <script src="{{asset("js/navbar-drop.js")}}"> </script>
+
     @if(Session::get('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <div class="alert alert-success alert-dismissible fade show mt-1" role="alert">
             <strong>{{session::get('success')}}</strong>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
+
 </header>

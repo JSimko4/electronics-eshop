@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    public function addToCart($id)
+    public function addToCart(Request $request, $id)
     {
         $product = Product::find($id);
 
@@ -15,62 +15,55 @@ class CartController extends Controller
             abort(404);
         }
 
-        $cart = session()->get('cart');
+        $quantity = 1;
+        if($request->input('quantity') !== null){
+            $quantity = $request->input('quantity');
+        }
 
-        // if cart is empty then this the first product
+        $cart = session()->get('cart');
+        $message = 'Produkt ' . $product->name . ' bol pridaný do košíka ' . '(' . $quantity .'ks)';
+
+        // košik je prazdny - pridaj prvy produkt
         if(!$cart) {
             $cart = [
                 $id => [
                     "product" => $product,
-                    "quantity" => 1,
+                    "quantity" => $quantity,
                 ]
             ];
             session()->put('cart', $cart);
-
-            $message = 'Produkt ' . $product->name . ' bol uspešne pridaný do košíka!';
             return redirect()->back()->with('success', $message);
         }
 
-        // if cart not empty then check if this product exist then increment quantity
+        // košik nie je prazdny a tento produkt už je v košiku - zvyš jeho množstvo
         if(isset($cart[$id])) {
-            $cart[$id]['quantity']++;
+            $cart[$id]['quantity'] += $quantity;
             session()->put('cart', $cart);
-
-            $message = 'Produkt ' . $product->name . ' bol uspešne pridaný do košíka!';
             return redirect()->back()->with('success', $message);        }
 
-        // if item not exist in cart then add to cart with quantity = 1
+        // košik nie je prazdny a tento produkt nie je v košiku - pridaj ho
         $cart[$id] = [
             "product" => $product,
-            "quantity" => 1,
+            "quantity" => $quantity,
         ];
 
         session()->put('cart', $cart);
-
-        $message = 'Produkt ' . $product->name . ' bol uspešne pridaný do košíka!';
         return redirect()->back()->with('success', $message);
     }
 
     public function update(Request $request)
     {
-        if($request->id and $request->quantity)
-        {
-            $cart = session()->get('cart');
-            $cart[$request->id]["quantity"] = $request->quantity;
-            session()->put('cart', $cart);
-            session()->flash('success', 'Cart updated successfully');
-        }
+        $cart = session()->get('cart');
+        $cart[$request->id]["quantity"] = $request->quantity;
+        session()->put('cart', $cart);
     }
 
     public function remove(Request $request)
     {
-        if($request->id) {
-            $cart = session()->get('cart');
-            if(isset($cart[$request->id])) {
-                unset($cart[$request->id]);
-                session()->put('cart', $cart);
-            }
-            session()->flash('success', 'Product removed successfully');
+        $cart = session()->get('cart');
+        if(isset($cart[$request->id])) {
+            unset($cart[$request->id]);
+            session()->put('cart', $cart);
         }
     }
 

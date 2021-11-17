@@ -48,7 +48,8 @@ class ProductController extends Controller
         $products = Product::orderBy("id", "asc")->paginate(6);
         return view('eshop.filter')->with('products', $products);
     }
-#funkcia na vyhladanie retazca
+
+    #funkcia na vyhladanie retazca
     public function search(Request $request){
         $search = strtoupper($request->input('search'));
         $products = Product::query()->where(DB::raw('upper(name)'), 'LIKE', "%{$search}%")->paginate(6);

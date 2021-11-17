@@ -16,10 +16,11 @@
             <h1 class="mb-3">{{$product->name}}</h1>
             <p class="product-page-text">{{$product->description}}</p>
             <h1 class="fs-3 text-center my-2">Cena: {{$product->price}}€</h1>
-            <div class="d-flex justify-content-center align-items-baseline mt-4">
-                <input type="number" id="typeNumber" class="product-page-counter" min="1" max="9999" placeholder="1"/>
-                <a href="" class="text-center product-page-add-butt ms-5">Pridať do košíka</a>
-            </div>
+            <form  action="{{ url('add-to-cart/'.$product->id) }}" class="d-flex justify-content-center align-items-baseline mt-4">
+                <label for="typeNumber">Množstvo</label>
+                <input class="product-page-counter ms-2" name="quantity" type="number" id="typeNumber" min="1" max="9999" value="1" required/>
+                <button class="text-center product-page-add-butt ms-5" type="submit" >Pridať do košíka</button>
+            </form>
         </section>
     </div>
 
