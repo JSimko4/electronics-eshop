@@ -17,11 +17,4 @@ class Product extends Model
     public function first_image(){
         return $this->hasMany(Image::class)->first()->filename;
     }
-
-    public function categories(){
-        return $this->belongsTo(Category::class, 'category_id');
-    }
-    public function subcategories(){
-        return $this->belongsTo(SubCategory::class, 'subcategory_id');
-    }
 }
