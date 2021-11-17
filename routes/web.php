@@ -23,17 +23,26 @@ Route::get('/', function () {
 
 Route::resource('produkt', ProductController::class);
 
+
 Route::get('filter/{category}', [ProductController::class, 'getCategory']);
+Route::post('filter/{category}/filteros', [ProductController::class, 'filter_cat']);
 Route::get('filter/{category}/{subcategory}', [ProductController::class, 'getSubcategory']);
+Route::post('filter/{category}/{subcategory}/filteros', [ProductController::class, 'filter_subcat']);
+
 Route::get('/search/', [ProductController::class, 'search'])->name('search');
 
-Route::view('product', "eshop.product");
-Route::view('basket', "eshop.basket.basket");
-Route::view('transportation', "eshop.basket.transportation");
-Route::view('delivery', "eshop.basket.delivery");
+Route::get('cart', [CartController::class, 'index']);
+Route::get('add-to-cart/{id}', [CartController::class, 'addToCart']);
+Route::patch('update-cart', [CartController::class, 'update']);
+Route::delete('remove-from-cart', [CartController::class, 'remove']);
+
+Route::view('transportation', "eshop.cart.transportation");
+Route::view('delivery', "eshop.cart.delivery");
 Route::view('faq', "eshop.footer_views.faq");
 Route::view('business_conditions', "eshop.footer_views.business_conditions");
 Route::view('admin', "eshop.admin");
 Route::view('allProducts', "eshop.allProducts");
+
+
 
 require __DIR__.'/auth.php';
