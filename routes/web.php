@@ -29,6 +29,8 @@ Route::get('/search/', [ProductController::class, 'search'])->name('search');
 
 Route::get('cart', [CartController::class, 'index']);
 Route::get('add-to-cart/{id}', [CartController::class, 'addToCart']);
+Route::patch('update-cart', [CartController::class, 'update']);
+Route::delete('remove-from-cart', [CartController::class, 'remove']);
 
 Route::view('transportation', "eshop.cart.transportation");
 Route::view('delivery', "eshop.cart.delivery");
