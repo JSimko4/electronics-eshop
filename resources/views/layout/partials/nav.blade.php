@@ -35,7 +35,7 @@
             </div>
         @endauth
         <div class="col-xl-1 col-lg-2 col-md-2 col-sm-2 text-center">
-            <a href="/basket">
+            <a href="/cart">
                 <i class="fas fa-shopping-cart shopping-bag"></i>
             </a>
 
@@ -91,4 +91,10 @@
     </nav>
     <!-- HOVER JS -->
     <script src="{{asset("js/navbar-drop.js")}}"> </script>
+    @if(Session::get('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{session::get('success')}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
 </header>

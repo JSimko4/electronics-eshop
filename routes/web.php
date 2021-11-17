@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
@@ -22,15 +23,15 @@ Route::get('/', function () {
 });
 
 Route::resource('produkt', ProductController::class);
-
 Route::get('filter/{category}', [ProductController::class, 'getCategory']);
 Route::get('filter/{category}/{subcategory}', [ProductController::class, 'getSubcategory']);
 Route::get('/search/', [ProductController::class, 'search'])->name('search');
 
-Route::view('product', "eshop.product");
-Route::view('basket', "eshop.basket.basket");
-Route::view('transportation', "eshop.basket.transportation");
-Route::view('delivery', "eshop.basket.delivery");
+Route::get('cart', [CartController::class, 'index']);
+Route::get('add-to-cart/{id}', [CartController::class, 'addToCart']);
+
+Route::view('transportation', "eshop.cart.transportation");
+Route::view('delivery', "eshop.cart.delivery");
 Route::view('faq', "eshop.footer_views.faq");
 Route::view('business_conditions', "eshop.footer_views.business_conditions");
 Route::view('admin', "eshop.admin");
