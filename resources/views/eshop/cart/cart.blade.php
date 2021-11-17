@@ -12,7 +12,7 @@
                 </div>
                 <?php $total = 0 ?>
                 @if(session('cart'))
-                    <h4 class="mt-4 mb-4">Počet produktov v košiku (<?php echo count(session('cart')) ?>)</h4>
+                    <h4 class="mt-4 mb-4">Počet rozlišných produktov v košiku (<?php echo count(session('cart')) ?>)</h4>
                     @foreach(session('cart') as $id => $details)
                         <?php $total += $details['product']->price * $details['quantity'] ?>
                         <hr class="mt-4 mb-4">
@@ -37,7 +37,7 @@
                         </div>
                     @endforeach
                 @else
-                    <h5 class="mt-4 mb-4">Počet produktov v košiku  (<span>0</span>)</h5>
+                    <h5 class="mt-4 mb-4">Počet rozlišných produktov v košiku  (0)</h5>
                 @endif
             </div>
 

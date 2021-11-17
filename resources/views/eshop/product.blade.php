@@ -2,7 +2,7 @@
 
 @section('content')
 <div id="product-page">
-    <div class="row d-flex justify-content-around mt-4 mb-5 pt-4 mx-0">
+    <div class="row d-flex justify-content-around mt-3 mb-5 pt-4 mx-0">
         <div class="col-lg-5 col-sm-7 col-8 mb-md-3 d-flex align-items-center justify-content-center flex-column">
             <img src="/img/{{$product->first_image()}}" class="img-holder col-12" alt="produkt">
             <div class="small-images my-4 col-12 d-flex flex-row justify-content-between flex-wrap">
