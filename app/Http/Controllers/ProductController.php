@@ -103,7 +103,7 @@ class ProductController extends Controller
         $subcategory_id[] = SubCategory::where("name", $subcategory_name)->first()->id;
         $memories = Memory::all();
         $colors = Color::all();
-        
+
         if(!$request->color){
             $request->color = Color::select('id');
 

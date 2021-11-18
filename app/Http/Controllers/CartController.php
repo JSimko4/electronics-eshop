@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CartController extends Controller
 {
@@ -11,20 +12,20 @@ class CartController extends Controller
     {
         $product = Product::find($id);
 
-        if(!$product) {
+        if (!$product) {
             abort(404);
         }
 
         $quantity = 1;
-        if($request->input('quantity') !== null){
+        if ($request->input('quantity') !== null) {
             $quantity = $request->input('quantity');
         }
 
         $cart = session()->get('cart');
-        $message = 'Produkt ' . $product->name . ' bol pridaný do košíka ' . '(' . $quantity .'ks)';
+        $message = 'Produkt ' . $product->name . ' bol pridaný do košíka ' . '(' . $quantity . 'ks)';
 
         // košik je prazdny - pridaj prvy produkt
-        if(!$cart) {
+        if (!$cart) {
             $cart = [
                 $id => [
                     "product" => $product,
@@ -36,7 +37,7 @@ class CartController extends Controller
         }
 
         // košik nie je prazdny a tento produkt už je v košiku - zvyš jeho množstvo
-        if(isset($cart[$id])) {
+        if (isset($cart[$id])) {
             $cart[$id]['quantity'] += $quantity;
             session()->put('cart', $cart);
             return redirect()->back()->with('success', $message);
@@ -62,7 +63,7 @@ class CartController extends Controller
     public function remove(Request $request)
     {
         $cart = session()->get('cart');
-        if(isset($cart[$request->id])) {
+        if (isset($cart[$request->id])) {
             unset($cart[$request->id]);
             session()->put('cart', $cart);
         }
@@ -81,16 +82,35 @@ class CartController extends Controller
         ]);
     }
 
-    public function transportation(){
+    public function transportation()
+    {
         return view('eshop.cart.transportation');
     }
 
-    public function delivery(){
+    public function delivery()
+    {
         $cart = session()->get('cart');
         $total = $this->getTotal($cart);
-        return view('eshop.cart.delivery', compact('total'));
+        $success = session()->get('success');
+        return view('eshop.cart.delivery', ['success' => $success], compact('total'));
+        #return view('eshop.cart.delivery', compact('total'));
     }
 
+    public function validate_delivery(Request $request)
+    {
+        Validator::validate($request->all(), [
+            'name' => 'required|string|max:255',
+            'surname' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'telephone_number' => 'required|min:8|numeric',
+            'street' => 'required|string|max:255',
+            'town' => 'required|string|max:255',
+            'psc' => 'required|string|max:255',
+        ]);
+
+        session()->flash('success', true);
+        return redirect()->back();
+    }
 
     public function index()
     {
@@ -104,7 +124,7 @@ class CartController extends Controller
             return 0;
 
         $total = 0;
-        foreach ($cart as $id => $details){
+        foreach ($cart as $id => $details) {
             $total += $details['product']->price * $details['quantity'];
         }
 
