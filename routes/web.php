@@ -42,7 +42,6 @@ Route::delete('remove-from-cart', [CartController::class, 'remove']);
 
 Route::get('cart/transportation', [CartController::class, 'transportation']);
 Route::get('cart/delivery', [CartController::class, 'delivery']);
-Route::post('cart/delivery/form', [CartController::class, 'validation']);
 
 Route::view('faq', "eshop.footer_views.faq");
 Route::view('business_conditions', "eshop.footer_views.business_conditions");
