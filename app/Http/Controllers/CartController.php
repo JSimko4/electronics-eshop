@@ -69,12 +69,10 @@ class CartController extends Controller
         }
     }
 
-    public function validation(Request $request)
-    {
-        $request->validate([
-            'title' => 'bail|required|unique:posts|max:255',
-            'body' => 'required',
-        ]);
+    public function remember(){
+        $id = auth()->user()->id;
+        $message = "Stav košíka bol uložený!";
+        return redirect()->back()->with('success', $message);
     }
 
     public function transportation()
@@ -87,8 +85,8 @@ class CartController extends Controller
         $cart = session()->get('cart');
         $total = $this->getTotal($cart);
         $success = session()->get('success');
+
         return view('eshop.cart.delivery', ['success' => $success], compact('total'));
-        #return view('eshop.cart.delivery', compact('total'));
     }
 
     public function validate_delivery(Request $request)
@@ -114,8 +112,10 @@ class CartController extends Controller
         return view('eshop.cart.cart', compact('total'));
     }
 
-    public function getTotal($cart)
-    {
+    public function getTotal($cart){
+        if ($cart == null)
+            return 0;
+
         $total = 0;
         foreach ($cart as $id => $details) {
             $total += $details['product']->price * $details['quantity'];
