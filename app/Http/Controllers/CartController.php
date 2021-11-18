@@ -68,6 +68,12 @@ class CartController extends Controller
         }
     }
 
+    public function remember(){
+        $id = auth()->user()->id;
+        $message = "Stav košíka bol uložený!";
+        return redirect()->back()->with('success', $message);
+    }
+
     public function validation(Request $request){
         $request->validate([
             'title' => 'bail|required|unique:posts|max:255',
