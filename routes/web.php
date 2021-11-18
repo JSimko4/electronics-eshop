@@ -46,7 +46,7 @@ Route::get('cart/delivery', [CartController::class, 'delivery']);
 
 Route::view('faq', "eshop.footer_views.faq");
 Route::view('business_conditions', "eshop.footer_views.business_conditions");
-Route::view('admin', "eshop.admin");
+Route::view('admin', "eshop.admin.admin");
 
 
 require __DIR__.'/auth.php';
