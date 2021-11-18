@@ -45,16 +45,16 @@
                         <form>
                             <div class="form-group mb-3">
                                 <label for="name_input">Názov produktu</label>
-                                <input type="text" class="form-control" id="name_input" placeholder="meno">
+                                <input type="text" class="form-control" id="name_input" placeholder="Názov..">
                             </div>
                             <div class="form-group mb-3">
                                 <label for="value_input">Cena</label>
-                                <input type="number" class="form-control" id="value_input" placeholder="Cena">
+                                <input type="number" class="form-control" id="value_input" placeholder="Cena..">
                             </div>
 
                             <div class="form-group mb-3">
                                 <label for="text_are_input">Popis produktu</label>
-                                <textarea class="form-control" id="text_are_input" rows="3"></textarea>
+                                <textarea class="form-control" id="text_are_input" rows="3" placeholder="Popis produktu.."></textarea>
                             </div>
                         </form>
                         <button class="btn btn-success btn-sm mt-3 col-12 me-2">
