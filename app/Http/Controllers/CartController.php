@@ -101,7 +101,7 @@ class CartController extends Controller
             'psc' => 'required|string|max:255',
         ]);
 
-        
+
         return redirect()->back()->with('success', 'Objednávka prebehla úspešne');
     }
 

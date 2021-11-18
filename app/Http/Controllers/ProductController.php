@@ -65,12 +65,34 @@ class ProductController extends Controller
         $subcategories = $category->subcategories();
         $memories = Memory::all();
         $colors = Color::all();
+
+        $decider=0;
+        foreach ($request->memory as $memory ){
+            if($memory!=0)
+            {
+                $decider=1;
+
+
+            }
+
+        }
+        $decider1=0;
+        foreach ($request->color as $color ){
+            if($color!=0)
+            {
+                $decider1=1;
+
+
+            }
+
+        }
+
         if(!$request->color){
             $request->color = Color::select('id');
 
         }
         if(!$request->min_price){
-            $request->min_price = PHP_INT_MAX;
+            $request->min_price = 0;
         }
         if(!$request->max_price){
             $request->max_price = PHP_INT_MAX;
@@ -79,6 +101,7 @@ class ProductController extends Controller
             $request->memory = Memory::select('id');
         }
         $category_id[]= Category::where("name", $category_name)->first()->id;
+
         if($request->input('order') !=2) {
             $ordered_by = 'asc';
         }
@@ -87,9 +110,15 @@ class ProductController extends Controller
         }
         $products = Product::where('price', '<', $request->max_price)
              ->where('price', '>', $request->min_price)
-            ->whereIn('memory_id', $request->memory)
-            ->orderBY('price',$ordered_by)
-            ->whereIn('color_id', $request->color)
+
+            ->orderBY('price',$ordered_by);
+            if($decider ==1){
+                $products=$products->whereIn('memory_id', $request->memory);
+            }
+        if($decider1 ==1){
+            $products=$products->whereIn('color_id', $request->color);
+        }
+            $products=$products->whereIn('category_id',$category_id)
             ->whereIn('category_id',$category_id)
             ->paginate(50);
 
@@ -104,12 +133,32 @@ class ProductController extends Controller
         $memories = Memory::all();
         $colors = Color::all();
 
+        $decider=0;
+        foreach ($request->memory as $memory ){
+            if($memory!=0)
+            {
+                $decider=1;
+
+
+            }
+
+        }
+        $decider1=0;
+        foreach ($request->color as $color ){
+            if($color!=0)
+            {
+                $decider1=1;
+
+            }
+
+        }
+
         if(!$request->color){
             $request->color = Color::select('id');
 
         }
         if(!$request->min_price){
-            $request->min_price = PHP_INT_MAX;
+            $request->min_price = 0;
         }
         if(!$request->max_price){
             $request->max_price = PHP_INT_MAX;
@@ -117,6 +166,7 @@ class ProductController extends Controller
         if(!$request->memory){
             $request->memory = Memory::select('id');
         }
+
         if($request->input('order') !=2) {
             $ordered_by = 'asc';
         }
@@ -127,13 +177,21 @@ class ProductController extends Controller
        $category_id[]= Category::where("name", $category_name)->first()->id;
 
 
+
+
         $products = Product::where('price', '<', $request->max_price )
+
             ->where('price', '>', $request->min_price)
 
-            ->orderBY('price',$ordered_by)
-            ->whereIn('memory_id', $request->memory)
-            ->whereIn('color_id', $request->color)
-            ->whereIn('category_id',$category_id)
+            ->orderBY('price',$ordered_by);
+            if($decider ==1){
+            $products=$products->whereIn('memory_id', $request->memory);
+            }
+        if($decider1 ==1){
+            $products=$products->whereIn('color_id', $request->color);
+        }
+            $products=$products->whereIn('category_id',$category_id)
+
             ->whereIn('subcategory_id',$subcategory_id)
             ->paginate(50);
 
