@@ -17,15 +17,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/load', [CartController::class, 'load']);
 Route::get('/', function () {
     $products_slider = Product::take(3)->get();  // prve 3 produkty
     $products_top = Product::orderBy('id', 'desc')->take(3)->get(); // posledne 3 produkty
     return view('eshop.index')->with('products_top', $products_top)->with('products_slider', $products_slider);
 });
 
+Route::resource('produkt', ProductController::class);
 
 Route::post('cart/delivery', [CartController::class, 'validate_delivery'])->name('validate_delivery');
-Route::resource('produkt', ProductController::class);
 
 Route::get('filter/{category}', [ProductController::class, 'getCategory']);
 Route::post('filter/{category}/filteros', [ProductController::class, 'filter_cat']);
@@ -46,8 +47,6 @@ Route::get('cart/delivery', [CartController::class, 'delivery']);
 Route::view('faq', "eshop.footer_views.faq");
 Route::view('business_conditions', "eshop.footer_views.business_conditions");
 Route::view('admin', "eshop.admin");
-Route::view('allProducts', "eshop.allProducts");
-
 
 
 require __DIR__.'/auth.php';

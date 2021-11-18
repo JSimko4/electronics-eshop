@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class CartController extends Controller
@@ -70,13 +74,64 @@ class CartController extends Controller
     }
 
     public function remember(){
-        $id = auth()->user()->id;
+        $cart = session()->get('cart');
+        $user = Auth::user();
+
+        // vymaze aktualne produkty kosika pre daneho pouzivatela
+        foreach($user->cartProducts as $cartProduct){
+            $cartProduct->delete();
+        }
+
+        // ulozi produkty z kosika do databazy
+        foreach ($cart as $id => $details) {
+            $data = array(
+                'user_id'=>$user->id,
+                'product_id'=>$id,
+                'quantity'=>$cart[$id]["quantity"],
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            );
+            DB::table('cart_products')->insert($data);
+        }
+
         $message = "Stav košíka bol uložený!";
         return redirect()->back()->with('success', $message);
     }
 
-    public function transportation()
-    {
+    public function load(){
+        session()->forget('cart');
+        $user = Auth::user();
+
+        $cart = null;
+        foreach($user->cartProducts as $cartProduct){
+            $id = $cartProduct->product->id;
+            $product = $cartProduct->product;
+            $quantity = $cartProduct->quantity;
+
+            // prvy produkt
+            if (!$cart) {
+                $cart = [
+                    $id => [
+                        "product" => $product,
+                        "quantity" => $quantity,
+                    ],
+                ];
+                session()->put('cart', $cart);
+            }
+            // pridanie dalsich produktov
+            else{
+                $cart[$id] = [
+                    "product" => $product,
+                    "quantity" => $quantity,
+                ];
+                session()->put('cart', $cart);
+            }
+        }
+
+        return redirect('/');
+    }
+
+    public function transportation(){
         return view('eshop.cart.transportation');
     }
 
@@ -100,8 +155,6 @@ class CartController extends Controller
             'town' => 'required|string|max:255',
             'psc' => 'required|string|max:255',
         ]);
-
-
         return redirect()->back()->with('success', 'Objednávka prebehla úspešne');
     }
 
