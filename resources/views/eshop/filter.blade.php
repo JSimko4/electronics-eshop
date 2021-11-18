@@ -37,15 +37,15 @@
                             <span class="input-group-text price-text" id="min_price">Min:</span>
                             <div class="col col-4 col-lg-9">
                                 <input name='min_price' type='hidden' placeholder="...€"  value =0 class="form-control">
-                                <input name="min_price" type="text" placeholder="...€" value =1 class="form-control">
+                                <input name="min_price" type="number" min="0" placeholder="...€" value =1 class="form-control">
                             </div>
                         </div>
 
                         <div class="input-group input-group-sm">
                             <span class="input-group-text price-text" id="max_price">Max:</span>
                             <div class="col col-4 col-lg-9">
-                                <input name='max_price' type='hidden' placeholder="...€"  value =0class="form-control">
-                                <input name="max_price" type="text" placeholder="...€"  value =1000 class="form-control">
+                                <input name='max_price' type='hidden' placeholder="...€"  value =0 class="form-control">
+                                <input name="max_price" type="number" min="1" placeholder="...€"  value =1000 class="form-control">
                             </div>
                         </div>
                     </section>

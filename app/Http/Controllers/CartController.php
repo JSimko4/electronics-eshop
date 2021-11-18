@@ -154,7 +154,6 @@ class CartController extends Controller
             'town' => 'required|string|max:255',
             'psc' => 'required|string|max:255',
         ]);
-
         return redirect()->back()->with('success', 'Objednávka prebehla úspešne');
     }
 
