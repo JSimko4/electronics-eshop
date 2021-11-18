@@ -24,9 +24,6 @@ Route::get('/', function () {
 
 Route::resource('produkt', ProductController::class);
 
-
-
-
 Route::get('filter/{category}', [ProductController::class, 'getCategory']);
 Route::post('filter/{category}/filteros', [ProductController::class, 'filter_cat']);
 Route::get('filter/{category}/{subcategory}', [ProductController::class, 'getSubcategory']);
@@ -39,9 +36,9 @@ Route::get('add-to-cart/{id}', [CartController::class, 'addToCart']);
 Route::patch('update-cart', [CartController::class, 'update']);
 Route::delete('remove-from-cart', [CartController::class, 'remove']);
 
-Route::get('transportation/{total}', [CartController::class, 'transportation']);
-Route::get('delivery/{total}', [CartController::class, 'delivery']);
-Route::post('delivery/{total}/form', [CartController::class, 'validation']);
+Route::get('cart/transportation', [CartController::class, 'transportation']);
+Route::get('cart/delivery', [CartController::class, 'delivery']);
+Route::post('cart/delivery/form', [CartController::class, 'validation']);
 
 Route::view('faq', "eshop.footer_views.faq");
 Route::view('business_conditions', "eshop.footer_views.business_conditions");

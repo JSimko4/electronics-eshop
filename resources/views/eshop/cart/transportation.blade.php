@@ -44,12 +44,12 @@
         </div>
         <div class="container d-flex justify-content-center">
             <div class="col-10 mb-3">
-                <a href="basket" class="btn btn-secondary btn-block">
+                <a href="/cart" class="btn btn-secondary btn-block">
                     Vrátit sa naspäť do košika
                 </a>
 
 
-                <a href="{{url('delivery/' . $total)}}" class="btn btn-primary btn-block">Pokračovať</a>
+                <a href="/cart/delivery" class="btn btn-primary btn-block">Pokračovať</a>
             </div>
         </div>
     </div>

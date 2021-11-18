@@ -29,7 +29,7 @@ class CartController extends Controller
                 $id => [
                     "product" => $product,
                     "quantity" => $quantity,
-                ]
+                ],
             ];
             session()->put('cart', $cart);
             return redirect()->back()->with('success', $message);
@@ -39,7 +39,8 @@ class CartController extends Controller
         if(isset($cart[$id])) {
             $cart[$id]['quantity'] += $quantity;
             session()->put('cart', $cart);
-            return redirect()->back()->with('success', $message);        }
+            return redirect()->back()->with('success', $message);
+        }
 
         // košik nie je prazdny a tento produkt nie je v košiku - pridaj ho
         $cart[$id] = [
@@ -74,17 +75,30 @@ class CartController extends Controller
         ]);
     }
 
-    public function transportation($total){
-        return view('eshop.cart.transportation', compact('total'));
+    public function transportation(){
+        return view('eshop.cart.transportation');
     }
 
-    public function delivery($total){
+    public function delivery(){
+        $cart = session()->get('cart');
+        $total = $this->getTotal($cart);
         return view('eshop.cart.delivery', compact('total'));
     }
 
 
     public function index()
     {
-        return view('eshop.cart.cart');
+        $cart = session()->get('cart');
+        $total = $this->getTotal($cart);
+        return view('eshop.cart.cart', compact('total'));
+    }
+
+    public function getTotal($cart){
+        $total = 0;
+        foreach ($cart as $id => $details){
+            $total += $details['product']->price * $details['quantity'];
+        }
+
+        return $total;
     }
 }

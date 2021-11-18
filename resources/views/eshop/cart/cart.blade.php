@@ -10,11 +10,9 @@
                          src="img/kosik.jpg" alt="kosik">
 
                 </div>
-                <?php $total = 0 ?>
                 @if(session('cart'))
                     <h4 class="mt-4 mb-4">Počet rozlišných produktov v košiku (<?php echo count(session('cart')) ?>)</h4>
                     @foreach(session('cart') as $id => $details)
-                        <?php $total += $details['product']->price * $details['quantity'] ?>
                         <hr class="mt-4 mb-4">
                         <div class="row mb-4">
                             <div class="col-md-5 col-lg-3 col-xl-3 mb-3 mb-md-1">
@@ -42,8 +40,8 @@
             </div>
 
             <div class="col-lg-4 mb-5 pt-5 d-flex flex-column align-items-center">
-                <h5 class="mb-3 mt-3">Suma k úhrade: <?php echo $total ?>€</h5>
-                <a href="{{url('transportation/' . $total)}}" class="btn btn-primary btn-block">
+                <h5 class="mb-3 mt-3">Suma k úhrade: {{$total}}€</h5>
+                <a href="cart/transportation" class="btn btn-primary btn-block">
                     Prejsť na dopravu
                 </a>
             </div>
