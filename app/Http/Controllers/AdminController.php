@@ -15,7 +15,7 @@ class AdminController extends Controller
     public function index()
     {
         $products = Product::orderBy("id", "asc")->paginate(6);
-        return view('eshop.admin.admin')->with('products', $products);
+        return view('eshop.admin.admin')->with('products', $products)->with('total', count($products));
     }
 
     /**

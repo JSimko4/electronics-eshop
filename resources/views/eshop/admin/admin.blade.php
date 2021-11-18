@@ -1,52 +1,40 @@
 @extends('layout.app')
 
 @section('content')
-    <section class="container">
-        <div class="row mb-3">
-            <div class="col-lg-8 pt-4 ">
-                <h5 class="mt-4 mb-4">Zoznam všetkých produktov na stránke (2)</h5>
-                <div class="row mb-4">
+    <section class="container-fluid">
+        <div class="d-flex row justify-content-around mb-3">
+
+
+            <section class="col-lg-7 pt-4 order-md-2 order-lg-1">
+                <h3 class="mt-4 mb-0">Počet produktov v databáze ({{$total}})</h3>
+                <div class="row mb-2">
                     @foreach($products as $product)
                         <hr class="mt-4 mb-4">
                         <article class="row mb-4">
-                            <div class="col-md-5 col-lg-3 col-xl-3 mb-3 mb-md-1">
+                            <div class="d-flex align-items-center col-md-5 col-lg-3 col-xl-3 mb-3 mb-md-1">
                                 <img class="img-fluid w-100" src="img/{{$product->first_image()}}" alt="acer_nitro">
                             </div>
                             <div class="col-md-7 col-lg-9 col-xl-9">
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <h5>{{$product->name}}</h5>
-                                        <p>{{$product->description}}</p>
-                                        <button class="btn btn-danger btn-sm remove-from-cart" data-id="{{$product->id}}"><i class="fa fa-trash-o"></i> Odstrániť z košíka</button>
-                                    </div>
-                                    <div>
-                                        <p class="mt-2 text-center">Cena: <strong>{{$product->price}}€</strong></p>
-                                    </div>
+                                <a href="/produkt/{{$product->id}}" class="fs-4">{{$product->name}}</a>
+                                <p class="my-3">{{$product->description}}</p>
+                                <p>Cena: <strong>{{$product->price}}€</strong></p>
+                                <div class="row d-flex justify-content-between">
+                                    <button class="btn btn-primary btn-sm mt-3 col-5" data-id="{{$product->id}}"><i class="bi bi-pencil-square"></i> Zmeniť názov</button>
+                                    <button class="btn btn-primary btn-sm mt-3 col-5" data-id="{{$product->id}}"><i class="bi bi-pencil-square"></i> Zmeniť popis</button>
+                                    <button class="btn btn-primary btn-sm mt-3 col-5" data-id="{{$product->id}}"><i class="bi bi-pencil-square"></i> Zmeniť cenu</button>
+                                    <button class="btn btn-primary btn-sm mt-3 col-5" data-id="{{$product->id}}"><i class="bi bi-images"></i> Zmeniť fotky</button>
+                                    <button class="btn btn-danger btn-sm mt-3 col-12 me-2" data-id="{{$product->id}}"><i class="fa fa-trash-o"></i> Odstrániť produkt</button>
                                 </div>
-                            </div>
-                            <div class="container d-flex justify-content-between align-items-center">
-                                <div class="row">
-                                    <a href="#!"  class="card-link-secondary small text-uppercase mr-3">
-                                        <i class="fas fa-trash-alt mr-1"></i>Odstraniť  produkt
-                                    </a>
-                                    <a href="#!"  class="card-link-secondary small text-uppercase mr-3">
-                                        <i class="fas fa-trash-alt mr-1"></i> Zmenit fotku
-                                    </a>
-                                    <a href="#!"  class="card-link-secondary small text-uppercase mr-3">
-                                        <i class="fas fa-trash-alt mr-1"></i> Zmenit cenu
-                                    </a>
-                                    <a href="#!"  class="card-link-secondary small text-uppercase mr-3">
-                                        <i class="fas fa-trash-alt mr-1"></i> Upraviť popis
-                                    </a>
-                                </div>
-                                <p class="mb-1"><strong>12.99€</strong></p >
                             </div>
                         </article>
                     @endforeach
+                        <div class="d-flex justify-content-center py-1">
+                            {{ $products->links('pagination::bootstrap-4') }}
+                        </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="col-lg-3">
+            <div class="col-lg-3 order-md-1 order-lg-2">
                 <div class="mb-4">
                     <div class="pt-5">
                         <div class="mb-3">
@@ -55,23 +43,23 @@
                         </div>
 
                         <form>
-                            <div class="form-group">
+                            <div class="form-group mb-3">
                                 <label for="name_input">Názov produktu</label>
                                 <input type="text" class="form-control" id="name_input" placeholder="meno">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mb-3">
                                 <label for="value_input">Cena</label>
                                 <input type="number" class="form-control" id="value_input" placeholder="Cena">
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group mb-3">
                                 <label for="text_are_input">Popis produktu</label>
                                 <textarea class="form-control" id="text_are_input" rows="3"></textarea>
                             </div>
                         </form>
-                        <a href="transportation.html" class="btn btn-primary btn-block">
-                            Pridať produkt
-                        </a>
+                        <button class="btn btn-success btn-sm mt-3 col-12 me-2">
+                            <i class="bi bi-check-circle mb-2"></i> Pridať produkt
+                        </button>
                     </div>
                 </div>
             </div>
