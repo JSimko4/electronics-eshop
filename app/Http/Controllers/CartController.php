@@ -102,7 +102,7 @@ class CartController extends Controller
             'town' => 'required|string|max:255',
             'psc' => 'required|string|max:255',
         ]);
-       
+
         session()->flash('success', true);
         return redirect()->back();
     }

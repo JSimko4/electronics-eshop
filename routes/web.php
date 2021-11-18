@@ -23,7 +23,7 @@ Route::get('/', function () {
     return view('eshop.index')->with('products_top', $products_top)->with('products_slider', $products_slider);
 });
 
-#Route::get('/delivery', [DeliveryDetailsController::class, 'showForm']);
+
 Route::post('cart/delivery', [CartController::class, 'validate_delivery'])->name('validate_delivery');
 Route::resource('produkt', ProductController::class);
 
