@@ -99,11 +99,39 @@ class CartController extends Controller
     }
 
     public function load(){
+        session()->forget('cart');
+        $user = Auth::user();
 
+        $cart = null;
+        foreach($user->cartProducts as $cartProduct){
+            $id = $cartProduct->product->id;
+            $product = $cartProduct->product;
+            $quantity = $cartProduct->quantity;
+
+            // prvy produkt
+            if (!$cart) {
+                $cart = [
+                    $id => [
+                        "product" => $product,
+                        "quantity" => $quantity,
+                    ],
+                ];
+                session()->put('cart', $cart);
+            }
+            // pridanie dalsich produktov
+            else{
+                $cart[$id] = [
+                    "product" => $product,
+                    "quantity" => $quantity,
+                ];
+                session()->put('cart', $cart);
+            }
+        }
+
+        return redirect('/');
     }
 
-    public function transportation()
-    {
+    public function transportation(){
         return view('eshop.cart.transportation');
     }
 
