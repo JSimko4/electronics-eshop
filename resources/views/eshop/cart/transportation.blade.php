@@ -18,8 +18,8 @@
                                         Zvoľte spôsob dopravy
                                         <select class="form-select form-select-lg mb-3" >
                                             <optgroup label="Zvoľte spôsob dopravy"></optgroup>
-                                            <option value="1">Sloveska pošta + 2.99€ (doručenie do 3-4 dni)</option>
-                                            <option value="2">DHL-expresná doprava + 4€ (doručenie do 2 dní)</option>
+                                            <option value="1">Slovenská pošta (doručenie do 3-4 dni)</option>
+                                            <option value="2">DHL-expresná doprava (doručenie do 2 dní)</option>
                                         </select>
                                     </label>
                             </div>
