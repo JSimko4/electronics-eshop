@@ -5,83 +5,84 @@
         <div class="d-flex justify-content-center align-items-start col-xl-2 col-12 px-2 mt-4 mb-3">
             <section class="d-flex flex-column filters p-3">
                 <h1 class="fs-3 text-center filter-text">Filtrovanie</h1>
+                @if (isset($subcategory_name))
+                    <form method="POST" role="filter" action="/filter/{{$category_name}}/{{$subcategory_name}}/filteros">
 
-                <section class="mt-4">
-                    <h1 class="fs-5">Zoradiť:</h1>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                        <label class="form-check-label" for="flexRadioDefault2">Vzostupne</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">Zostupne</label>
-                    </div>
-                </section>
 
-                <section class="mt-4">
-                    <h1 class="fs-5">Cena:</h1>
-                    <div class="input-group input-group-sm mb-2">
-                        <span class="input-group-text price-text" id="min">Min:</span>
-                        <input type="number" class="form-control py-2" aria-label="Small" aria-describedby="min" min="0">
-                        <span class="input-group-text">€</span>
-                    </div>
 
-                    <div class="input-group input-group-sm">
-                        <span class="input-group-text price-text" id="max">Max:</span>
-                        <input type="number" class="form-control py-2" aria-label="Small" aria-describedby="max" min="0">
-                        <span class="input-group-text">€</span>
-                    </div>
-                </section>
 
-                <section class="mt-4">
-                    <h1 class="fs-5">Operačná pamäť:</h1>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="ram1">
-                        <label class="form-check-label" for="ram1">
-                            8GB
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="ram2">
-                        <label class="form-check-label" for="ram2">
-                            16GB a viac
-                        </label>
-                    </div>
-                </section>
+                        @else
+                            <form method="POST" role="filter" action="/filter/{{$category_name}}/filteros">
+                            @endif
+                    {{ csrf_field() }}
 
-                <section class="mt-4">
-                    <h1 class="fs-5">Vnútorna pamäť:</h1>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="hard1">
-                        <label class="form-check-label" for="hard1">
-                            256GB
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="hard2">
-                        <label class="form-check-label" for="hard2">
-                            512GB a viac
-                        </label>
-                    </div>
-                </section>
+                    <section class="mt-4">
+                        <h1 class="fs-5">Zoradiť:</h1>
+                        <div class="form-check">
+                            <input class="form-check-input" type='hidden' name="order" value=0 id="flexRadioDefault2">
+                            <input class="form-check-input" type="radio" name="order" value=1  id="flexRadioDefault2"
+                                   checked>
+                            <label class="form-check-label" for="flexRadioDefault2">Vzostupne</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type='hidden' name="order" value=0 id="flexRadioDefault1">
+                            <input class="form-check-input" type="radio" name="order"  value=2 id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">Zostupne</label>
+                        </div>
+                    </section>
 
-                <section class="mt-4">
-                    <h1 class="fs-5">Farba:</h1>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="farba1">
-                        <label class="form-check-label" for="farba1">
-                            Čierna
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="farba2">
-                        <label class="form-check-label" for="farba2">
-                            Sivá
-                        </label>
-                    </div>
-                </section>
+                    <section class="mt-4">
+                        <h1 class="fs-5">Cena:</h1>
+                        <div class="input-group input-group-sm mb-2">
+                            <span class="input-group-text price-text" id="min_price">Min:</span>
+                            <div class="col col-4 col-lg-9">
+                                <input name='min_price' type='hidden' placeholder="...€"  value =0 class="form-control">
+                                <input name="min_price" type="text" placeholder="...€" value =1 class="form-control">
+                            </div>
+                        </div>
 
-                <a href="" class="text-center col-12 header-button mt-5">Filtrovať</a>
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-text price-text" id="max_price">Max:</span>
+                            <div class="col col-4 col-lg-9">
+                                <input name='max_price' type='hidden' placeholder="...€"  value =0class="form-control">
+                                <input name="max_price" type="text" placeholder="...€"  value =1000 class="form-control">
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <section class="mt-4">
+                        <h1 class="fs-5">Operačná pamäť:</h1>
+                        @foreach ($memories as $memory)
+                            <div class="form-check col col-12">
+                                <input class="form-check-input" type='hidden' value='0' name='memory[]'>
+                                <input class="form-check-input" type="checkbox" value="{{$memory->id}}" name="memory[]">
+                                <label class="form-check-label">
+                                    {{$memory->memory}}
+                                </label>
+                            </div>
+                        @endforeach
+
+                    </section>
+
+
+
+                    <section class="mt-4">
+                        <h1 class="fs-5">Farba:</h1>
+                        @foreach ($colors as $color)
+                            <div class="form-check col col-12">
+                                <input class="form-check-input" type='hidden' value='0' name='color[]'>
+                                <input class="form-check-input" type="checkbox" value="{{$color->id}}" name="color[]">
+                                <label class="form-check-label">
+                                    {{$color->color}}
+                                </label>
+                            </div>
+                        @endforeach
+                    </section>
+
+
+                    <button type="submit" class="text-center col-12 header-button mt-5">Filtrovať</button>
+                </form>
             </section>
         </div>
 
@@ -97,14 +98,15 @@
             </div>
 
             @if (!isset($subcategory_name))
-            <section class="subcategories py-2 px-3 mt-1">
-                <h1 class="text-center font-color-footer">{{$category_name}}</h1>
-                <div class="d-flex justify-content-between flex-wrap mt-3">
-                    @foreach ($subcategories as $subcategory)
-                        <a href="/filter/{{$category_name}}/{{$subcategory->name}}" class="text-center header-button col-2 mx-1 mb-3">{{$subcategory->name}}</a>
-                    @endforeach
-                </div>
-            </section>
+                <section class="subcategories py-2 px-3 mt-1">
+                    <h1 class="text-center font-color-footer">{{$category_name}}</h1>
+                    <div class="d-flex justify-content-between flex-wrap mt-3">
+                        @foreach ($subcategories as $subcategory)
+                            <a href="/filter/{{$category_name}}/{{$subcategory->name}}"
+                               class="text-center header-button col-2 mx-1 mb-3">{{$subcategory->name}}</a>
+                        @endforeach
+                    </div>
+                </section>
             @endif
 
             <div class="d-flex justify-content-around flex-wrap mt-5">
@@ -115,10 +117,12 @@
                         </a>
                         <section class="product-bottom">
                             <div class="product-name-div ps-2 d-flex align-items-center">
-                                <a href="/produkt/{{$product->id}}" class="product-text text-center fs-5">{{$product->name}}</a>
+                                <a href="/produkt/{{$product->id}}"
+                                   class="product-text text-center fs-5">{{$product->name}}</a>
                             </div>
                             <div class="product-price-div px-3 d-flex align-items-center">
-                                <a href="/produkt/{{$product->id}}" class="product-text fs-5 text-center ms-3">{{$product->price}}€</a>
+                                <a href="/produkt/{{$product->id}}"
+                                   class="product-text fs-5 text-center ms-3">{{$product->price}}€</a>
                                 <a href="" class="mb-1 product-buy-bag"> <i class="bi bi-bag-plus-fill"></i> </a>
                             </div>
                         </section>

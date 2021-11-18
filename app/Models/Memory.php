@@ -10,6 +10,6 @@ class Memory extends Model
     protected $fillable = ['memory'];
 
     public function products(){
-        return $this->hasMany(Product::class, "memory_id");
+        return $this->hasMany(Product::class);
     }
 }

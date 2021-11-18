@@ -23,8 +23,15 @@ Route::get('/', function () {
 });
 
 Route::resource('produkt', ProductController::class);
+
+
+
+
 Route::get('filter/{category}', [ProductController::class, 'getCategory']);
+Route::post('filter/{category}/filteros', [ProductController::class, 'filter_cat']);
 Route::get('filter/{category}/{subcategory}', [ProductController::class, 'getSubcategory']);
+Route::post('filter/{category}/{subcategory}/filteros', [ProductController::class, 'filter_subcat']);
+
 Route::get('/search/', [ProductController::class, 'search'])->name('search');
 
 Route::get('cart', [CartController::class, 'index']);
@@ -40,5 +47,7 @@ Route::view('faq', "eshop.footer_views.faq");
 Route::view('business_conditions', "eshop.footer_views.business_conditions");
 Route::view('admin', "eshop.admin");
 Route::view('allProducts', "eshop.allProducts");
+
+
 
 require __DIR__.'/auth.php';

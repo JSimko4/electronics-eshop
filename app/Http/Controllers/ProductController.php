@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\SubCategory;
-
+use App\Models\Color;
+use App\Models\Memory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -21,8 +22,9 @@ class ProductController extends Controller
 
         $products = $category->products()->orderBy("id", "asc")->paginate(6);
         $subcategories = $category->subcategories();
-
-        return view('eshop.filter')->with(compact('category_name', 'products', 'subcategories'));
+        $memories = Memory::all();
+        $colors = Color::all();
+        return view('eshop.filter')->with(compact('category_name', 'products', 'subcategories', 'memories', 'colors'));
     }
 
     // link /filter/kategorie/podkategoria -> nepotrebuje zobrazovat podkategorie
@@ -34,8 +36,9 @@ class ProductController extends Controller
             abort(404);
 
         $products = $subcategory->products()->orderBy("id", "asc")->paginate(6);
-
-        return view('eshop.filter')->with(compact('category_name', 'subcategory_name', 'products'));
+        $memories = Memory::all();
+        $colors = Color::all();
+        return view('eshop.filter')->with(compact('category_name', 'subcategory_name', 'products', 'memories', 'colors'));
     }
 
     /**
@@ -56,6 +59,92 @@ class ProductController extends Controller
 
         return view('eshop.search', compact('products'));
     }
+    #filtrovanie ked som v hladnej kategorii
+    public function filter_cat(Request $request,$category_name)
+    {   $category = Category::where("name", $category_name)->first();
+        $subcategories = $category->subcategories();
+        $memories = Memory::all();
+        $colors = Color::all();
+        if(!$request->color){
+            $request->color = Color::select('id');
+
+        }
+        if(!$request->min_price){
+            $request->min_price = PHP_INT_MAX;
+        }
+        if(!$request->max_price){
+            $request->max_price = PHP_INT_MAX;
+        }
+        if(!$request->memory){
+            $request->memory = Memory::select('id');
+        }
+        $category_id[]= Category::where("name", $category_name)->first()->id;
+        if($request->input('order') !=2) {
+            $ordered_by = 'asc';
+        }
+        if($request->input('order') ==2) {
+            $ordered_by = 'desc';
+        }
+        $products = Product::where('price', '<', $request->max_price)
+             ->where('price', '>', $request->min_price)
+            ->whereIn('memory_id', $request->memory)
+            ->orderBY('price',$ordered_by)
+            ->whereIn('color_id', $request->color)
+            ->whereIn('category_id',$category_id)
+            ->paginate(50);
+
+        return view('eshop.filter')->with(compact('category_name', 'products', 'subcategories', 'memories', 'colors'));
+
+    }
+
+#filtrovanie ked som v podkategorii
+    public function filter_subcat(Request $request,$category_name, $subcategory_name)
+    {
+        $subcategory_id[] = SubCategory::where("name", $subcategory_name)->first()->id;
+        $memories = Memory::all();
+        $colors = Color::all();
+        
+        if(!$request->color){
+            $request->color = Color::select('id');
+
+        }
+        if(!$request->min_price){
+            $request->min_price = PHP_INT_MAX;
+        }
+        if(!$request->max_price){
+            $request->max_price = PHP_INT_MAX;
+        }
+        if(!$request->memory){
+            $request->memory = Memory::select('id');
+        }
+        if($request->input('order') !=2) {
+            $ordered_by = 'asc';
+        }
+        if($request->input('order') ==2) {
+            $ordered_by = 'desc';
+        }
+
+       $category_id[]= Category::where("name", $category_name)->first()->id;
+
+
+        $products = Product::where('price', '<', $request->max_price )
+            ->where('price', '>', $request->min_price)
+
+            ->orderBY('price',$ordered_by)
+            ->whereIn('memory_id', $request->memory)
+            ->whereIn('color_id', $request->color)
+            ->whereIn('category_id',$category_id)
+            ->whereIn('subcategory_id',$subcategory_id)
+            ->paginate(50);
+
+
+
+
+        return view('eshop.filter')->with(compact('category_name', 'subcategory_name', 'products', 'memories', 'colors'));
+
+    }
+
+
 
     /**
      * Show the form for creating a new resource.

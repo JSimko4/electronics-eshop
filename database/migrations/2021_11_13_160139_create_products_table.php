@@ -19,7 +19,8 @@ class CreateProductsTable extends Migration
             $table->string("description");
 
             $table->integer("price");
-            $table->string("color");
+            $table->string("color_id");
+            $table->string("memory_id");
             $table->string("category_id");
             $table->string("subcategory_id");
             $table->timestamps();
