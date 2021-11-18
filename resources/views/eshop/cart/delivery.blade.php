@@ -90,8 +90,8 @@
                                     </div>
 
                                     <div class=" container d-flex flex-column justify-content-between align-items-between col-10 ">
-                                        <a href="index" class=" btn btn-primary btn-block mt-2">Zaplatiť</a>
-                                        <a href="transportation" class="btn btn-secondary btn-block mt-2">Vrátiť sa na dopravu</a>
+                                        <a href="/" class=" btn btn-primary btn-block mt-2">Zaplatiť</a>
+                                        <a href="/cart/transportation" class="btn btn-secondary btn-block mt-2">Vrátiť sa na dopravu</a>
                                     </div>
                                 </form>
                             </div>
