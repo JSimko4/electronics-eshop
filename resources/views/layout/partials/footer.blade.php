@@ -11,11 +11,11 @@
                 <h5 class="mb-3 font-color-footer">Užitočné odkazy</h5>
                 <ul class="list-unstyled mb-0 ">
                     <li class="mb-1 ">
-                        <a class ="pageing" href="faq" >FAQ</a>
+                        <a class ="pageing" href="/faq" >FAQ</a>
                     </li>
 
                     <li class="mb-1">
-                        <a class ="pageing" href="business_conditions" >Obchodné podmienky</a>
+                        <a class ="pageing" href="/business_conditions" >Obchodné podmienky</a>
                     </li>
                 </ul>
             </div>
