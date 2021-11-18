@@ -6,20 +6,24 @@
             <div class="col-lg-8 pt-4 ">
                 <h5 class="mt-4 mb-4">Zoznam všetkých produktov na stránke (2)</h5>
                 <div class="row mb-4">
-                    <div class="col-md-5 col-lg-3 col-xl-3 mb-3 mb-md-1">
-                        <img class="img-fluid w-100"
-                             src="img/acer_nitro.jpg" alt="acer_nitro">
-                    </div>
-
-                    <div class="col-md-7 col-lg-9 col-xl-9">
-                        <div>
-                            <div class="d-flex justify-content-between">
-                                <div>
-                                    <h5>Acer nitro 5 </h5><!--https://www.google.com/search?q=acer+nitro+5&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjR14W-oPrzAhWM_bsIHbPHBTMQ_AUoAXoECAEQAw&biw=960&bih=968#imgrc=lQvfPB0n6VO_QM -->
-                                    <p >500 Gb SSD verzia</p>
+                    @foreach($products as $product)
+                        <hr class="mt-4 mb-4">
+                        <article class="row mb-4">
+                            <div class="col-md-5 col-lg-3 col-xl-3 mb-3 mb-md-1">
+                                <img class="img-fluid w-100" src="img/{{$product->first_image()}}" alt="acer_nitro">
+                            </div>
+                            <div class="col-md-7 col-lg-9 col-xl-9">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h5>{{$product->name}}</h5>
+                                        <p>{{$product->description}}</p>
+                                        <button class="btn btn-danger btn-sm remove-from-cart" data-id="{{$product->id}}"><i class="fa fa-trash-o"></i> Odstrániť z košíka</button>
+                                    </div>
+                                    <div>
+                                        <p class="mt-2 text-center">Cena: <strong>{{$product->price}}€</strong></p>
+                                    </div>
                                 </div>
                             </div>
-                            <!-- odstranenie z boostrap stranky -->
                             <div class="container d-flex justify-content-between align-items-center">
                                 <div class="row">
                                     <a href="#!"  class="card-link-secondary small text-uppercase mr-3">
@@ -37,11 +41,11 @@
                                 </div>
                                 <p class="mb-1"><strong>12.99€</strong></p >
                             </div>
-                        </div>
-                    </div>
+                        </article>
+                    @endforeach
                 </div>
-                <hr class="mb-4">
             </div>
+
             <div class="col-lg-3">
                 <div class="mb-4">
                     <div class="pt-5">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DeliveryDetailsController;
@@ -46,7 +47,9 @@ Route::get('cart/delivery', [CartController::class, 'delivery']);
 
 Route::view('faq', "eshop.footer_views.faq");
 Route::view('business_conditions', "eshop.footer_views.business_conditions");
-Route::view('admin', "eshop.admin.admin");
+
+// admin routes
+Route::get('admin', [AdminController::class, 'index']);
 
 
 require __DIR__.'/auth.php';

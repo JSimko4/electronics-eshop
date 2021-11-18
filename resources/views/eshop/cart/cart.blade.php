@@ -14,7 +14,7 @@
                     <h4 class="mt-4 mb-4">Počet rozlišných produktov v košiku (<?php echo count(session('cart')) ?>)</h4>
                     @foreach(session('cart') as $id => $details)
                         <hr class="mt-4 mb-4">
-                        <div class="row mb-4">
+                        <article class="row mb-4">
                             <div class="col-md-5 col-lg-3 col-xl-3 mb-3 mb-md-1">
                                 <img class="img-fluid w-100" src="img/{{$details['product']->first_image()}}" alt="acer_nitro">
                             </div>
@@ -32,7 +32,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </article>
                     @endforeach
                 @else
                     <h5 class="mt-4 mb-4">Počet rozlišných produktov v košiku  (0)</h5>
