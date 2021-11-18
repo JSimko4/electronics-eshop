@@ -94,6 +94,9 @@ class CartController extends Controller
     }
 
     public function getTotal($cart){
+        if ($cart == null)
+            return 0;
+
         $total = 0;
         foreach ($cart as $id => $details){
             $total += $details['product']->price * $details['quantity'];
