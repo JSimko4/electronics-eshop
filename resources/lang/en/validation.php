@@ -87,7 +87,7 @@ return [
     'mimes' => 'The :attribute must be a file of type: :values.',
     'mimetypes' => 'The :attribute must be a file of type: :values.',
     'min' => [
-        'numeric' => 'The :attribute must be at least :min.',
+        'numeric' => 'e :attribute musi mat aspon  :min. cislic',
         'file' => 'The :attribute must be at least :min kilobytes.',
         'string' => ' :attribute musi mat  :min znakov.',
         'array' => 'The :attribute must have at least :min items.',
@@ -99,7 +99,7 @@ return [
     'password' => 'Heslo je nesprávne.',
     'present' => 'The :attribute field must be present.',
     'regex' => 'The :attribute format is invalid.',
-    'required' => 'e :attribute je potrebne vyplnit.',
+    'required' => ' :attribute je potrebne vyplnit.',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
     'required_with' => 'The :attribute field is required when :values is present.',

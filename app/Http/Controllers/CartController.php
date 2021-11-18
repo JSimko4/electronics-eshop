@@ -95,14 +95,14 @@ class CartController extends Controller
             'name' => 'required|string|max:255',
             'surname' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'telephone_number' => 'required|min:8|numeric',
+            'telelefone_cislo' => 'required|min:8|numeric',
             'street' => 'required|string|max:255',
             'town' => 'required|string|max:255',
             'psc' => 'required|string|max:255',
         ]);
 
-        session()->flash('success', true);
-        return redirect()->back();
+        
+        return redirect()->back()->with('success', 'Objednávka prebehla úspešne');
     }
 
     public function index()

@@ -5,11 +5,7 @@
     <section class="bg-image register-width  register-width1 container-fluid">
         <form method="POST" action="{{ route('validate_delivery') }}" class="py-3 p-5">
             @csrf
-            @if ($success)
-                <div class="alert alert-success">
-                    Ste si objednali uspešne
-                </div>
-            @endif
+
             <div class="row">
 
                 @if ($errors->any())
@@ -63,10 +59,10 @@
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="telephone_number">Telefónne číslo</label>
-                                        <input type="text" id="telephone_number" name="telephone_number"
-                                               class="form-control  @error('telephone_number') is-invalid @enderror  form-control-lg"required>
-                                        @error('telephone_number')
+                                        <label class="form-label" for="telelefone_cislo">Telefónne číslo</label>
+                                        <input type="text" id="telelefone_cislo" name="telelefone_cislo"
+                                               class="form-control  @error('telelefone_cislo') is-invalid @enderror  form-control-lg"required>
+                                        @error('telelefone_cislo')
                                         <span class="invalid-feedback">{{ $message }}</span>
                                         @enderror
                                     </div>
