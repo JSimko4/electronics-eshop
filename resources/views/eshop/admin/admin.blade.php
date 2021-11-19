@@ -19,10 +19,8 @@
                                 <p class="my-3">{{$product->description}}</p>
                                 <p>Cena: <strong>{{$product->price}}€</strong></p>
                                 <div class="row d-flex justify-content-between">
-                                    <button class="btn btn-primary btn-sm mt-3 col-5" data-id="{{$product->id}}"><i class="bi bi-pencil-square"></i> Zmeniť názov</button>
-                                    <button class="btn btn-primary btn-sm mt-3 col-5" data-id="{{$product->id}}"><i class="bi bi-pencil-square"></i> Zmeniť popis</button>
-                                    <button class="btn btn-primary btn-sm mt-3 col-5" data-id="{{$product->id}}"><i class="bi bi-pencil-square"></i> Zmeniť cenu</button>
-                                    <button class="btn btn-primary btn-sm mt-3 col-5" data-id="{{$product->id}}"><i class="bi bi-images"></i> Zmeniť fotky</button>
+                                    <a class="btn btn-primary btn-sm mt-3 col-12" href="/admin/edit/{{$product->id}}"><i class="bi bi-pencil-square"></i> Zmeniť názov, popis alebo cenu</a>
+                                    <a class="btn btn-primary btn-sm mt-3 col-12" href=""><i class="bi bi-images"></i> Zmeniť fotky</a>
                                     <form method="POST" action="/admin/delete/{{$product->id}}" class="px-0">
                                         {{ csrf_field() }}
                                         @method('DELETE')
