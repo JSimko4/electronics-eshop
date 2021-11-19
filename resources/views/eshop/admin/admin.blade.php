@@ -23,7 +23,11 @@
                                     <button class="btn btn-primary btn-sm mt-3 col-5" data-id="{{$product->id}}"><i class="bi bi-pencil-square"></i> Zmeniť popis</button>
                                     <button class="btn btn-primary btn-sm mt-3 col-5" data-id="{{$product->id}}"><i class="bi bi-pencil-square"></i> Zmeniť cenu</button>
                                     <button class="btn btn-primary btn-sm mt-3 col-5" data-id="{{$product->id}}"><i class="bi bi-images"></i> Zmeniť fotky</button>
-                                    <button class="btn btn-danger btn-sm mt-3 col-12 me-2" data-id="{{$product->id}}"><i class="fa fa-trash-o"></i> Odstrániť produkt</button>
+                                    <form method="POST" action="/admin/delete/{{$product->id}}" class="px-0">
+                                        {{ csrf_field() }}
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm mt-3 col-12 me-2"><i class="fa fa-trash-o"></i> Odstrániť produkt</button>
+                                    </form>
                                 </div>
                             </div>
                         </article>

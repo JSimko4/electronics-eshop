@@ -81,6 +81,26 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+
+        // vymaze produkt zo session
+        $cart = session()->get('cart');
+        if($cart != null and $cart[$id] != null) {
+            unset($cart[$id]);
+        }
+        session()->put('cart', $cart);
+
+        // vymaze z db fotky naviazane na produkt
+        foreach($product->images as $image){
+            $image->delete();
+        }
+
+        // vymaze produkt z db ulozeneho košika pouzivatela
+        foreach($product->cartProducts as $cartProduct){
+            $cartProduct->delete();
+        }
+
+        $product->delete();
+        return redirect()->back()->with('success', 'Produkt bol vymazaný!');
     }
 }

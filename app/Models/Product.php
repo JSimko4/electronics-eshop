@@ -17,4 +17,8 @@ class Product extends Model
     public function first_image(){
         return $this->hasMany(Image::class)->first()->filename;
     }
+
+    public function cartProducts(){
+        return $this->hasMany(CartProduct::class);
+    }
 }

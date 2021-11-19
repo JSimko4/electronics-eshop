@@ -105,4 +105,11 @@
         </div>
     @endif
 
+    @if(Session::get('fail'))
+        <div class="alert alert-danger alert-dismissible fade show mt-1 mb-1" role="alert">
+            <strong>{{session::get('fail')}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
 </header>
