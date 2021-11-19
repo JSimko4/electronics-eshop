@@ -50,8 +50,9 @@ Route::view('business_conditions', "eshop.footer_views.business_conditions");
 
 // admin routes
 Route::get('admin', [AdminController::class, 'index']);
-Route::patch('admin/edit/{id}', [AdminController::class, '']);
-Route::delete('admin/delete/{id}', [AdminController::class, 'destroy']);
+Route::get('admin/edit/{id}', [AdminController::class, 'loadEdit']);
+Route::get('admin/{id}/edit', [AdminController::class, 'edit']);
+Route::delete('admin/{id}', [AdminController::class, 'destroy']);
 
 
 require __DIR__.'/auth.php';

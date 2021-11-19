@@ -50,15 +50,26 @@ class AdminController extends Controller
         //
     }
 
+    public function loadEdit($id){
+        $product = Product::find($id);
+        return view('eshop.admin.edit')->with('product', $product);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+
+        $product->update(['name' => $request->name]);
+        $product->update(['price' => $request->price]);
+        $product->update(['description' => $request->description]);
+
+        return redirect('/admin')->with('success', 'Produkt bol upravený!');
     }
 
     /**

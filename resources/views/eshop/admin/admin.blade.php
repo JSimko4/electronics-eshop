@@ -21,7 +21,7 @@
                                 <div class="row d-flex justify-content-between">
                                     <a class="btn btn-primary btn-sm mt-3 col-12" href="/admin/edit/{{$product->id}}"><i class="bi bi-pencil-square"></i> Zmeniť názov, popis alebo cenu</a>
                                     <a class="btn btn-primary btn-sm mt-3 col-12" href=""><i class="bi bi-images"></i> Zmeniť fotky</a>
-                                    <form method="POST" action="/admin/delete/{{$product->id}}" class="px-0">
+                                    <form method="POST" action="/admin/{{$product->id}}" class="px-0">
                                         {{ csrf_field() }}
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger btn-sm mt-3 col-12 me-2"><i class="fa fa-trash-o"></i> Odstrániť produkt</button>
