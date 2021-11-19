@@ -10,7 +10,7 @@
             </div>
             <div class="form-group mb-3">
                 <label for="value_input">Cena</label>
-                <input type="number" class="form-control" id="value_input" value="{{$product->price}}" name="price">
+                <input type="number" class="form-control" id="value_input" min="0" value="{{$product->price}}" name="price">
             </div>
 
             <div class="form-group mb-3">

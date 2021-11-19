@@ -50,6 +50,11 @@ class AdminController extends Controller
         //
     }
 
+    public function loadImages($id){
+        $product = Product::find($id);
+        return view('eshop.admin.images')->with('product', $product);
+    }
+
     public function loadEdit($id){
         $product = Product::find($id);
         return view('eshop.admin.edit')->with('product', $product);
