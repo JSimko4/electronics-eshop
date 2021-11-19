@@ -49,12 +49,12 @@ Route::view('faq', "eshop.footer_views.faq");
 Route::view('business_conditions', "eshop.footer_views.business_conditions");
 
 // admin routes
-Route::get('admin', [AdminController::class, 'index']);
-Route::get('admin/edit-images/{id}', [AdminController::class, 'loadImages']);
+Route::get('admin', [AdminController::class, 'index'])->middleware('adminAuth');
+Route::get('admin/edit-images/{id}', [AdminController::class, 'loadImages'])->middleware('adminAuth');
 
-Route::get('admin/edit/{id}', [AdminController::class, 'loadEdit']);
-Route::get('admin/{id}/edit', [AdminController::class, 'edit']);
-Route::delete('admin/{id}', [AdminController::class, 'destroy']);
+Route::get('admin/edit/{id}', [AdminController::class, 'loadEdit'])->middleware('adminAuth');
+Route::get('admin/{id}/edit', [AdminController::class, 'edit'])->middleware('adminAuth');
+Route::delete('admin/{id}', [AdminController::class, 'destroy'])->middleware('adminAuth');
 
 
 require __DIR__.'/auth.php';
