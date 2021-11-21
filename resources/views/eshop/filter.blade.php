@@ -6,13 +6,13 @@
             <section class="d-flex flex-column filters p-3">
                 <h1 class="fs-3 text-center filter-text">Filtrovanie</h1>
                 @if (isset($subcategory_name))
-                    <form method="POST" role="filter" action="/filter/{{$category_name}}/{{$subcategory_name}}/filteros">
+                    <form method="GET" role="filter" action="/filter/{{$category_name}}/{{$subcategory_name}}/filteros">
 
 
 
 
                         @else
-                            <form method="POST" role="filter" action="/filter/{{$category_name}}/filteros">
+                            <form method="GET" role="filter" action="/filter/{{$category_name}}/filteros">
                             @endif
                     {{ csrf_field() }}
 
@@ -123,7 +123,7 @@
                             <div class="product-price-div px-3 d-flex align-items-center">
                                 <a href="/produkt/{{$product->id}}"
                                    class="product-text fs-5 text-center ms-3">{{$product->price}}€</a>
-                                <a href="{{ url('add-to-cart/'.$product->id) }}" class="mb-1 product-buy-bag"> <i class="bi bi-bag-plus-fill"></i> </a>
+                                <a href="{{ url('/add-to-cart/'.$product->id) }}" class="mb-1 product-buy-bag"> <i class="bi bi-bag-plus-fill"></i> </a>
                             </div>
                         </section>
                     </article>

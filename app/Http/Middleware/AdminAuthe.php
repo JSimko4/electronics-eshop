@@ -22,7 +22,7 @@ class AdminAuthe
             return $next($request);
         }
         else{
-            abort(401, 'This action is unauthorized.');
+            abort(401, 'Zakazaný pristup bez admin oprávení');
         }
 
     }

@@ -30,14 +30,14 @@ Route::resource('produkt', ProductController::class);
 Route::post('cart/delivery', [CartController::class, 'validate_delivery'])->name('validate_delivery');
 
 Route::get('filter/{category}', [ProductController::class, 'getCategory']);
-Route::post('filter/{category}/filteros', [ProductController::class, 'filter_cat']);
+Route::get('filter/{category}/filteros', [ProductController::class, 'filterCat']);
 Route::get('filter/{category}/{subcategory}', [ProductController::class, 'getSubcategory']);
-Route::post('filter/{category}/{subcategory}/filteros', [ProductController::class, 'filter_subcat']);
+Route::get('filter/{category}/{subcategory}/filteros', [ProductController::class, 'filterSubcat']);
 
 Route::get('/search/', [ProductController::class, 'search'])->name('search');
 
 Route::get('cart', [CartController::class, 'index']);
-Route::get('add-to-cart/{id}', [CartController::class, 'addToCart']);
+Route::get('/add-to-cart/{id}', [CartController::class, 'addToCart']);
 Route::get('remember', [CartController::class, 'remember']);
 Route::patch('update-cart', [CartController::class, 'update']);
 Route::delete('remove-from-cart', [CartController::class, 'remove']);

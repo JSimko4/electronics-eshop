@@ -14,10 +14,11 @@ class ProductController extends Controller
 {
 
     // link /filter/kategoria -> potrebuje zobrazit dane podkategorie
-    public function getCategory($category_name){
+    public function getCategory($category_name)
+    {
         $category = Category::where("name", $category_name)->first();
 
-        if(!$category)
+        if (!$category)
             abort(404);
 
         $products = $category->products()->orderBy("id", "asc")->paginate(6);
@@ -28,11 +29,12 @@ class ProductController extends Controller
     }
 
     // link /filter/kategorie/podkategoria -> nepotrebuje zobrazovat podkategorie
-    public function getSubcategory($category_name, $subcategory_name){
+    public function getSubcategory($category_name, $subcategory_name)
+    {
         $category = Category::where("name", $category_name)->first();
         $subcategory = SubCategory::where("name", $subcategory_name)->first();
 
-        if(!$category || !$subcategory)
+        if (!$category || !$subcategory)
             abort(404);
 
         $products = $subcategory->products()->orderBy("id", "asc")->paginate(6);
@@ -53,155 +55,135 @@ class ProductController extends Controller
     }
 
     #funkcia na vyhladanie retazca
-    public function search(Request $request){
+    public function search(Request $request)
+    {
         $search = strtoupper($request->input('search'));
         $products = Product::query()->where(DB::raw('upper(name)'), 'LIKE', "%{$search}%")->paginate(6);
 
         return view('eshop.search', compact('products'));
     }
+
     #filtrovanie ked som v hladnej kategorii
-    public function filter_cat(Request $request,$category_name)
-    {   $category = Category::where("name", $category_name)->first();
+    public function filterCat(Request $request, $category_name)
+    {
+        $category = Category::where("name", $category_name)->first();
         $subcategories = $category->subcategories();
         $memories = Memory::all();
         $colors = Color::all();
 
-        $decider=0;
-        foreach ($request->memory as $memory ){
-            if($memory!=0)
-            {
-                $decider=1;
-
-
+        $decider = 0;
+        foreach ($request->memory as $memory) {
+            if ($memory != 0) {
+                $decider = 1;
             }
-
         }
-        $decider1=0;
-        foreach ($request->color as $color ){
-            if($color!=0)
-            {
-                $decider1=1;
-
-
+        $decider1 = 0;
+        foreach ($request->color as $color) {
+            if ($color != 0) {
+                $decider1 = 1;
             }
-
         }
 
-        if(!$request->color){
+        if (!$request->color) {
             $request->color = Color::select('id');
 
         }
-        if(!$request->min_price){
+        if (!$request->min_price) {
             $request->min_price = 0;
         }
-        if(!$request->max_price){
+        if (!$request->max_price) {
             $request->max_price = PHP_INT_MAX;
         }
-        if(!$request->memory){
+        if (!$request->memory) {
             $request->memory = Memory::select('id');
         }
-        $category_id[]= Category::where("name", $category_name)->first()->id;
+        $category_id[] = Category::where("name", $category_name)->first()->id;
 
-        if($request->input('order') !=2) {
+        if ($request->input('order') != 2) {
             $ordered_by = 'asc';
         }
-        if($request->input('order') ==2) {
+        if ($request->input('order') == 2) {
             $ordered_by = 'desc';
         }
         $products = Product::where('price', '<', $request->max_price)
-             ->where('price', '>', $request->min_price)
-
-            ->orderBY('price',$ordered_by);
-            if($decider ==1){
-                $products=$products->whereIn('memory_id', $request->memory);
-            }
-        if($decider1 ==1){
-            $products=$products->whereIn('color_id', $request->color);
+            ->where('price', '>', $request->min_price)
+            ->orderBY('price', $ordered_by);
+        if ($decider == 1) {
+            $products = $products->whereIn('memory_id', $request->memory);
         }
-            $products=$products->whereIn('category_id',$category_id)
-            ->whereIn('category_id',$category_id)
-            ->paginate(50);
+        if ($decider1 == 1) {
+            $products = $products->whereIn('color_id', $request->color);
+        }
+        $products = $products->whereIn('category_id', $category_id)
+            ->whereIn('category_id', $category_id)
+            ->paginate(6);
 
         return view('eshop.filter')->with(compact('category_name', 'products', 'subcategories', 'memories', 'colors'));
 
     }
 
 #filtrovanie ked som v podkategorii
-    public function filter_subcat(Request $request,$category_name, $subcategory_name)
+    public function filterSubcat(Request $request, $category_name, $subcategory_name)
     {
         $subcategory_id[] = SubCategory::where("name", $subcategory_name)->first()->id;
         $memories = Memory::all();
         $colors = Color::all();
 
-        $decider=0;
-        foreach ($request->memory as $memory ){
-            if($memory!=0)
-            {
-                $decider=1;
-
-
+        $decider = 0;
+        foreach ($request->memory as $memory) {
+            if ($memory != 0) {
+                $decider = 1;
             }
 
         }
-        $decider1=0;
-        foreach ($request->color as $color ){
-            if($color!=0)
-            {
-                $decider1=1;
-
+        $decider1 = 0;
+        foreach ($request->color as $color) {
+            if ($color != 0) {
+                $decider1 = 1;
             }
-
         }
 
-        if(!$request->color){
+        if (!$request->color) {
             $request->color = Color::select('id');
 
         }
-        if(!$request->min_price){
+        if (!$request->min_price) {
             $request->min_price = 0;
         }
-        if(!$request->max_price){
+        if (!$request->max_price) {
             $request->max_price = PHP_INT_MAX;
         }
-        if(!$request->memory){
+        if (!$request->memory) {
             $request->memory = Memory::select('id');
         }
 
-        if($request->input('order') !=2) {
+        if ($request->input('order') != 2) {
             $ordered_by = 'asc';
         }
-        if($request->input('order') ==2) {
+        if ($request->input('order') == 2) {
             $ordered_by = 'desc';
         }
 
-       $category_id[]= Category::where("name", $category_name)->first()->id;
+        $category_id[] = Category::where("name", $category_name)->first()->id;
 
 
-
-
-        $products = Product::where('price', '<', $request->max_price )
-
+        $products = Product::where('price', '<', $request->max_price)
             ->where('price', '>', $request->min_price)
-
-            ->orderBY('price',$ordered_by);
-            if($decider ==1){
-            $products=$products->whereIn('memory_id', $request->memory);
-            }
-        if($decider1 ==1){
-            $products=$products->whereIn('color_id', $request->color);
+            ->orderBY('price', $ordered_by);
+        if ($decider == 1) {
+            $products = $products->whereIn('memory_id', $request->memory);
         }
-            $products=$products->whereIn('category_id',$category_id)
-
-            ->whereIn('subcategory_id',$subcategory_id)
-            ->paginate(50);
-
-
+        if ($decider1 == 1) {
+            $products = $products->whereIn('color_id', $request->color);
+        }
+        $products = $products->whereIn('category_id', $category_id)
+            ->whereIn('subcategory_id', $subcategory_id)
+            ->paginate(6);
 
 
         return view('eshop.filter')->with(compact('category_name', 'subcategory_name', 'products', 'memories', 'colors'));
 
     }
-
 
 
     /**
@@ -217,7 +199,7 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -228,7 +210,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -240,7 +222,7 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
     public function edit(Product $product)
@@ -251,8 +233,8 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Product $product)
@@ -263,7 +245,7 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
     public function destroy(Product $product)

@@ -36,14 +36,14 @@ class CartController extends Controller
                 ],
             ];
             session()->put('cart', $cart);
-            return redirect()->back()->with('success', $message);
+            return redirect()->back()->with('success', $message)->withInput();
         }
 
         // košik nie je prazdny a tento produkt už je v košiku - zvyš jeho množstvo
         if (isset($cart[$id])) {
             $cart[$id]['quantity'] += $quantity;
             session()->put('cart', $cart);
-            return redirect()->back()->with('success', $message);
+            return redirect()->back()->with('success', $message)->withInput();
         }
 
         // košik nie je prazdny a tento produkt nie je v košiku - pridaj ho
@@ -53,7 +53,7 @@ class CartController extends Controller
         ];
 
         session()->put('cart', $cart);
-        return redirect()->back()->with('success', $message);
+        return redirect()->back()->with('success', $message)->withInput();
     }
 
     public function update(Request $request)
@@ -154,6 +154,7 @@ class CartController extends Controller
             'town' => 'required|string|max:255',
             'psc' => 'required|string|max:255',
         ]);
+        session()->forget('cart');
         return redirect()->back()->with('success', 'Objednávka prebehla úspešne');
     }
 
