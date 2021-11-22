@@ -88,6 +88,24 @@ class ImageSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ),
+            array(
+                'product_id' => 8,
+                'filename' => 'xia.jpg',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ),
+            array(
+                'product_id' => 9,
+                'filename' => 'nokia33.jpg',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ),
+            array(
+                'product_id' => 10,
+                'filename' => 'phx.jpg',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ),
         );
 
         foreach ($images as $image){
