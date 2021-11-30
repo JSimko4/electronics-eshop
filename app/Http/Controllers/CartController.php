@@ -36,6 +36,7 @@ class CartController extends Controller
                 ],
             ];
             session()->put('cart', $cart);
+            $this->remember();
             return redirect()->back()->with('success', $message)->withInput();
         }
 
@@ -43,6 +44,7 @@ class CartController extends Controller
         if (isset($cart[$id])) {
             $cart[$id]['quantity'] += $quantity;
             session()->put('cart', $cart);
+            $this->remember();
             return redirect()->back()->with('success', $message)->withInput();
         }
 
@@ -53,6 +55,7 @@ class CartController extends Controller
         ];
 
         session()->put('cart', $cart);
+        $this->remember();
         return redirect()->back()->with('success', $message)->withInput();
     }
 
@@ -61,6 +64,7 @@ class CartController extends Controller
         $cart = session()->get('cart');
         $cart[$request->id]["quantity"] = $request->quantity;
         session()->put('cart', $cart);
+        $this->remember();
     }
 
     public function remove(Request $request)
@@ -69,6 +73,7 @@ class CartController extends Controller
         if (isset($cart[$request->id])) {
             unset($cart[$request->id]);
             session()->put('cart', $cart);
+            $this->remember();
         }
     }
 
@@ -92,9 +97,6 @@ class CartController extends Controller
             );
             DB::table('cart_products')->insert($data);
         }
-
-        $message = "Stav košíka bol uložený!";
-        return redirect()->back()->with('success', $message);
     }
 
     public function load(){

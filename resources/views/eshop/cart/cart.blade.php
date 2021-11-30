@@ -42,9 +42,6 @@
             <div class="col-lg-4 mb-5 pt-5 d-flex flex-column align-items-center">
                 <h5 class="mb-3 mt-3">Suma k úhrade: {{$total}}€</h5>
                 <a href="/cart/transportation" class="btn btn-primary btn-block">Prejsť na dopravu</a>
-                @auth
-                <a href="remember" class="btn btn-success btn-block mt-3">Uložiť košík</a>
-                @endauth
             </div>
         </div>
     </section>
