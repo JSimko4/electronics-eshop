@@ -9,6 +9,7 @@ use App\Models\Memory;
 use App\Models\Product;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
@@ -49,35 +50,36 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->hasfile('filenames'))
+        Validator::validate($request->all(), [
+            'name' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
+            'description' => 'required|string|max:1000',
+            'images' => 'required',
+        ]);
+
+        // vytvori produkt
+        $product = new Product();
+        $product->name = $request->input("name");
+        $product->category_id = $request->input("category");
+        $product->subcategory_id = $request->input("subcategory");
+        $product->color_id = $request->input("color");
+        $product->memory_id = $request->input("memory");
+        $product->price = $request->input("price");
+        $product->description = $request->input("description");
+        $product->save();
+
+        // nahra kazdy z obrazkov do databazktore pouzivatel vlozil
+        foreach($request->file('images') as $img)
         {
-            // vytvori produkt
-            $product = new Product();
-            $product->name = $request->input("name");
-            $product->category_id = $request->input("category");
-            $product->subcategory_id = $request->input("subcategory");
-            $product->color_id = $request->input("color");
-            $product->memory_id = $request->input("memory");
-            $product->price = $request->input("price");
-            $product->description = $request->input("description");
-            $product->save();
+            // ulozi fotku fyzicky
+            $name = $img->getClientOriginalName();
+            $img->move(public_path().'/img/', $name);
 
-            // nahra kazdy z obrazkov do databazktore pouzivatel vlozil
-            foreach($request->file('filenames') as $file)
-            {
-                // ulozi fotku fyzicky
-                $name = $file->getClientOriginalName(); // zahashovat??
-                $file->move(public_path().'/img/', $name);
-
-                // ulozi fotku do databazy a spoji ju s produktom
-                $image = new Image();
-                $image->product_id = $product->id;
-                $image->filename = $name;
-                $image->save();
-            }
-        }
-        else{
-            return back()->with('fail', 'Produkt nebol pridaný - potrebuje aspoň 1 fotku!');
+            // ulozi fotku do databazy a spoji ju s produktom
+            $image = new Image();
+            $image->product_id = $product->id;
+            $image->filename = $name;
+            $image->save();
         }
 
         return back()->with('success', 'Produkt bol úspešne pridaný!');

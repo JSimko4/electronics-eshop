@@ -39,6 +39,17 @@
             <div class="col-lg-3 order-md-1 order-lg-2">
                 <div class="mb-4">
                     <div class="pt-5">
+
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <strong>Produkt nebol pridaný!</strong>
+                                <br> <br>
+                                Skontrolujte či ste zadali správny názov, cenu a popis produktu.
+                                <br>
+                                Na úspešne pridanie produktu je nutné nahrať minimálne 1 fotku.
+                            </div>
+                        @endif
+
                         <form method="post" action="/admin/add" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="form-group mb-3">
@@ -94,12 +105,12 @@
 
                             <label for="formFile" class="form-label">Pridať fotky</label>
                             <div class="input-group increment" >
-                                <input type="file" name="filenames[]" class="form-control">
+                                <input type="file" name="images[]" class="form-control">
                                 <button class="btn btn-success btn-add-img" type="button">Ďalšie</button>
                             </div>
                             <div class="clone hide">
                                 <div class="control-group lst input-group mt-2">
-                                    <input type="file" name="filenames[]" class="form-control">
+                                    <input type="file" name="images[]" class="form-control">
                                     <button class="btn btn-danger btn-remove-img" type="button">Odstrániť</button>
                                 </div>
                             </div>
