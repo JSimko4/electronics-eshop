@@ -9,6 +9,7 @@ use App\Models\Memory;
 use App\Models\Product;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
@@ -152,8 +153,13 @@ class AdminController extends Controller
         }
         session()->put('cart', $cart);
 
-        // vymaze z db fotky naviazane na produkt
         foreach($product->images as $image){
+            // vymaze fyzicke obrazky z public/img
+            $path = "img/".$image->filename;
+            if (File::exists(public_path($path))) {
+                File::delete(public_path($path));
+            }
+            // vymaze z db
             $image->delete();
         }
 

@@ -116,8 +116,8 @@ class ProductSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ),
-            array('name' => 'Xbox s',
-                'description' => 'Xbox s  description',
+            array('name' => 'XBOX S',
+                'description' => 'XBOX S description',
                 'price' => 399,
                 'color_id' => '3',
                 'memory_id' => '5',
