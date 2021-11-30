@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Color;
+use App\Models\Image;
+use App\Models\Memory;
 use App\Models\Product;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -15,7 +20,15 @@ class AdminController extends Controller
     public function index()
     {
         $products = Product::orderBy("id", "asc")->paginate(6);
-        return view('eshop.admin.admin')->with('products', $products)->with('total', count($products));
+        $categories = Category::all();
+        $subcategories = SubCategory::all();
+        $memories = Memory::all();
+        $colors = Color::all();
+
+        return view('eshop.admin.admin')->with('products', $products)
+            ->with('categories', $categories)->with('subcategories', $subcategories)
+            ->with('memories', $memories)->with('colors', $colors)
+            ->with('total', count($products));
     }
 
     /**
@@ -36,7 +49,36 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request->hasfile('filenames'))
+        {
+            $product = new Product();
+            $product->name = $request->input("name");
+            $product->category_id = $request->input("category");
+            $product->subcategory_id = $request->input("subcategory");
+            $product->color_id = $request->input("color");
+            $product->memory_id = $request->input("memory");
+            $product->price = $request->input("price");
+            $product->description = $request->input("description");
+            $product->save();
+
+            foreach($request->file('filenames') as $file)
+            {
+                // ulozi fotku fyzicky
+                $name = $file->getClientOriginalName(); // zahashovat??
+                $file->move(public_path().'/img/', $name);
+
+                // ulozi fotku do databazy a spoji ju s produktom
+                $image = new Image();
+                $image->product_id = $product->id;
+                $image->filename = $name;
+                $image->save();
+            }
+        }
+        else{
+            return back()->with('fail', 'Produkt nebol pridaný - potrebuje aspoň 1 fotku!');
+        }
+
+        return back()->with('success', 'Produkt bol úspešne pridaný!');
     }
 
     /**

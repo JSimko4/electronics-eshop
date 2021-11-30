@@ -370,3 +370,7 @@ footer {
     text-decoration: underline;
     color: #00275b
 }
+
+.hide{
+    visibility:hidden;
+}

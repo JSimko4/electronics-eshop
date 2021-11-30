@@ -52,7 +52,7 @@
 
 
                     <section class="mt-4">
-                        <h1 class="fs-5">Operačná pamäť:</h1>
+                        <h1 class="fs-5">Operačná pamäť (GB):</h1>
                         @foreach ($memories as $memory)
                             <div class="form-check col col-12">
                                 <input class="form-check-input" type='hidden' value='0' name='memory[]'>

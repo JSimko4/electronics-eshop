@@ -54,6 +54,8 @@ Route::get('admin/edit-images/{id}', [AdminController::class, 'loadImages'])->mi
 
 Route::get('admin/edit/{id}', [AdminController::class, 'loadEdit'])->middleware('adminAuth');
 Route::get('admin/{id}/edit', [AdminController::class, 'edit'])->middleware('adminAuth');
+
+Route::post('admin/add',[AdminController::class, 'store'])->middleware('adminAuth');
 Route::delete('admin/{id}', [AdminController::class, 'destroy'])->middleware('adminAuth');
 
 

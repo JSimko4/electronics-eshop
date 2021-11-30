@@ -18,8 +18,6 @@ class UserSeeder extends Seeder
     {
         $users = array(
             array(
-
-
                 'name' =>'Stefan',
                 'email' =>'stefan@gmail.com',
                 'role'=>'admin',

@@ -39,33 +39,90 @@
             <div class="col-lg-3 order-md-1 order-lg-2">
                 <div class="mb-4">
                     <div class="pt-5">
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label">Pridajte Fotku</label>
-                            <input class="form-control" type="file" id="formFile">
-                        </div>
-
-                        <form>
+                        <form method="post" action="/admin/add" enctype="multipart/form-data">
+                            {{csrf_field()}}
                             <div class="form-group mb-3">
                                 <label for="name_input">Názov produktu</label>
-                                <input type="text" class="form-control" id="name_input" placeholder="Názov..">
+                                <input type="text" class="form-control" id="name_input" name="name" placeholder="Názov..">
                             </div>
+
+                            <div class="form-group mb-3">
+                                <label for="category">Kategória</label>
+                                <select class="form-select input-sm" name="category" id="category">
+                                    @foreach($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="category">Podkategória</label>
+                                <select class="form-select input-sm" name="subcategory" id="category">
+                                    @foreach($subcategories as $subcategory)
+                                        <option value="{{$subcategory->id}}">{{$subcategory->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="category">Farba</label>
+                                <select class="form-select input-sm" name="color" id="category">
+                                    @foreach($colors as $color)
+                                        <option value="{{$color->id}}">{{$color->color}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="category">Veľkosť pamäte (GB)</label>
+                                <select class="form-select input-sm" name="memory" id="category">
+                                    @foreach($memories as $memory)
+                                        <option value="{{$memory->id}}">{{$memory->memory}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                             <div class="form-group mb-3">
                                 <label for="value_input">Cena</label>
-                                <input type="number" class="form-control" id="value_input" placeholder="Cena..">
+                                <input type="number" class="form-control" id="value_input" name="price" placeholder="Cena..">
                             </div>
 
                             <div class="form-group mb-3">
                                 <label for="text_are_input">Popis produktu</label>
-                                <textarea class="form-control" id="text_are_input" rows="3" placeholder="Popis produktu.."></textarea>
+                                <textarea class="form-control" id="text_are_input" name="description" rows="3" placeholder="Popis produktu.."></textarea>
                             </div>
+
+                            <label for="formFile" class="form-label">Pridať fotky</label>
+                            <div class="input-group increment" >
+                                <input type="file" name="filenames[]" class="form-control">
+                                <button class="btn btn-success btn-add-img" type="button">Ďalšie</button>
+                            </div>
+                            <div class="clone hide">
+                                <div class="control-group lst input-group mt-2">
+                                    <input type="file" name="filenames[]" class="form-control">
+                                    <button class="btn btn-danger btn-remove-img" type="button">Odstrániť</button>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success btn-sm col-12 me-2">
+                                <i class="bi bi-check-circle mb-2"></i> Pridať produkt
+                            </button>
                         </form>
-                        <button class="btn btn-success btn-sm mt-3 col-12 me-2">
-                            <i class="bi bi-check-circle mb-2"></i> Pridať produkt
-                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".btn-add-img").click(function(){
+                var lsthmtl = $(".clone").html();
+                $(".increment").after(lsthmtl);
+            });
+            $("body").on("click",".btn-remove-img",function(){
+                $(this).parents(".control-group").remove();
+            });
+        });
+    </script>
 @endsection
 
