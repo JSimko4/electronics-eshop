@@ -19,7 +19,7 @@
                                 <p class="my-3">{{$product->description}}</p>
                                 <p>Cena: <strong>{{$product->price}}€</strong></p>
                                 <div class="row ms-3 d-flex justify-content-between">
-                                    <a class="btn btn-primary btn-sm mt-3 col-12" href="/admin/edit/{{$product->id}}"><i class="bi bi-pencil-square"></i> Zmeniť názov, popis, cenu</a>
+                                    <a class="btn btn-primary btn-sm mt-3 col-12" href="/admin/edit/{{$product->id}}"><i class="bi bi-pencil-square"></i> Zmeniť názov, popis, cenu, farbu, veľkosť pamäťe</a>
                                     <a class="btn btn-primary btn-sm mt-3 col-12" href="/admin/edit-images/{{$product->id}}"><i class="bi bi-images"></i>Pridať alebo vymazať fotky</a>
                                     <form method="POST" action="/admin/{{$product->id}}" class="px-0">
                                         {{ csrf_field() }}
