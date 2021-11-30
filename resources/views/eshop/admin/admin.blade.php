@@ -18,7 +18,7 @@
                                 <a href="/produkt/{{$product->id}}" class="fs-4">{{$product->name}}</a>
                                 <p class="my-3">{{$product->description}}</p>
                                 <p>Cena: <strong>{{$product->price}}€</strong></p>
-                                <div class="row d-flex justify-content-between">
+                                <div class="row ms-3 d-flex justify-content-between">
                                     <a class="btn btn-primary btn-sm mt-3 col-12" href="/admin/edit/{{$product->id}}"><i class="bi bi-pencil-square"></i> Zmeniť názov, popis, cenu</a>
                                     <a class="btn btn-primary btn-sm mt-3 col-12" href="/admin/edit-images/{{$product->id}}"><i class="bi bi-images"></i>Pridať alebo vymazať fotky</a>
                                     <form method="POST" action="/admin/{{$product->id}}" class="px-0">
@@ -37,9 +37,7 @@
             </section>
 
             <div class="col-lg-3 order-md-1 order-lg-2">
-                <div class="mb-4">
-                    <div class="pt-5">
-
+                <div class="mb-4 pt-5">
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <strong>Produkt nebol pridaný!</strong>
@@ -103,37 +101,26 @@
                                 <textarea class="form-control" id="text_are_input" name="description" rows="3" placeholder="Popis produktu.."></textarea>
                             </div>
 
-                            <label for="formFile" class="form-label">Pridať fotky</label>
-                            <div class="input-group increment" >
-                                <input type="file" name="images[]" class="form-control">
-                                <button class="btn btn-success btn-add-img" type="button">Ďalšie</button>
-                            </div>
-                            <div class="clone hide">
-                                <div class="control-group lst input-group mt-2">
+                            <div class="form-group">
+                                <label for="images" class="form-label">Pridať fotky</label>
+                                <div class="input-group increment" >
                                     <input type="file" name="images[]" class="form-control">
-                                    <button class="btn btn-danger btn-remove-img" type="button">Odstrániť</button>
+                                    <button id="images" class="btn btn-success btn-add-img" type="button">Ďalšie</button>
                                 </div>
+                                <div class="clone hide">
+                                    <div class="control-group lst input-group mt-2">
+                                        <input type="file" name="images[]" class="form-control">
+                                        <button class="btn btn-danger btn-remove-img" type="button">Odstrániť</button>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-success btn-sm col-12 me-2">
+                                    <i class="bi bi-check-circle mb-2"></i> Pridať produkt
+                                </button>
                             </div>
-                            <button type="submit" class="btn btn-success btn-sm col-12 me-2">
-                                <i class="bi bi-check-circle mb-2"></i> Pridať produkt
-                            </button>
                         </form>
                     </div>
-                </div>
             </div>
         </div>
     </section>
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $(".btn-add-img").click(function(){
-                var lsthmtl = $(".clone").html();
-                $(".increment").after(lsthmtl);
-            });
-            $("body").on("click",".btn-remove-img",function(){
-                $(this).parents(".control-group").remove();
-            });
-        });
-    </script>
 @endsection
 

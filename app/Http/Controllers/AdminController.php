@@ -102,6 +102,27 @@ class AdminController extends Controller
         return view('eshop.admin.images')->with('product', $product);
     }
 
+    public function addImages($request){
+        dd($request);
+        return redirect()->back();
+    }
+
+    public function removeImage($id){
+        $image = Image::find($id);
+
+        // vymaze fyzicke obrazky z public/img
+        $path = "img/".$image->filename;
+        if (File::exists(public_path($path))) {
+            File::delete(public_path($path));
+        }
+
+        $msg = "Obrázok $image->filename bol vymazaný";
+
+        // vymaze z db
+        $image->delete();
+        return redirect()->back()->with('success', $msg);
+    }
+
     public function loadEdit($id){
         $product = Product::find($id);
         return view('eshop.admin.edit')->with('product', $product);

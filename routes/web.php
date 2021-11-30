@@ -50,6 +50,8 @@ Route::view('business_conditions', "eshop.footer_views.business_conditions");
 // admin routes
 Route::get('admin', [AdminController::class, 'index'])->middleware('adminAuth');
 Route::get('admin/edit-images/{id}', [AdminController::class, 'loadImages'])->middleware('adminAuth');
+Route::post('admin/edit-images/{id}/add', [AdminController::class, 'addImages'])->middleware('adminAuth');
+Route::delete('admin/edit-images/{id}/remove', [AdminController::class, 'removeImage'])->middleware('adminAuth');
 
 Route::get('admin/edit/{id}', [AdminController::class, 'loadEdit'])->middleware('adminAuth');
 Route::get('admin/{id}/edit', [AdminController::class, 'edit'])->middleware('adminAuth');
