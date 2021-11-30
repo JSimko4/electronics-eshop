@@ -183,7 +183,7 @@ class AdminController extends Controller
 
         // vymaze produkt zo session
         $cart = session()->get('cart');
-        if($cart != null and $cart[$id] != null) {
+        if($cart != null and isset($cart[$id]) and $cart[$id] != null) {
             unset($cart[$id]);
         }
         session()->put('cart', $cart);

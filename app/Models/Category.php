@@ -14,7 +14,6 @@ class Category extends Model
     }
 
     public function subcategories(){
-        #eturn $this->hasMany(Product::class);
         return SubCategory::all()->where("category_id", $this->id);
     }
 }

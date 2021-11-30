@@ -1,6 +1,7 @@
 @extends('layout.app')
 
 @section('content')
+    @if ($products_slider->first() != null)
     <div class="d-flex justify-content-center">
     <div id="carouselExampleControls" class="carousel carousel-dark slide big-product mt-4"  data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -64,5 +65,8 @@
             @endforeach
         </div>
     </section>
+    @else
+        <h1 class="text-center mt-5">Na stránke ešte nie sú nahraté žiadne produkty!</h1>
+    @endif
 @endsection
 
