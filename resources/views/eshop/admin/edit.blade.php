@@ -8,6 +8,27 @@
                 <label for="name_input">Názov produktu</label>
                 <input type="text" class="form-control" id="name_input" value="{{$product->name}}" name="name">
             </div>
+
+            <div class="form-group mb-3">
+                <label for="color">Farba</label>
+                <select class="form-select input-sm" name="color" id="color">
+                    <option value="{{$product->color_id}}">Ponechať pôvodnu farbu ({{$product->color->color}})</option>
+                    @foreach($colors as $color)
+                        <option value="{{$color->id}}">{{$color->color}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="category">Veľkosť pamäte (GB)</label>
+                <select class="form-select input-sm" name="memory" id="category">
+                    <option value="{{$product->memory_id}}">Ponechať pôvodnu veľkosť pamäte ({{$product->memory->memory}}GB)</option>
+                    @foreach($memories as $memory)
+                        <option value="{{$memory->id}}">{{$memory->memory}}</option>
+                    @endforeach
+                </select>
+            </div>
+
             <div class="form-group mb-3">
                 <label for="value_input">Cena</label>
                 <input type="number" class="form-control" id="value_input" min="0" value="{{$product->price}}" name="price">

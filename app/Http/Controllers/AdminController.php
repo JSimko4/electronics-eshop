@@ -139,7 +139,10 @@ class AdminController extends Controller
 
     public function loadEdit($id){
         $product = Product::find($id);
-        return view('eshop.admin.edit')->with('product', $product);
+        $memories = Memory::all();
+        $colors = Color::all();
+        return view('eshop.admin.edit')->with('product', $product)
+            ->with('memories', $memories)->with('colors', $colors);
     }
 
     /**
@@ -153,6 +156,8 @@ class AdminController extends Controller
         $product = Product::find($id);
 
         $product->update(['name' => $request->name]);
+        $product->update(['color_id' => $request->color]);
+        $product->update(['memory_id' => $request->memory]);
         $product->update(['price' => $request->price]);
         $product->update(['description' => $request->description]);
 
