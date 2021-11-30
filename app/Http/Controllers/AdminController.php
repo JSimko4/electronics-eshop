@@ -51,6 +51,7 @@ class AdminController extends Controller
     {
         if($request->hasfile('filenames'))
         {
+            // vytvori produkt
             $product = new Product();
             $product->name = $request->input("name");
             $product->category_id = $request->input("category");
@@ -61,6 +62,7 @@ class AdminController extends Controller
             $product->description = $request->input("description");
             $product->save();
 
+            // nahra kazdy z obrazkov do databazktore pouzivatel vlozil
             foreach($request->file('filenames') as $file)
             {
                 // ulozi fotku fyzicky
