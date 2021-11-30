@@ -77,37 +77,41 @@ class CartController extends Controller
         }
     }
 
-    public function remember(){
+    public function remember()
+    {
         // ak je pouzivatel prihlaseny a vykonal zmenu nad kosikom tak uloz kosik
         if (Auth::check()) {
             $cart = session()->get('cart');
             $user = Auth::user();
 
             // vymaze aktualne produkty kosika pre daneho pouzivatela
-            foreach($user->cartProducts as $cartProduct){
+            foreach ($user->cartProducts as $cartProduct) {
                 $cartProduct->delete();
             }
 
             // ulozi produkty z kosika do databazy
-            foreach ($cart as $id => $details) {
-                $data = array(
-                    'user_id'=>$user->id,
-                    'product_id'=>$id,
-                    'quantity'=>$cart[$id]["quantity"],
-                    'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                    'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-                );
-                DB::table('cart_products')->insert($data);
+            if (isset($cart)) {
+                foreach ($cart as $id => $details) {
+                    $data = array(
+                        'user_id' => $user->id,
+                        'product_id' => $id,
+                        'quantity' => $cart[$id]["quantity"],
+                        'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                        'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                    );
+                    DB::table('cart_products')->insert($data);
+                }
             }
         }
     }
 
-    public function load(){
+    public function load()
+    {
         session()->forget('cart');
         $user = Auth::user();
 
         $cart = null;
-        foreach($user->cartProducts as $cartProduct){
+        foreach ($user->cartProducts as $cartProduct) {
             $id = $cartProduct->product->id;
             $product = $cartProduct->product;
             $quantity = $cartProduct->quantity;
@@ -121,9 +125,8 @@ class CartController extends Controller
                     ],
                 ];
                 session()->put('cart', $cart);
-            }
-            // pridanie dalsich produktov
-            else{
+            } // pridanie dalsich produktov
+            else {
                 $cart[$id] = [
                     "product" => $product,
                     "quantity" => $quantity,
@@ -135,7 +138,8 @@ class CartController extends Controller
         return redirect('/');
     }
 
-    public function transportation(){
+    public function transportation()
+    {
         return view('eshop.cart.transportation');
     }
 
@@ -160,6 +164,7 @@ class CartController extends Controller
             'psc' => 'required|string|max:255',
         ]);
         session()->forget('cart');
+        $this->remember();
         return redirect()->back()->with('success', 'Objednávka prebehla úspešne');
     }
 
@@ -170,7 +175,8 @@ class CartController extends Controller
         return view('eshop.cart.cart', compact('total'));
     }
 
-    public function getTotal($cart){
+    public function getTotal($cart)
+    {
         if ($cart == null)
             return 0;
 

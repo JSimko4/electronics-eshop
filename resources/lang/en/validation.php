@@ -31,7 +31,7 @@ return [
         'array' => 'The :attribute must have between :min and :max items.',
     ],
     'boolean' => 'The :attribute field must be true or false.',
-    'confirmed' => ' :attribute nerovnaju sa.',
+    'confirmed' => ' :attribute nieco zle.',
     'current_password' => 'Heslo je nespravne.',
     'date' => 'The :attribute is not a valid date.',
     'date_equals' => 'The :attribute must be a date equal to :date.',

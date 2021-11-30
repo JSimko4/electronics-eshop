@@ -6,7 +6,7 @@
 
 
             <section class="col-lg-7 pt-4 order-md-2 order-lg-1">
-                <h3 class="mt-4 mb-0">Počet produktov v databáze ({{$total}})</h3>
+                <h3 class="mt-4 mb-0">Počet produktov na tejto strane ({{$total}})</h3>
                 <div class="row mb-2">
                     @foreach($products as $product)
                         <hr class="mt-4 mb-4">
