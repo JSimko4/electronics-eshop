@@ -69,7 +69,7 @@ class AdminController extends Controller
         $product->description = $request->input("description");
         $product->save();
 
-        // nahra kazdy z obrazkov do databazktore pouzivatel vlozil
+        // nahra kazdy z obrazkov do databazy
         foreach($request->file('images') as $img)
         {
             // ulozi fotku fyzicky
@@ -102,9 +102,23 @@ class AdminController extends Controller
         return view('eshop.admin.images')->with('product', $product);
     }
 
-    public function addImages($request){
-        dd($request);
-        return redirect()->back();
+    public function addImages(Request $request, $id){
+        Validator::validate($request->all(), ['images' => 'required',]);
+
+        foreach($request->file('images') as $img)
+        {
+            // ulozi fotku fyzicky
+            $name = $img->getClientOriginalName();
+            $img->move(public_path().'/img/', $name);
+
+            // ulozi fotku do databazy a spoji ju s produktom
+            $image = new Image();
+            $image->product_id = $id;
+            $image->filename = $name;
+            $image->save();
+        }
+
+        return redirect()->back()->with('success', "Fotka/y boli pridané!");;
     }
 
     public function removeImage($id){
@@ -116,7 +130,7 @@ class AdminController extends Controller
             File::delete(public_path($path));
         }
 
-        $msg = "Obrázok $image->filename bol vymazaný";
+        $msg = "Fotka $image->filename bola vymazaná";
 
         // vymaze z db
         $image->delete();

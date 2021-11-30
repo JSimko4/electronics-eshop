@@ -12,7 +12,7 @@
                         <hr class="mt-4 mb-4">
                         <article class="row mb-4">
                             <div class="d-flex align-items-center col-md-5 col-lg-3 col-xl-3 mb-3 mb-md-1">
-                                <img class="img-fluid w-100" src="img/{{$product->first_image()}}" alt="acer_nitro">
+                                <img class="img-fluid w-100" src="img/{{$product->first_image()}}" alt="Fotka produktu">
                             </div>
                             <div class="col-md-7 col-lg-9 col-xl-9">
                                 <a href="/produkt/{{$product->id}}" class="fs-4">{{$product->name}}</a>
