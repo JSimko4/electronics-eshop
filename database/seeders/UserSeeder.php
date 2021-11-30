@@ -22,13 +22,9 @@ class UserSeeder extends Seeder
                 'email' =>'stefan@gmail.com',
                 'role'=>'admin',
                 'password'=>Hash::make('mrkvicka1'),
-
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ),
-
-
-
         );
 
         foreach ($users as $user){

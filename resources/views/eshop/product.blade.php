@@ -14,6 +14,8 @@
 
         <section class="col-lg-5 col-11 d-flex align-items-left flex-column">
             <h1 class="mb-3">{{$product->name}}</h1>
+            <p><strong>Farba: </strong>{{$product->color->color}}</p>
+            <p><strong>Pamäť: </strong>{{$product->memory->memory}}GB</p>
             <p class="product-page-text">{{$product->description}}</p>
             <h1 class="fs-3 text-center my-2">Cena: {{$product->price}}€</h1>
             <form  action="{{ url('add-to-cart/'.$product->id) }}" class="d-flex justify-content-center align-items-baseline mt-4">

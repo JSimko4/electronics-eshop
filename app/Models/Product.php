@@ -27,4 +27,12 @@ class Product extends Model
     public function cartProducts(){
         return $this->hasMany(CartProduct::class);
     }
+
+    public function memory(){
+        return $this->belongsTo(Memory::class);
+    }
+
+    public function color(){
+        return $this->belongsTo(Color::class);
+    }
 }

@@ -78,24 +78,27 @@ class CartController extends Controller
     }
 
     public function remember(){
-        $cart = session()->get('cart');
-        $user = Auth::user();
+        // ak je pouzivatel prihlaseny a vykonal zmenu nad kosikom tak uloz kosik
+        if (Auth::check()) {
+            $cart = session()->get('cart');
+            $user = Auth::user();
 
-        // vymaze aktualne produkty kosika pre daneho pouzivatela
-        foreach($user->cartProducts as $cartProduct){
-            $cartProduct->delete();
-        }
+            // vymaze aktualne produkty kosika pre daneho pouzivatela
+            foreach($user->cartProducts as $cartProduct){
+                $cartProduct->delete();
+            }
 
-        // ulozi produkty z kosika do databazy
-        foreach ($cart as $id => $details) {
-            $data = array(
-                'user_id'=>$user->id,
-                'product_id'=>$id,
-                'quantity'=>$cart[$id]["quantity"],
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-            );
-            DB::table('cart_products')->insert($data);
+            // ulozi produkty z kosika do databazy
+            foreach ($cart as $id => $details) {
+                $data = array(
+                    'user_id'=>$user->id,
+                    'product_id'=>$id,
+                    'quantity'=>$cart[$id]["quantity"],
+                    'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                    'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                );
+                DB::table('cart_products')->insert($data);
+            }
         }
     }
 
