@@ -73,7 +73,7 @@ class AdminController extends Controller
         foreach($request->file('images') as $img)
         {
             // ulozi fotku fyzicky
-            $name = $img->getClientOriginalName();
+            $name = $img->hashName();
             $img->move(public_path().'/img/', $name);
 
             // ulozi fotku do databazy a spoji ju s produktom
@@ -108,7 +108,7 @@ class AdminController extends Controller
         foreach($request->file('images') as $img)
         {
             // ulozi fotku fyzicky
-            $name = $img->getClientOriginalName();
+            $name = $img->hashName();
             $img->move(public_path().'/img/', $name);
 
             // ulozi fotku do databazy a spoji ju s produktom

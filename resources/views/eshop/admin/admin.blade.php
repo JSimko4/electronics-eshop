@@ -122,5 +122,17 @@
             </div>
         </div>
     </section>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".btn-add-img").click(function(){
+                var lsthmtl = $(".clone").html();
+                $(".increment").after(lsthmtl);
+            });
+            $("body").on("click",".btn-remove-img",function(){
+                $(this).parents(".control-group").remove();
+            });
+        });
+    </script>
 @endsection
 

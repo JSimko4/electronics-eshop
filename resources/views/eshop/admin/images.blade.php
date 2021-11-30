@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success btn-sm col-3 mb-4 w-100" href="">
-                    <i class="bi bi-images me-2"></i>Pridať
+                    <i class="bi bi-images me-2"></i>Pridať fotky
                 </button>
             </form>
         </section>
@@ -38,7 +38,7 @@
                             <form method="POST" action="/admin/edit-images/{{$image->id}}/remove" class="w-100">
                                 {{ csrf_field() }}
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm mt-3 me-2 w-100"><i class="fa fa-trash-o"></i> Odstrániť produkt</button>
+                                <button type="submit" class="btn btn-danger btn-sm mt-3 me-2 w-100"><i class="fa fa-trash-o"></i> Odstrániť fotku</button>
                             </form>
                         </div>
                     </article>
