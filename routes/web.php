@@ -27,7 +27,7 @@ Route::get('/', function () {
 
 Route::resource('produkt', ProductController::class);
 
-Route::post('cart/delivery', [CartController::class, 'validate_delivery'])->name('validate_delivery');
+Route::post('cart/delivery', [CartController::class, 'validateDelivery'])->name('validateDelivery');
 
 Route::get('filter/{category}', [ProductController::class, 'getCategory']);
 Route::get('filter/{category}/filteros', [ProductController::class, 'filterCat']);

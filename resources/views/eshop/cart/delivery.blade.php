@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="bg-image register-width  register-width1 container-fluid">
-        <form method="POST" action="{{ route('validate_delivery') }}" class="py-3 p-5">
+        <form method="POST" action="{{ route('validateDelivery') }}" class="py-3 p-5">
             @csrf
 
             <div class="row">

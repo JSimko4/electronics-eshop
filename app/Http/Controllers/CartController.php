@@ -152,7 +152,7 @@ class CartController extends Controller
         return view('eshop.cart.delivery', ['success' => $success], compact('total'));
     }
 
-    public function validate_delivery(Request $request)
+    public function validateDelivery(Request $request)
     {
         Validator::validate($request->all(), [
             'name' => 'required|string|max:255',
